@@ -10,6 +10,7 @@ import Activos from './containers/Activos';
 
 const drawerWidth = '16vw';
 const typography = {
+  fontFamily: ['Ubuntu', 'Open Sans'].join(','),
   h3: {
     fontWeight: 500,
   }
@@ -64,10 +65,13 @@ function App() {
           <Drawer
             sx={{
               width: drawerWidth,
+              minWidth: '240px',
               flexShrink: 0,
               '& .MuiDrawer-paper': {
                 width: drawerWidth,
+                minWidth: '240px',
                 boxSizing: 'border-box',
+                border: 'none',
               },
             }}
             variant="permanent"

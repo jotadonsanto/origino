@@ -52,7 +52,7 @@ function SidebarMenu() {
   };
 
   return (
-    <Box sx={{ flex: '1' }}>
+    <Box sx={{ flex: '1', zIndex: -1, paddingTop: '14rem' }}>
       <List component="nav" aria-label="main mailbox folders">
         {MenuItems.map((item, index) => (
           <ListItemButton
