@@ -63,7 +63,7 @@ const StyledAccordionSummary = styled(AccordionSummary)`
 
 function SidebarTop() {
   return (
-    <Box component={Card} variant="outlined" sx={{ display: 'flex', flexDirection: 'column',  p: 2, boxShadow: '0px 4px 35px rgba(109, 102, 119, 0.2)', border: 'none', borderRadius: '10px', position: 'absolute'  }}>
+    <Box component={Card} variant="outlined" sx={{ display: 'flex', flexDirection: 'column',  p: 2, boxShadow: '0px 4px 35px rgba(109, 102, 119, 0.2)', border: 'none', borderRadius: '10px', position: 'absolute', zIndex: 1  }}>
       <StyledButton variant="contained">Inicio</StyledButton>
       {TopItems.map((item, index) => (
         <StyledAccordion sx={{ marginTop: 1 }}>
