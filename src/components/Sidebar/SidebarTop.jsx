@@ -6,27 +6,24 @@ import Button from '@mui/material/Button';
 import Accordion from '@mui/material/Accordion';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
-import AirportShuttleIcon from '@mui/icons-material/AirportShuttle';
-import ApartmentIcon from '@mui/icons-material/Apartment';
-import StoreIcon from '@mui/icons-material/Store';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
 const TopItems = [
   {
     name: 'Cadena de suministro',
-    icon: 'AirportShuttleIcon',
+    icon: 'Expandmoreicon',
   },
   {
     name: 'Empresa',
-    icon: 'ApartmentIcon',
+    icon: 'Expandmoreicon',
   },
   {
     name: 'Establecimiento',
-    icon: 'StoreIcon',
+    icon: 'Expandmoreicon',
   },
   {
     name: 'Activo',
-    icon: 'assignmentInd',
+    icon: 'Expandmoreicon',
   },
 ]
 
@@ -66,13 +63,13 @@ function SidebarTop() {
     <Box component={Card} variant="outlined" sx={{ display: 'flex', flexDirection: 'column',  p: 2, boxShadow: '0px 4px 35px rgba(109, 102, 119, 0.2)', border: 'none', borderRadius: '10px', position: 'absolute', zIndex: 1  }}>
       <StyledButton variant="contained">Inicio</StyledButton>
       {TopItems.map((item, index) => (
-        <StyledAccordion sx={{ marginTop: 1 }}>
+        <StyledAccordion key={index} sx={{ marginTop: 1 }}>
           <StyledAccordionSummary
             expandIcon={<ExpandMoreIcon />}
             aria-controls={index}
             id={index}
           >
-            <Box component={item.icon} sx={{ marginRight: 1, fontSize: '1rem' }} />
+            {/* <Box component={item.icon} sx={{ marginRight: 1, fontSize: '1rem' }} /> */}
             {item.name}
           </StyledAccordionSummary>
           <AccordionDetails>

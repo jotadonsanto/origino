@@ -1,13 +1,15 @@
 import React from 'react';
 import styled from 'styled-components';
 import Typography from '@mui/material/Typography';
-import HeaderBackground from './../assets/header_background.jpg';
+import HeaderBackground from './../../assets/header_background.jpg';
 
 const Head = styled.div`
   display: flex;
   flex-direction: column;
   padding: 4rem 0 1.7rem 7vw;
-  background-image: linear-gradient(267.76deg, rgba(255, 255, 255, 0) 11.23%, rgba(85, 225, 72, 0.6) 67.09%, rgba(85, 225, 72, 0.8) 96.67%), url(${HeaderBackground});;
+  background-image: linear-gradient(267.76deg, rgba(255, 255, 255, 0) 11.23%, rgba(85, 225, 72, 0.6) 67.09%, rgba(85, 225, 72, 0.8) 96.67%), url(${HeaderBackground});
+  background-position: right;
+  background-repeat: no-repeat;
 `
 
 function Header() {

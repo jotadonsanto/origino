@@ -4,8 +4,8 @@ import { ThemeProvider } from '@mui/material/styles';
 import { createTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
-import Header from './components/Header';
-import Sidebar from './components/Sidebar';
+import Header from './components/Header/Header';
+import Sidebar from './components/Sidebar/Sidebar';
 import Activos from './containers/Activos';
 
 const drawerWidth = '16vw';
@@ -80,7 +80,7 @@ function App() {
           </Drawer>
           <Box
             component="main"
-            sx={{ flexGrow: 1 }}>
+            sx={{ display: 'flex', flexDirection: 'column', flexGrow: 1 }}>
             <Header />
             <Route path="/activos" exact render={() => <Activos />} />
           </Box>
