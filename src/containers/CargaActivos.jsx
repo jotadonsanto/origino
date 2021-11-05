@@ -31,7 +31,7 @@ function CargaActivos() {
             <Link underline="hover" color="inherit" href="/">
               Establecimiento
             </Link>
-            <Typography color="primary">Activos</Typography>
+            <Typography color="text.green">Activos</Typography>
           </Breadcrumbs>
           <Button sx={{ ml: 2 }} variant="outlined">DAR DE BAJA</Button>
         </Stack>
@@ -51,7 +51,7 @@ function CargaActivos() {
       </Grid>
 
       <Grid item xs={12} sx={{ mt: 3 }}>
-        <Typography variant="subtitle1" component="h3" color="primary">Datos genealogicos</Typography>
+        <Typography variant="subtitle1" component="h3" color="text.green">Datos genealogicos</Typography>
         <Typography variant="subtitle2" component="h4" color="text.primary">Campos Optativos</Typography>
 
         <Grid component={Card} container sx={{ p:2, mt:2, mb: 2, alignItems: 'center' }}>
@@ -77,7 +77,7 @@ function CargaActivos() {
       <Grid item xs={12} sx={{ mt: 1 }}>
         <Accordion sx={{ marginTop: 1 }}>
           <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-            <Typography variant="subtitle1" component="h3" color="primary">Genealogia del animal</Typography>
+            <Typography variant="subtitle1" component="h3" color="text.green">Genealogia del animal</Typography>
           </AccordionSummary>
           <AccordionDetails>
             <Grid container>
@@ -104,7 +104,7 @@ function CargaActivos() {
       <Grid item xs={12} sx={{ mt: 1 }}>
         <Accordion sx={{ marginTop: 1 }}>
           <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-            <Typography variant="subtitle1" component="h3" color="primary">Genealogia de la madre</Typography>
+            <Typography variant="subtitle1" component="h3" color="text.green">Genealogia de la madre</Typography>
           </AccordionSummary>
           <AccordionDetails>
             <Grid container>
@@ -131,7 +131,7 @@ function CargaActivos() {
       <Grid item xs={12} sx={{ mt: 1 }}>
         <Accordion sx={{ marginTop: 1 }}>
           <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-            <Typography variant="subtitle1" component="h3" color="primary">Genealogia del padre</Typography>
+            <Typography variant="subtitle1" component="h3" color="text.green">Genealogia del padre</Typography>
           </AccordionSummary>
           <AccordionDetails>
             <Grid container>

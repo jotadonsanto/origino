@@ -36,6 +36,7 @@ const palette = {
   text: {
     primary: "#666",
     secondary: "#00000",
+    green: '#61B15A',
   }
 }
 const activosTheme = createTheme({
@@ -72,7 +73,6 @@ const StyledContainer = styled(Container)`
   padding: 2rem 2rem 1.7rem 7vw;
   margin: 0;
 `
-
 function App() {
   return (
     <Router>
@@ -88,6 +88,7 @@ function App() {
                 minWidth: '240px',
                 boxSizing: 'border-box',
                 border: 'none',
+                boxShadow: '0px 4px 35px rgba(109, 102, 119, 0.2)'
               },
             }}
             variant="permanent"

@@ -25,7 +25,7 @@ const MenuItems = [
   },
   {
     name: 'Permisos',
-    icon: 'vpnkey',
+    icon: 'label',
   },
   {
     name: 'Tags',
@@ -37,7 +37,7 @@ const MenuItems = [
   },
   {
     name: 'Actividades',
-    icon: 'calendarViewDay',
+    icon: 'event',
   },
   {
     name: 'Configuración',
