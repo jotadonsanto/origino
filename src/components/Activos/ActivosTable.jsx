@@ -51,47 +51,47 @@ export default function DataTable({Header}) {
 
   return (
     <div>
-      <Grid component={Card} container sx={{ p:2, mb: 2, alignItems: 'center' }}>
+      <Grid component={Card} container sx={{ p:2, mb: 4, alignItems: 'center' }}>
         <Grid item sx={{ pr: 2 }} xs={3}>
-          <InputLabel id="test">Age</InputLabel>
+          <InputLabel id="test">Filtro</InputLabel>
           <Select
             labelId="test"
             value={selectedFilter}
-            label="Age"
+            label="Filtro"
             onChange={setSelectedFilter}
             sx={{ width: '100%' }}
           >
-            <MenuItem value={10}>Ten</MenuItem>
-            <MenuItem value={20}>Twenty</MenuItem>
-            <MenuItem value={30}>Thirty</MenuItem>
+            <MenuItem value={10}>Foo Testing</MenuItem>
+            <MenuItem value={20}>Value Lorem</MenuItem>
+            <MenuItem value={30}>Something here</MenuItem>
           </Select>
         </Grid>
         <Grid item sx={{ pr: 2 }} xs={3}>
-          <InputLabel id="test">Age</InputLabel>
+          <InputLabel id="test">Filtro</InputLabel>
           <Select
             labelId="test"
             value={selectedFilter}
-            label="Age"
+            label="Filtro"
             onChange={setSelectedFilter}
             sx={{ width: '100%' }}
           >
-            <MenuItem value={10}>Ten</MenuItem>
-            <MenuItem value={20}>Twenty</MenuItem>
-            <MenuItem value={30}>Thirty</MenuItem>
+            <MenuItem value={10}>Foo Testing</MenuItem>
+            <MenuItem value={20}>Value Lorem</MenuItem>
+            <MenuItem value={30}>Something here</MenuItem>
           </Select>
         </Grid>
         <Grid item sx={{ pr: 2 }} xs={3}>
-          <InputLabel id="test">Age</InputLabel>
+          <InputLabel id="test">Filtro</InputLabel>
           <Select
             labelId="test"
             value={selectedFilter}
-            label="Age"
+            label="Filtro"
             onChange={setSelectedFilter}
             sx={{ width: '100%' }}
           >
-            <MenuItem value={10}>Ten</MenuItem>
-            <MenuItem value={20}>Twenty</MenuItem>
-            <MenuItem value={30}>Thirty</MenuItem>
+            <MenuItem value={10}>Foo Testing</MenuItem>
+            <MenuItem value={20}>Value Lorem</MenuItem>
+            <MenuItem value={30}>Something here</MenuItem>
           </Select>
         </Grid>
         <Grid item xs={3} sx={{ display: 'flex', justifyContent: 'center' }}>
@@ -122,8 +122,8 @@ export default function DataTable({Header}) {
       <DataGrid
         rows={rows}
         columns={columns}
-        pageSize={5}
-        rowsPerPageOptions={[5]}
+        pFiltroSize={5}
+        rowsPerPFiltroOptions={[5]}
         checkboxSelection
         onSelectionModelChange={item => setSelectedItems(item)}
         disableColumnFilter

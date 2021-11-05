@@ -1,12 +1,17 @@
 import React from 'react';
+import styled from 'styled-components';
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 import { ThemeProvider } from '@mui/material/styles';
 import { createTheme } from '@mui/material/styles';
+
+import Container from '@mui/material/Container';
 import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
+
 import Header from './components/Header/Header';
 import Sidebar from './components/Sidebar/Sidebar';
 import Activos from './containers/Activos';
+import CargaActivos from './containers/CargaActivos';
 
 const drawerWidth = '16vw';
 const typography = {
@@ -63,6 +68,11 @@ const activosTheme = createTheme({
   },
 });
 
+const StyledContainer = styled(Container)`
+  padding: 2rem 2rem 1.7rem 7vw;
+  margin: 0;
+`
+
 function App() {
   return (
     <Router>
@@ -88,7 +98,10 @@ function App() {
             component="main"
             sx={{ display: 'flex', flexDirection: 'column', flexGrow: 1, background: '#FCFCFC' }}>
             <Header />
-            <Route path="/activos" exact render={() => <Activos />} />
+            <StyledContainer sx={{ p: 2 }}>
+              <Route path="/activos" exact render={() => <Activos />} />
+              <Route path="/carga" exact render={() => <CargaActivos />} />
+            </StyledContainer>
           </Box>
         </Box>
       </ThemeProvider>
