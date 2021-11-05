@@ -1,12 +1,16 @@
 import React from 'react';
 import { DataGrid } from '@mui/x-data-grid';
-import { alpha } from '@mui/material/styles';
-import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
-import IconButton from '@mui/material/IconButton';
+import Stack from '@mui/material/Stack';
+import Grid from '@mui/material/Grid';
+import Card from '@mui/material/Card';
+import Chip from '@mui/material/Chip';
+import InputLabel from '@mui/material/InputLabel';
+import Select from '@mui/material/Select';
+import MenuItem from '@mui/material/MenuItem';
 import Button from '@mui/material/Button';
-import DownloadIcon from '@mui/icons-material/Download';
-import AddIcon from '@mui/icons-material/Add';
+import IconButton from '@mui/material/IconButton';
+import DescriptionIcon from '@mui/icons-material/Description';
+import EditIcon from '@mui/icons-material/Edit';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 
 const moreActionsButton = (row) => {
@@ -43,50 +47,78 @@ const rows = [
 
 export default function DataTable({Header}) {
   const [selectedItems, setSelectedItems] = React.useState([]);
+  const [selectedFilter, setSelectedFilter] = React.useState();
 
   return (
     <div>
-      <Toolbar
-        sx={{
-          pl: { sm: 2 },
-          pr: { xs: 1, sm: 1 },
-          ...(selectedItems.length > 0 && {
-            bgcolor: (theme) =>
-              alpha(theme.palette.primary.main, theme.palette.action.activatedOpacity),
-          }),
-        }}
-      >
-        {selectedItems.length > 0 ? (
-          <Typography
-            sx={{ flex: '1 1 100%' }}
-            color="inherit"
-            variant="subtitle1"
-            component="div"
+      <Grid component={Card} container sx={{ p:2, mb: 2, alignItems: 'center' }}>
+        <Grid item sx={{ pr: 2 }} xs={3}>
+          <InputLabel id="test">Age</InputLabel>
+          <Select
+            labelId="test"
+            value={selectedFilter}
+            label="Age"
+            onChange={setSelectedFilter}
+            sx={{ width: '100%' }}
           >
-            {selectedItems.length} selected
-          </Typography>
-        ) : (
-          <Typography
-            sx={{ flex: '1 1 100%' }}
-            variant="h6"
-            id="tableTitle"
-            component="div"
+            <MenuItem value={10}>Ten</MenuItem>
+            <MenuItem value={20}>Twenty</MenuItem>
+            <MenuItem value={30}>Thirty</MenuItem>
+          </Select>
+        </Grid>
+        <Grid item sx={{ pr: 2 }} xs={3}>
+          <InputLabel id="test">Age</InputLabel>
+          <Select
+            labelId="test"
+            value={selectedFilter}
+            label="Age"
+            onChange={setSelectedFilter}
+            sx={{ width: '100%' }}
           >
-            Nutrition
-          </Typography>
-        )}
-
-        {selectedItems.length > 0 ? (
-            <IconButton>
-              Acciones
-            </IconButton>
-        ) : (
-            <IconButton>
-              NADA
-            </IconButton>
-        )}
-      </Toolbar>
-
+            <MenuItem value={10}>Ten</MenuItem>
+            <MenuItem value={20}>Twenty</MenuItem>
+            <MenuItem value={30}>Thirty</MenuItem>
+          </Select>
+        </Grid>
+        <Grid item sx={{ pr: 2 }} xs={3}>
+          <InputLabel id="test">Age</InputLabel>
+          <Select
+            labelId="test"
+            value={selectedFilter}
+            label="Age"
+            onChange={setSelectedFilter}
+            sx={{ width: '100%' }}
+          >
+            <MenuItem value={10}>Ten</MenuItem>
+            <MenuItem value={20}>Twenty</MenuItem>
+            <MenuItem value={30}>Thirty</MenuItem>
+          </Select>
+        </Grid>
+        <Grid item xs={3} sx={{ display: 'flex', justifyContent: 'center' }}>
+          <Button variant="text">Ver mas filtros</Button>
+        </Grid>
+        <Grid item xs={12} sx={{ mt: 2 }}>
+          <Chip label="Filter applied" color="primary" sx={{ mr: 1 }} onDelete={() => {console.log('on Delete')}} />
+          <Chip label="Filter applied" color="primary" sx={{ mr: 1 }} onDelete={() => {console.log('on Delete')}} />
+        </Grid>
+      </Grid>
+      {selectedItems.length > 0 && (
+        <Stack
+          direction="row"
+          justifyContent="flex-start"
+          alignItems="stretch"
+        >
+          <Button sx={{ mr: 2, mb: 1 }} color="secondary" size="small" startIcon={<EditIcon color="primary" />}>
+            EDITAR
+          </Button>
+          <Button sx={{ mr: 2, mb: 1 }} color="secondary" size="small" startIcon={<DescriptionIcon color="primary" />}>
+            TRANSFERIR
+          </Button>
+          <Button sx={{ mr: 2, mb: 1 }} color="secondary" size="small" startIcon={<DescriptionIcon color="primary" />}>
+            DAR DE BAJA
+          </Button>
+        </Stack>
+      )}
       <DataGrid
         rows={rows}
         columns={columns}

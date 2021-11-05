@@ -22,6 +22,12 @@ const palette = {
     dark: '#61B15A',
     contrastText: '#ecffe9',
   },
+  secondary: {
+    light: '',
+    main: '#666',
+    dark: '',
+    contrastText: '',
+  },
   text: {
     primary: "#666",
     secondary: "#00000",
@@ -80,7 +86,7 @@ function App() {
           </Drawer>
           <Box
             component="main"
-            sx={{ display: 'flex', flexDirection: 'column', flexGrow: 1 }}>
+            sx={{ display: 'flex', flexDirection: 'column', flexGrow: 1, background: '#FCFCFC' }}>
             <Header />
             <Route path="/activos" exact render={() => <Activos />} />
           </Box>
