@@ -7,6 +7,10 @@ import Accordion from '@mui/material/Accordion';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import List from '@mui/material/List';
+import ListItem from '@mui/material/ListItem';
+import ListItemButton from '@mui/material/ListItemButton';
+import ListItemText from '@mui/material/ListItemText';
 
 const TopItems = [
   {
@@ -46,6 +50,9 @@ const StyledAccordion = styled(Accordion)`
     margin-top: 8px!important;
     margin: inherit;
   }
+  & .MuiAccordionSummary-root {
+    min-height: 32px;
+  }
 `
 
 const StyledAccordionSummary = styled(AccordionSummary)`
@@ -60,7 +67,7 @@ const StyledAccordionSummary = styled(AccordionSummary)`
 
 function SidebarTop() {
   return (
-    <Box component={Card} variant="outlined" sx={{ display: 'flex', flexDirection: 'column',  p: 2, boxShadow: '0px 4px 35px rgba(109, 102, 119, 0.2)', border: 'none', borderRadius: '10px', position: 'absolute', zIndex: 1  }}>
+    <Box component={Card} variant="outlined" sx={{ display: 'flex', flexDirection: 'column',  p: 2, boxShadow: '0px 4px 35px rgba(109, 102, 119, 0.2)', border: 'none', borderRadius: '10px', position: 'absolute', zIndex: 1, width: 'calc(100% - 32px)'  }}>
       <StyledButton variant="contained">Inicio</StyledButton>
       {TopItems.map((item, index) => (
         <StyledAccordion key={index} sx={{ marginTop: 1 }}>
@@ -72,8 +79,19 @@ function SidebarTop() {
             {/* <Box component={item.icon} sx={{ marginRight: 1, fontSize: '1rem' }} /> */}
             {item.name}
           </StyledAccordionSummary>
-          <AccordionDetails>
-            Lorem akjnsjda akhbsdi ahs dia sdiha sdi asiud aiu  iu asiu duiasidhais hi ihab sdiu
+          <AccordionDetails sx={{ p: 0 }}>
+            <List dense>
+              <ListItem disablePadding>
+                <ListItemButton>
+                  <ListItemText primary="Trash" />
+                </ListItemButton>
+              </ListItem>
+              <ListItem disablePadding>
+                <ListItemButton component="a" href="#simple-list">
+                  <ListItemText primary="Spam" />
+                </ListItemButton>
+              </ListItem>
+            </List>
           </AccordionDetails>
         </StyledAccordion>
       ))}

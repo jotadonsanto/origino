@@ -25,19 +25,19 @@ const palette = {
     light: '#DAFFD7',
     main: '#55E148',
     dark: '#61B15A',
-    contrastText: '#ecffe9',
+    contrastText: '#FFFFFF',
   },
   secondary: {
-    light: '',
-    main: '#666',
-    dark: '',
-    contrastText: '',
+    light: '#DAFFD7',
+    main: '#EFFFD2',
+    dark: '#61B15A',
+    contrastText: '#438C3D',
   },
   text: {
-    primary: "#666",
+    primary: "#666666",
     secondary: "#00000",
     green: '#61B15A',
-  }
+  },
 }
 const activosTheme = createTheme({
   palette: palette,
@@ -72,6 +72,7 @@ const activosTheme = createTheme({
 const StyledContainer = styled(Container)`
   padding: 2rem 2rem 1.7rem 7vw;
   margin: 0;
+  max-width: none;
 `
 function App() {
   return (

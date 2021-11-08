@@ -4,6 +4,7 @@ import Stack from '@mui/material/Stack';
 import Grid from '@mui/material/Grid';
 import Card from '@mui/material/Card';
 import Chip from '@mui/material/Chip';
+import FormControl from '@mui/material/FormControl';
 import InputLabel from '@mui/material/InputLabel';
 import Select from '@mui/material/Select';
 import MenuItem from '@mui/material/MenuItem';
@@ -47,18 +48,22 @@ const rows = [
 
 export default function DataTable({Header}) {
   const [selectedItems, setSelectedItems] = React.useState([]);
-  const [selectedFilter, setSelectedFilter] = React.useState();
+  const [selectedFilter, setSelectedFilter] = React.useState('');
+
+  const handleChange = (event) => {
+    setSelectedFilter(event.target.value);
+  };
 
   return (
     <div>
       <Grid component={Card} container sx={{ p:2, mb: 4, alignItems: 'center' }}>
-        <Grid item sx={{ pr: 2 }} xs={3}>
+        <Grid item component={FormControl} sx={{ pr: 2 }} xs={3}>
           <InputLabel id="test">Filtro</InputLabel>
           <Select
             labelId="test"
             value={selectedFilter}
             label="Filtro"
-            onChange={setSelectedFilter}
+            onChange={handleChange}
             sx={{ width: '100%' }}
           >
             <MenuItem value={10}>Foo Testing</MenuItem>
@@ -66,13 +71,12 @@ export default function DataTable({Header}) {
             <MenuItem value={30}>Something here</MenuItem>
           </Select>
         </Grid>
-        <Grid item sx={{ pr: 2 }} xs={3}>
+        <Grid item component={FormControl} sx={{ pr: 2 }} xs={3}>
           <InputLabel id="test">Filtro</InputLabel>
           <Select
             labelId="test"
             value={selectedFilter}
             label="Filtro"
-            onChange={setSelectedFilter}
             sx={{ width: '100%' }}
           >
             <MenuItem value={10}>Foo Testing</MenuItem>
@@ -80,13 +84,12 @@ export default function DataTable({Header}) {
             <MenuItem value={30}>Something here</MenuItem>
           </Select>
         </Grid>
-        <Grid item sx={{ pr: 2 }} xs={3}>
+        <Grid item component={FormControl} sx={{ pr: 2 }} xs={3}>
           <InputLabel id="test">Filtro</InputLabel>
           <Select
             labelId="test"
             value={selectedFilter}
             label="Filtro"
-            onChange={setSelectedFilter}
             sx={{ width: '100%' }}
           >
             <MenuItem value={10}>Foo Testing</MenuItem>
@@ -98,7 +101,7 @@ export default function DataTable({Header}) {
           <Button variant="text">Ver mas filtros</Button>
         </Grid>
         <Grid item xs={12} sx={{ mt: 2 }}>
-          <Chip label="Filter applied" color="primary" sx={{ mr: 1 }} onDelete={() => {console.log('on Delete')}} />
+          <Chip label="Filter applied" color="secondary" sx={{ mr: 1 }} onDelete={() => {console.log('on Delete')}} />
           <Chip label="Filter applied" color="primary" sx={{ mr: 1 }} onDelete={() => {console.log('on Delete')}} />
         </Grid>
       </Grid>
@@ -108,13 +111,13 @@ export default function DataTable({Header}) {
           justifyContent="flex-start"
           alignItems="stretch"
         >
-          <Button sx={{ mr: 2, mb: 1 }} color="secondary" size="small" startIcon={<EditIcon color="primary" />}>
+          <Button sx={{ mr: 2, mb: 1 }} variant="outlined" color="primary" size="small" startIcon={<EditIcon color="primary" />}>
             EDITAR
           </Button>
-          <Button sx={{ mr: 2, mb: 1 }} color="secondary" size="small" startIcon={<DescriptionIcon color="primary" />}>
+          <Button sx={{ mr: 2, mb: 1 }} variant="outlined" color="primary" size="small" startIcon={<DescriptionIcon color="primary" />}>
             TRANSFERIR
           </Button>
-          <Button sx={{ mr: 2, mb: 1 }} color="secondary" size="small" startIcon={<DescriptionIcon color="primary" />}>
+          <Button sx={{ mr: 2, mb: 1 }} variant="outlined" color="primary" size="small" startIcon={<DescriptionIcon color="primary" />}>
             DAR DE BAJA
           </Button>
         </Stack>
