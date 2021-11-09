@@ -54,7 +54,7 @@ function Header() {
       </Box>
       <StyledNotifications aria-label="Notifications">
         <NotificationsNoneIcon />
-        <span class="counter">1</span>
+        <span className="counter">1</span>
       </StyledNotifications>
     </StyledHeader>
   );

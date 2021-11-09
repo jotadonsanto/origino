@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import SidebarPopover from './SidebarPopover';
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
 import Button from '@mui/material/Button';
@@ -11,6 +12,7 @@ import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
+import Popover from '@mui/material/Popover';
 
 const TopItems = [
   {
@@ -65,7 +67,28 @@ const StyledAccordionSummary = styled(AccordionSummary)`
   }
 `
 
+const StyledPopover = styled(Popover)`
+  .MuiPopover-paper{
+    box-shadow: none;
+    border-radius: 10px;
+    border: 1px solid #eee;
+    margin-left: 16px;
+  }
+`
+
 function SidebarTop() {
+  const [anchorEl, setAnchorEl] = React.useState(null);
+
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
+  const open = Boolean(anchorEl);
+  const id = open ? 'simple-popover' : undefined;
   return (
     <Box component={Card} variant="outlined" sx={{ display: 'flex', flexDirection: 'column',  p: 2, boxShadow: '0px 4px 35px rgba(109, 102, 119, 0.2)', border: 'none', borderRadius: '10px', position: 'absolute', zIndex: 1, width: 'calc(100% - 32px)'  }}>
       <StyledButton variant="contained">Inicio</StyledButton>
@@ -75,24 +98,45 @@ function SidebarTop() {
             expandIcon={<ExpandMoreIcon />}
             aria-controls={index}
             id={index}
+            onClick={item.name === 'Establecimiento' && handleClick}
           >
-            {/* <Box component={item.icon} sx={{ marginRight: 1, fontSize: '1rem' }} /> */}
             {item.name}
           </StyledAccordionSummary>
-          <AccordionDetails sx={{ p: 0 }}>
-            <List dense>
-              <ListItem disablePadding>
-                <ListItemButton>
-                  <ListItemText primary="Trash" />
-                </ListItemButton>
-              </ListItem>
-              <ListItem disablePadding>
-                <ListItemButton component="a" href="#simple-list">
-                  <ListItemText primary="Spam" />
-                </ListItemButton>
-              </ListItem>
-            </List>
-          </AccordionDetails>
+
+          { item.name === 'Establecimiento' &&
+            <StyledPopover
+              id={id}
+              open={open}
+              anchorEl={anchorEl}
+              onClose={handleClose}
+              anchorOrigin={{
+                vertical: 'center',
+                horizontal: 'right',
+              }}
+              transformOrigin={{
+                vertical: 'center',
+                horizontal: 'left',
+              }}
+            >
+              <SidebarPopover />
+            </StyledPopover>
+          }
+          { item.name !== 'Establecimiento' &&
+            <AccordionDetails sx={{ p: 0 }}>
+              <List dense>
+                <ListItem disablePadding>
+                  <ListItemButton>
+                    <ListItemText primary="Trash" />
+                  </ListItemButton>
+                </ListItem>
+                <ListItem disablePadding>
+                  <ListItemButton component="a" href="#simple-list">
+                    <ListItemText primary="Spam" />
+                  </ListItemButton>
+                </ListItem>
+              </List>
+            </AccordionDetails>
+          }
         </StyledAccordion>
       ))}
     </Box>
