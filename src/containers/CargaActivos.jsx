@@ -56,7 +56,7 @@ function CargaActivos() {
 
         <Grid component={Card} container sx={{ p:2, mt:2, mb: 2, alignItems: 'center' }}>
           <Grid item xs={12} sx={{ mb:2 }}>
-            <Typography variant="subtitle1" component="h3" color="secondary">
+            <Typography variant="subtitle1" component="h3" color="text.green">
               Podés completar tus datos genealógicos consultando la base de datos de la Sociedad Rural Argentina
             </Typography>
           </Grid>
