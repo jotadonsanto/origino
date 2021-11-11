@@ -154,7 +154,7 @@ function CargaActivos() {
           </AccordionDetails>
         </Accordion>
       </Grid>
-      
+
       {/* Save/Submit */}
       <Grid item xs={12} sx={{ mt:4 }}>
         <Stack

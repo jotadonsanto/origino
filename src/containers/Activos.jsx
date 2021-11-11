@@ -1,7 +1,5 @@
 import React from 'react';
-import Grid from '@mui/material/Grid';
-import Stack from '@mui/material/Stack';
-import Button from '@mui/material/Button';
+import { Grid, Stack, Button } from '@mui/material';
 import DownloadIcon from '@mui/icons-material/Download';
 import AddIcon from '@mui/icons-material/Add';
 import ActivosTable from '../components/Activos/ActivosTable';

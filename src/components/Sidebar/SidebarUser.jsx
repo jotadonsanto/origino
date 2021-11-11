@@ -1,10 +1,6 @@
 import React from 'react';
 import styled from 'styled-components'
-import List from '@mui/material/List';
-import ListItem from '@mui/material/ListItem';
-import ListItemText from '@mui/material/ListItemText';
-import ListItemAvatar from '@mui/material/ListItemAvatar';
-import Avatar from '@mui/material/Avatar';
+import { List, ListItem, ListItemText, ListItemAvatar, Avatar } from '@mui/material';
 
 const StyledListItemText = styled(ListItemText)`
   .MuiTypography-body1 {

@@ -8,6 +8,7 @@ import Accordion from '@mui/material/Accordion';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
@@ -65,6 +66,11 @@ const StyledAccordionSummary = styled(AccordionSummary)`
     font-size: 14px;
     margin: 0;
   }
+  &.PopoverArrow {
+    .MuiAccordionSummary-expandIconWrapper.Mui-expanded {
+      transform: rotate(-90deg);
+    }
+  }
 `
 
 const StyledPopover = styled(Popover)`
@@ -78,14 +84,14 @@ const StyledPopover = styled(Popover)`
 
 function SidebarTop() {
   const [anchorEl, setAnchorEl] = React.useState(null);
-
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
-
   const handleClose = () => {
     setAnchorEl(null);
   };
+
+  const EstablecimientoButton = (item) => item.name === 'Establecimiento';
 
   const open = Boolean(anchorEl);
   const id = open ? 'simple-popover' : undefined;
@@ -98,12 +104,13 @@ function SidebarTop() {
             expandIcon={<ExpandMoreIcon />}
             aria-controls={index}
             id={index}
-            onClick={item.name === 'Establecimiento' && handleClick}
+            onClick={EstablecimientoButton(item) && handleClick}
+            className={EstablecimientoButton(item) && 'PopoverArrow'}
           >
             {item.name}
           </StyledAccordionSummary>
 
-          { item.name === 'Establecimiento' &&
+          { EstablecimientoButton(item) &&
             <StyledPopover
               id={id}
               open={open}
@@ -121,7 +128,7 @@ function SidebarTop() {
               <SidebarPopover />
             </StyledPopover>
           }
-          { item.name !== 'Establecimiento' &&
+          { !EstablecimientoButton(item) &&
             <AccordionDetails sx={{ p: 0 }}>
               <List dense>
                 <ListItem disablePadding>

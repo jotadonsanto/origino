@@ -1,14 +1,6 @@
 import React from 'react';
 import { DataGrid } from '@mui/x-data-grid';
-import Stack from '@mui/material/Stack';
-import Grid from '@mui/material/Grid';
-import Card from '@mui/material/Card';
-import Chip from '@mui/material/Chip';
-import FormControl from '@mui/material/FormControl';
-import InputLabel from '@mui/material/InputLabel';
-import Select from '@mui/material/Select';
-import MenuItem from '@mui/material/MenuItem';
-import Button from '@mui/material/Button';
+import { Stack, Grid, Card, Chip, FormControl, InputLabel, Select, MenuItem, Button } from '@mui/material';
 import IconButton from '@mui/material/IconButton';
 import DescriptionIcon from '@mui/icons-material/Description';
 import EditIcon from '@mui/icons-material/Edit';

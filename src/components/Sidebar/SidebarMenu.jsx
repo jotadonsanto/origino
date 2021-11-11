@@ -1,10 +1,5 @@
 import React from 'react';
-import Box from '@mui/material/Box';
-import List from '@mui/material/List';
-import ListItemButton from '@mui/material/ListItemButton';
-import ListItemIcon from '@mui/material/ListItemIcon';
-import ListItemText from '@mui/material/ListItemText';
-import Icon from '@mui/material/Icon';
+import { Box, List, ListItemButton, ListItemIcon, ListItemText, Icon } from '@mui/material';
 
 const MenuItems = [
   {

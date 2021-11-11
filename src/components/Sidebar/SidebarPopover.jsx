@@ -1,11 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import Box from '@mui/material/Box';
-import Stack from '@mui/material/Stack';
-import Divider from '@mui/material/Divider';
-import MenuList from '@mui/material/MenuList';
-import MenuItem from '@mui/material/MenuItem';
-import ListItemText from '@mui/material/ListItemText';
+import { Box, Stack, Divider, MenuList, MenuItem, ListItemText } from '@mui/material';
 
 const StyledListItemText = styled(ListItemText)`
   span{
