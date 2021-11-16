@@ -11,7 +11,7 @@ import Activos from './containers/Activos';
 import CargaActivos from './containers/CargaActivos';
 
 const StyledContainer = styled(Container)`
-  padding: 2rem 2rem 1.7rem 7vw;
+  padding: 2rem 2rem 80px 7vw;
   margin: 0;
   max-width: none;
 `
@@ -42,7 +42,7 @@ function App() {
             sx={{ display: 'flex', flexDirection: 'column', flexGrow: 1, background: '#FCFCFC' }}>
             <Header />
             <StyledContainer sx={{ p: 2 }}>
-              <Route path="/activos" exact render={() => <Activos />} />
+              <Route path="/" exact render={() => <Activos />} />
               <Route path="/carga" exact render={() => <CargaActivos />} />
             </StyledContainer>
           </Box>

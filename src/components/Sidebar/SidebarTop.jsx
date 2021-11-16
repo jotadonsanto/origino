@@ -7,30 +7,27 @@ import Button from '@mui/material/Button';
 import Accordion from '@mui/material/Accordion';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
 import Popover from '@mui/material/Popover';
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
+
 const TopItems = [
   {
     name: 'Cadena de suministro',
-    icon: 'Expandmoreicon',
   },
   {
     name: 'Empresa',
-    icon: 'Expandmoreicon',
   },
   {
     name: 'Establecimiento',
-    icon: 'Expandmoreicon',
   },
   {
     name: 'Activo',
-    icon: 'Expandmoreicon',
   },
 ]
 
@@ -101,11 +98,11 @@ function SidebarTop() {
       {TopItems.map((item, index) => (
         <StyledAccordion key={index} sx={{ marginTop: 1 }}>
           <StyledAccordionSummary
-            expandIcon={<ExpandMoreIcon />}
+            expandIcon={<FontAwesomeIcon icon={faChevronDown} />}
             aria-controls={index}
             id={index}
-            onClick={EstablecimientoButton(item) && handleClick}
-            className={EstablecimientoButton(item) && 'PopoverArrow'}
+            {...(EstablecimientoButton(item) && { onClick: handleClick })}
+            {...(EstablecimientoButton(item) && { className: 'PopoverArrow' })}
           >
             {item.name}
           </StyledAccordionSummary>

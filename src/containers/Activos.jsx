@@ -1,7 +1,7 @@
 import React from 'react';
 import { Grid, Stack, Button } from '@mui/material';
-import DownloadIcon from '@mui/icons-material/Download';
-import AddIcon from '@mui/icons-material/Add';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPlus, faDownload } from '@fortawesome/free-solid-svg-icons';
 import ActivosTable from '../components/Activos/ActivosTable';
 
 function Activos() {
@@ -14,8 +14,8 @@ function Activos() {
           justifyContent="flex-end"
           alignItems="stretch"
         >
-          <Button sx={{ ml: 2 }} variant="outlined" startIcon={<DownloadIcon />}>DESCARGAR</Button>
-          <Button sx={{ ml: 2 }} variant="contained" startIcon={<AddIcon />}>CARGAR ACTIVOS</Button>
+          <Button sx={{ ml: 2 }} variant="outlined" startIcon={<FontAwesomeIcon icon={faDownload} />}>DESCARGAR</Button>
+          <Button sx={{ ml: 2 }} variant="contained" startIcon={<FontAwesomeIcon icon={faPlus} />}>CARGAR ACTIVOS</Button>
         </Stack>
       </Grid>
       <Grid item xs={12}>

@@ -9,7 +9,7 @@ const typography = {
 const palette = {
   primary: {
     light: '#DAFFD7',
-    main: '#55E148',
+    main: '#176510',
     dark: '#61B15A',
     contrastText: '#FFFFFF',
   },

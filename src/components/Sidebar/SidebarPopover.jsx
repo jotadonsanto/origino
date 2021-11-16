@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Box, Stack, Divider, MenuList, MenuItem, ListItemText } from '@mui/material';
+import { Box, Stack, Divider, MenuList, MenuItem, ListItemText, Button } from '@mui/material';
 
 const StyledListItemText = styled(ListItemText)`
   span{
@@ -11,7 +11,6 @@ const StyledListItemText = styled(ListItemText)`
     }
   }
 `
-
 const StyledMenuItem = styled(MenuItem)`
   padding: 8px 48px;
   color: #747C7C;
@@ -27,8 +26,35 @@ const StyledMenuItem = styled(MenuItem)`
     }
   }
 `
+const MenuItems = [
+  {
+    title: 'Las Marias',
+    subtitle: 'Activos',
+    child: [{
+      title: 'SubBox 189634',
+      id: 1,
+    },
+    {
+      title: 'SubBox 18913',
+      id: 2,
+    },
+    {
+      title: 'SubBox 18913',
+      id: 3,
+    },
+    {
+      title: 'SubBox 18913',
+      id: 4,
+    }],
+  },
+];
 
 function SidebarPopover() {
+  const [selectedIndex, setSelectedIndex] = React.useState(null);
+  const handleListItemClick = (event, index) => {
+    setSelectedIndex(index);
+  };
+
   return (
     <Box sx={{ maxWidth: '960px', minHeight: '360px', overflowY: 'scroll' }}>
       <Stack
@@ -36,120 +62,33 @@ function SidebarPopover() {
           justifyContent="stretch"
           alignItems="stretch"
         >
-        <MenuList dense sx={{ width: '25%', minWidth: '240px', pt: 0, pb: 0 }}>
+        {MenuItems.map((item) => (
+        <MenuList dense sx={{ width: '25%', minWidth: '240px', pt: 0, pb: 0}}>
           <StyledMenuItem className="unselectable">
-            <StyledListItemText><strong>Las Marias</strong></StyledListItemText>
+            <StyledListItemText><strong>{item.title}</strong></StyledListItemText>
           </StyledMenuItem>
           <Divider sx={{ mt: '0!important', mb: '0!important', borderColor: '#DAF1DE' }} />
           <StyledMenuItem className="unselectable">
-            <StyledListItemText>Activos</StyledListItemText>
+            <StyledListItemText>{item.subtitle}</StyledListItemText>
           </StyledMenuItem>
           <Divider sx={{ mt: '0!important', mb: '0!important', borderColor: '#DAF1DE' }} />
-          <StyledMenuItem>
-            <StyledListItemText>Sub box 1/2</StyledListItemText>
-          </StyledMenuItem>
-          <StyledMenuItem selected>
-            <StyledListItemText>Sub box 1/2</StyledListItemText>
-          </StyledMenuItem>
-          <StyledMenuItem selected>
-            <StyledListItemText>Sub box 1/2</StyledListItemText>
-          </StyledMenuItem>
+
+            {item.child.map((item, index) => (
+            <StyledMenuItem
+              key={index}
+              selected={selectedIndex === item.id}
+              onClick={(event) => handleListItemClick(event, item.id)}>
+              <StyledListItemText>{item.title}</StyledListItemText>
+            </StyledMenuItem>
+            ))}
+
+            {selectedIndex != null &&
+              <Box sx={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
+                <Button sx={{ mt: 3 }} variant="contained">SELECCIONAR</Button>
+              </Box>
+            }
         </MenuList>
-        <MenuList dense sx={{ width: '25%', minWidth: '240px', pt: 0, pb: 0 }}>
-          <StyledMenuItem className="unselectable">
-            <StyledListItemText><strong>Las Marias</strong></StyledListItemText>
-          </StyledMenuItem>
-          <Divider sx={{ mt: '0!important', mb: '0!important', borderColor: '#DAF1DE' }} />
-          <StyledMenuItem className="unselectable">
-            <StyledListItemText>Activos</StyledListItemText>
-          </StyledMenuItem>
-          <Divider sx={{ mt: '0!important', mb: '0!important', borderColor: '#DAF1DE' }} />
-          <StyledMenuItem>
-            <StyledListItemText>Sub box 1/2</StyledListItemText>
-          </StyledMenuItem>
-          <StyledMenuItem selected>
-            <StyledListItemText>Sub box 1/2</StyledListItemText>
-          </StyledMenuItem>
-          <StyledMenuItem >
-            <StyledListItemText>Sub box 1/2</StyledListItemText>
-          </StyledMenuItem>
-        </MenuList>
-        <MenuList dense sx={{ width: '25%', minWidth: '240px', pt: 0, pb: 0 }}>
-          <StyledMenuItem className="unselectable">
-            <StyledListItemText><strong>Las Marias</strong></StyledListItemText>
-          </StyledMenuItem>
-          <Divider sx={{ mt: '0!important', mb: '0!important', borderColor: '#DAF1DE' }} />
-          <StyledMenuItem className="unselectable">
-            <StyledListItemText>Activos</StyledListItemText>
-          </StyledMenuItem>
-          <Divider sx={{ mt: '0!important', mb: '0!important', borderColor: '#DAF1DE' }} />
-          <StyledMenuItem>
-            <StyledListItemText>Sub box 1/2</StyledListItemText>
-          </StyledMenuItem>
-          <StyledMenuItem >
-            <StyledListItemText>Sub box 1/2</StyledListItemText>
-          </StyledMenuItem>
-          <StyledMenuItem selected>
-            <StyledListItemText>Sub box 1/2</StyledListItemText>
-          </StyledMenuItem>
-        </MenuList>
-        <MenuList dense sx={{ width: '25%', minWidth: '240px', pt: 0, pb: 0 }}>
-          <StyledMenuItem className="unselectable">
-            <StyledListItemText><strong>Las Marias</strong></StyledListItemText>
-          </StyledMenuItem>
-          <Divider sx={{ mt: '0!important', mb: '0!important', borderColor: '#DAF1DE' }} />
-          <StyledMenuItem className="unselectable">
-            <StyledListItemText>Activos</StyledListItemText>
-          </StyledMenuItem>
-          <Divider sx={{ mt: '0!important', mb: '0!important', borderColor: '#DAF1DE' }} />
-          <StyledMenuItem selected>
-            <StyledListItemText>Sub box 1/2</StyledListItemText>
-          </StyledMenuItem>
-          <StyledMenuItem>
-            <StyledListItemText>Sub box 1/2</StyledListItemText>
-          </StyledMenuItem>
-          <StyledMenuItem>
-            <StyledListItemText>Sub box 1/2</StyledListItemText>
-          </StyledMenuItem>
-        </MenuList>
-        <MenuList dense sx={{ width: '25%', minWidth: '240px', pt: 0, pb: 0 }}>
-          <StyledMenuItem className="unselectable">
-            <StyledListItemText><strong>Las Marias</strong></StyledListItemText>
-          </StyledMenuItem>
-          <Divider sx={{ mt: '0!important', mb: '0!important', borderColor: '#DAF1DE' }} />
-          <StyledMenuItem className="unselectable">
-            <StyledListItemText>Activos</StyledListItemText>
-          </StyledMenuItem>
-          <Divider sx={{ mt: '0!important', mb: '0!important', borderColor: '#DAF1DE' }} />
-          <StyledMenuItem selected>
-            <StyledListItemText>Sub box 1/2</StyledListItemText>
-          </StyledMenuItem>
-          <StyledMenuItem>
-            <StyledListItemText>Sub box 1/2</StyledListItemText>
-          </StyledMenuItem>
-          <StyledMenuItem>
-            <StyledListItemText>Sub box 1/2</StyledListItemText>
-          </StyledMenuItem>
-        </MenuList>
-        <MenuList dense sx={{ width: '25%', minWidth: '240px', pt: 0, pb: 0 }}>
-          <StyledMenuItem className="unselectable">
-            <StyledListItemText><strong>Las Marias</strong></StyledListItemText>
-          </StyledMenuItem>
-          <Divider sx={{ mt: '0!important', mb: '0!important', borderColor: '#DAF1DE' }} />
-          <StyledMenuItem className="unselectable">
-            <StyledListItemText>Activos</StyledListItemText>
-          </StyledMenuItem>
-          <Divider sx={{ mt: '0!important', mb: '0!important', borderColor: '#DAF1DE' }} />
-          <StyledMenuItem selected>
-            <StyledListItemText>Sub box 1/2</StyledListItemText>
-          </StyledMenuItem>
-          <StyledMenuItem>
-            <StyledListItemText>Sub box 1/2</StyledListItemText>
-          </StyledMenuItem>
-          <StyledMenuItem>
-            <StyledListItemText>Sub box 1/2</StyledListItemText>
-          </StyledMenuItem>
-        </MenuList>
+        ))}
       </Stack>
     </Box>
   );
