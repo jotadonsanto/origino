@@ -3,14 +3,14 @@ import styled from 'styled-components';
 import { Box, Typography } from '@mui/material';
 import IconButton from '@mui/material/IconButton';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBell } from '@fortawesome/free-solid-svg-icons';
+import { faBell } from '@fortawesome/pro-light-svg-icons';
 
 const StyledHeader = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding: 1.5rem 1.5rem 2rem 7vw;
+  padding: 1.5rem 1.5rem 1.5rem 5rem;
   background: linear-gradient(267.76deg, rgba(112, 225, 72, 0.94) 11.23%, rgba(72, 225, 106, 0.8) 96.67%);
   mix-blend-mode: multiply;
 `

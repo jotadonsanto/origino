@@ -14,20 +14,24 @@ import ListItemText from '@mui/material/ListItemText';
 import Popover from '@mui/material/Popover';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
+import { faChevronDown, faIndustry, faTruck, faBuilding, faDiceD8 } from '@fortawesome/pro-light-svg-icons';
 
 const TopItems = [
   {
     name: 'Cadena de suministro',
+    icon: faTruck,
   },
   {
     name: 'Empresa',
+    icon: faIndustry,
   },
   {
     name: 'Establecimiento',
+    icon: faBuilding,
   },
   {
     name: 'Activo',
+    icon: faDiceD8,
   },
 ]
 
@@ -104,6 +108,8 @@ function SidebarTop() {
             {...(EstablecimientoButton(item) && { onClick: handleClick })}
             {...(EstablecimientoButton(item) && { className: 'PopoverArrow' })}
           >
+            <FontAwesomeIcon icon={item.icon} />
+            &nbsp;&nbsp;&nbsp;
             {item.name}
           </StyledAccordionSummary>
 

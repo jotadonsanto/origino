@@ -1,42 +1,40 @@
 import React from 'react';
-import { Box, List, ListItemButton, ListItemIcon, ListItemText, Icon } from '@mui/material';
+import { Box, List, ListItemButton, ListItemIcon, ListItemText } from '@mui/material';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHome, faShoppingCart, faClipboardList, faIdCard, faKey, faTag, faCommentAltCheck, faCalendar } from '@fortawesome/pro-light-svg-icons';
 
 const MenuItems = [
   {
     name: 'Dashboard',
-    icon: 'home',
+    icon: faHome,
   },
   {
     name: 'Mercado',
-    icon: 'shoppingCart',
+    icon: faShoppingCart,
   },
   {
     name: 'NFT',
-    icon: 'description',
+    icon: faClipboardList,
   },
   {
     name: 'Titularidad',
-    icon: 'assignmentInd',
+    icon: faIdCard,
   },
   {
     name: 'Permisos',
-    icon: 'label',
+    icon: faKey,
   },
   {
     name: 'Tags',
-    icon: 'label',
+    icon: faTag,
   },
   {
     name: 'Eventos',
-    icon: 'event',
+    icon: faCalendar,
   },
   {
     name: 'Actividades',
-    icon: 'event',
-  },
-  {
-    name: 'Configuración',
-    icon: 'settings',
+    icon: faCommentAltCheck,
   }
 ]
 
@@ -56,7 +54,7 @@ function SidebarMenu() {
             onClick={(event) => handleListItemClick(event, index)}
           >
             <ListItemIcon>
-              <Icon>{item.icon}</Icon>
+              <FontAwesomeIcon icon={item.icon} />
             </ListItemIcon>
             <ListItemText primary={item.name} />
           </ListItemButton>

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Grid, Stack, Button, Breadcrumbs, Link, Typography, Stepper, Step, StepButton, Divider, Card, TextField, Accordion, AccordionSummary, AccordionDetails } from '@mui/material';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
+import { faChevronDown } from '@fortawesome/pro-light-svg-icons';
 
 const steps = ['ID de caravana', 'Detalles del activo', 'Datos genealogicos', 'Fotos y videos'];
 

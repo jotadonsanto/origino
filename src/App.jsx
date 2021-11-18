@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom'
 import { ThemeProvider } from '@mui/material/styles';
 import { activosTheme, drawerWidth } from './theme/theme.js';
 import { Container, Box, Drawer } from '@mui/material';
+import "./theme/global.css";
 
 import Header from './components/Header/Header';
 import Sidebar from './components/Sidebar/Sidebar';
@@ -11,7 +12,7 @@ import Activos from './containers/Activos';
 import CargaActivos from './containers/CargaActivos';
 
 const StyledContainer = styled(Container)`
-  padding: 2rem 2rem 80px 7vw;
+  padding: 2rem 2rem 5rem 5rem;
   margin: 0;
   max-width: none;
 `

@@ -1,13 +1,14 @@
 import React from 'react';
 import { DataGrid } from '@mui/x-data-grid';
-import { Stack, Grid, Card, Chip, FormControl, InputLabel, Select, MenuItem, Button, Menu, Divider, ListItemIcon, ListItemText, IconButton } from '@mui/material';
+import { Stack, Grid, Card, Chip, FormControl, FormControlLabel, InputLabel, Select, MenuItem, Button, Menu, Divider, ListItemIcon, ListItemText, Checkbox, Radio, RadioGroup, TextField, InputAdornment, Slider } from '@mui/material';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPen, faFileImport, faTrash, faMinusCircle, faEllipsisV } from '@fortawesome/free-solid-svg-icons';
+import { faPen, faFileImport, faTrash, faMinusCircle, faEllipsisV, faSearch } from '@fortawesome/pro-light-svg-icons';
 import "./styles.css";
 
 export default function DataTable({Header}) {
   const [selectedItems, setSelectedItems] = React.useState([]);
   const [selectedFilter, setSelectedFilter] = React.useState('');
+  const [expandedFilters, setExpandedFilters] = React.useState();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
 
@@ -22,16 +23,17 @@ export default function DataTable({Header}) {
   const handleClose = () => {
     setAnchorEl(null);
   };
+  const toggleChecked = () => setExpandedFilters(value => !value);
 
   const moreActionsButton = (row) => {
     return (
-      <IconButton
+      <span
         id="basic-button"
         aria-controls="basic-menu"
         aria-label="More"
         onClick={(event) => handleClick(event, row)}>
         <FontAwesomeIcon icon={faEllipsisV} />
-      </IconButton>
+      </span>
     )
   }
   const columns = [
@@ -55,7 +57,8 @@ export default function DataTable({Header}) {
 
   return (
     <div>
-      <Grid component={Card} container sx={{ p:2, mb: 4, alignItems: 'center' }}>
+      {/* Filtros */}
+      <Grid component={Card} container sx={{ p:2, mb: 4, mt: 2, alignItems: 'center' }}>
         <Grid item component={FormControl} sx={{ pr: 2 }} xs={3}>
           <InputLabel id="test">Raza</InputLabel>
           <Select
@@ -97,27 +100,58 @@ export default function DataTable({Header}) {
           </Select>
         </Grid>
         <Grid item xs={3} sx={{ display: 'flex', justifyContent: 'center' }}>
-          <Button variant="text">Ver mas filtros</Button>
+          <Button variant="text" onClick={toggleChecked}>{!expandedFilters ? 'Ver mas filtros' : 'Cerrar filtros'}</Button>
         </Grid>
+        {expandedFilters &&
+          <span>
+            <Grid item component={FormControl} sx={{ pr: 2, mt: 3, alignItems: 'center' }} xs={12} xl={6}>
+              <FormControlLabel control={<Checkbox checked={true} onChange={() => console.log('do something on check')} />} label="Checkbox" />
+              <FormControlLabel control={<Checkbox checked={false} onChange={() => console.log('do something on check')} />} label="Checkbox" />
+
+              <RadioGroup row defaultValue="b" name="radio-buttons-group">
+                <FormControlLabel value="a" control={<Radio />} label="Radio 1" />
+                <FormControlLabel value="b" control={<Radio />} label="Radio 2" />
+              </RadioGroup>
+            </Grid>
+            <Grid item component={FormControl} sx={{ pr: 2, mt: 3, alignItems: 'center' }} xs={12} xl={6}>
+              <TextField id="outlined-search" label="Buscar por nombre" type="search" sx={{ mr: 2 }} />
+              <TextField
+                id="filled-search"
+                label="Buscar por nombre"
+                type="search"
+                sx={{ mr: 2 }}
+                InputProps={{
+                startAdornment: (
+                  <InputAdornment position="start">
+                    <FontAwesomeIcon icon={faSearch} />
+                  </InputAdornment>
+                ),
+              }}/>
+              <Slider defaultValue={30} aria-label="Disabled slider" sx={{ width: '200px' }} />
+            </Grid>
+          </span>
+        }
         <Grid item xs={12} sx={{ mt: 2 }}>
           <Chip label="Filter applied" color="secondary" sx={{ mr: 1 }} onDelete={() => {console.log('on Delete')}} />
           <Chip label="Filter applied" color="secondary" sx={{ mr: 1 }} onDelete={() => {console.log('on Delete')}} />
           <Chip label="Filter applied" color="secondary" sx={{ mr: 1 }} onDelete={() => {console.log('on Delete')}} />
         </Grid>
       </Grid>
+      {/* Fin Filtros */}
+
       <Stack
         direction="row"
         justifyContent="flex-start"
         alignItems="stretch"
         className={`${selectedItems.length > 0 ? "show" : "hide"}`}
       >
-        <Button sx={{ mr: 2, mb: 1 }} variant="outlined" color="primary" size="small" startIcon={<FontAwesomeIcon icon={faPen} />}>
+        <Button sx={{ mr: 2, mb: 4 }} variant="outlined" color="primary" size="small" startIcon={<FontAwesomeIcon icon={faPen} />}>
           EDITAR
         </Button>
-        <Button sx={{ mr: 2, mb: 1 }} variant="outlined" color="primary" size="small" startIcon={<FontAwesomeIcon icon={faFileImport} />}>
+        <Button sx={{ mr: 2, mb: 4 }} variant="outlined" color="primary" size="small" startIcon={<FontAwesomeIcon icon={faFileImport} />}>
           TRANSFERIR
         </Button>
-        <Button sx={{ mr: 2, mb: 1 }} variant="outlined" color="primary" size="small" startIcon={<FontAwesomeIcon icon={faTrash} />}>
+        <Button sx={{ mr: 2, mb: 4 }} variant="outlined" color="primary" size="small" startIcon={<FontAwesomeIcon icon={faTrash} />}>
           DAR DE BAJA
         </Button>
       </Stack>
@@ -132,35 +166,35 @@ export default function DataTable({Header}) {
         disableColumnMenu
         disableSelectionOnClick
         autoHeight/>
-        <Menu
-          id="basic-menu"
-          anchorEl={anchorEl}
-          open={open}
-          onClose={handleClose}
-          MenuListProps={{
-            'aria-labelledby': 'basic-button',
-          }}
-        >
-          <MenuItem onClick={handleClose}>
-            <ListItemIcon>
-              <FontAwesomeIcon icon={faMinusCircle} />
-            </ListItemIcon>
-            <ListItemText>Something 1</ListItemText>
-          </MenuItem>
-          <Divider sx={{ mt: '0!important', mb: '0!important' }} />
-          <MenuItem onClick={handleClose}>
-            <ListItemIcon>
-              <FontAwesomeIcon icon={faMinusCircle} />
-            </ListItemIcon>
-            <ListItemText>Something 5</ListItemText>
-          </MenuItem>
-          <Divider sx={{ mt: '0!important', mb: '0!important' }} /><MenuItem onClick={handleClose}>
-            <ListItemIcon>
-              <FontAwesomeIcon icon={faMinusCircle} />
-            </ListItemIcon>
-            <ListItemText>Something 4</ListItemText>
-          </MenuItem>
-        </Menu>
+      <Menu
+        id="basic-menu"
+        anchorEl={anchorEl}
+        open={open}
+        onClose={handleClose}
+        MenuListProps={{
+          'aria-labelledby': 'basic-button',
+        }}
+      >
+        <MenuItem onClick={handleClose}>
+          <ListItemIcon>
+            <FontAwesomeIcon icon={faMinusCircle} />
+          </ListItemIcon>
+          <ListItemText>Something 1</ListItemText>
+        </MenuItem>
+        <Divider sx={{ mt: '0!important', mb: '0!important' }} />
+        <MenuItem onClick={handleClose}>
+          <ListItemIcon>
+            <FontAwesomeIcon icon={faMinusCircle} />
+          </ListItemIcon>
+          <ListItemText>Something 5</ListItemText>
+        </MenuItem>
+        <Divider sx={{ mt: '0!important', mb: '0!important' }} /><MenuItem onClick={handleClose}>
+          <ListItemIcon>
+            <FontAwesomeIcon icon={faMinusCircle} />
+          </ListItemIcon>
+          <ListItemText>Something 4</ListItemText>
+        </MenuItem>
+      </Menu>
     </div>
   );
 }
