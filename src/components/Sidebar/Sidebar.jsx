@@ -6,11 +6,11 @@ import SidebarUser from './SidebarUser';
 
 function Sidebar() {
   return (
-      <Box className="d-flex flex-column flex">
-          <SidebarTop />
-          <SidebarMenu />
-          <SidebarUser />
-      </Box>
+    <Box className="d-flex flex-column flex">
+      <SidebarTop />
+      <SidebarMenu />
+      <SidebarUser />
+    </Box>
   );
 }
 

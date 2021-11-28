@@ -1,13 +1,9 @@
 import React from 'react';
-import styled from 'styled-components';
+import { StyledSlider } from './ActivosTable.styles';
 import { DataGrid } from '@mui/x-data-grid';
-import { Stack, Grid, Card, Chip, FormControl, FormControlLabel, InputLabel, Select, MenuItem, Button, Menu, Divider, ListItemIcon, ListItemText, Checkbox, Radio, RadioGroup, TextField, InputAdornment, Slider } from '@mui/material';
+import { Stack, Grid, Card, Chip, FormControl, FormControlLabel, InputLabel, Select, MenuItem, Button, Menu, Divider, ListItemIcon, ListItemText, Checkbox, Radio, RadioGroup, TextField, InputAdornment } from '@mui/material';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPen, faFileImport, faTrash, faMinusCircle, faEllipsisV, faSearch } from '@fortawesome/pro-light-svg-icons';
-
-const StyledSlider = styled(Slider)`
-  width: 200px;
-`
 
 export default function DataTable({Header}) {
   const [selectedItems, setSelectedItems] = React.useState([]);
@@ -118,7 +114,6 @@ export default function DataTable({Header}) {
               </RadioGroup>
             </Grid>
             <Grid item component={FormControl} className="pr-2 mt-3 align-center" xs={12} xl={6}>
-              <TextField id="outlined-search" label="Buscar por nombre" type="search" className="mr-2" />
               <TextField
                 id="filled-search"
                 label="Buscar por nombre"
