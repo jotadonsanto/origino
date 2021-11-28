@@ -2,7 +2,7 @@ import React from 'react';
 import { Grid, Stack, Button } from '@mui/material';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus, faDownload } from '@fortawesome/pro-light-svg-icons';
-import ActivosTable from '../components/Activos/ActivosTable';
+import ActivosTable from '../components/ActivosTable/ActivosTable';
 
 function Activos() {
   return (
