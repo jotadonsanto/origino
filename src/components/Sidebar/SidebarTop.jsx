@@ -73,7 +73,6 @@ const StyledAccordionSummary = styled(AccordionSummary)`
     }
   }
 `
-
 const StyledPopover = styled(Popover)`
   .MuiPopover-paper{
     box-shadow: none;
@@ -81,6 +80,17 @@ const StyledPopover = styled(Popover)`
     border: 1px solid #eee;
     margin-left: 16px;
   }
+`
+const StyledBox = styled(Box)`
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  box-shadow: 0px 4px 35px rgba(109, 102, 119, 0.2);
+  border: none;
+  border-radius: 10px;
+  position: absolute;
+  z-index: 1;
+  width: calc(100% - 32px);
 `
 
 function SidebarTop() {
@@ -97,10 +107,10 @@ function SidebarTop() {
   const open = Boolean(anchorEl);
   const id = open ? 'simple-popover' : undefined;
   return (
-    <Box component={Card} variant="outlined" sx={{ display: 'flex', flexDirection: 'column',  p: 2, boxShadow: '0px 4px 35px rgba(109, 102, 119, 0.2)', border: 'none', borderRadius: '10px', position: 'absolute', zIndex: 1, width: 'calc(100% - 32px)'  }}>
+    <StyledBox component={Card} variant="outlined">
       <StyledButton variant="contained">Inicio</StyledButton>
       {TopItems.map((item, index) => (
-        <StyledAccordion key={index} sx={{ marginTop: 1 }}>
+        <StyledAccordion key={index} className="mt-1">
           <StyledAccordionSummary
             expandIcon={<FontAwesomeIcon icon={faChevronDown} />}
             aria-controls={index}
@@ -132,7 +142,7 @@ function SidebarTop() {
             </StyledPopover>
           }
           { !EstablecimientoButton(item) &&
-            <AccordionDetails sx={{ p: 0 }}>
+            <AccordionDetails className="p-0">
               <List dense>
                 <ListItem disablePadding>
                   <ListItemButton>
@@ -149,7 +159,7 @@ function SidebarTop() {
           }
         </StyledAccordion>
       ))}
-    </Box>
+    </StyledBox>
   );
 }
 

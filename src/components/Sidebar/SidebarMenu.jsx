@@ -1,4 +1,5 @@
 import React from 'react';
+import styled from 'styled-components';
 import { Box, List, ListItemButton, ListItemIcon, ListItemText } from '@mui/material';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHome, faShoppingCart, faClipboardList, faIdCard, faKey, faTag, faCommentAltCheck, faCalendar } from '@fortawesome/pro-light-svg-icons';
@@ -37,6 +38,12 @@ const MenuItems = [
     icon: faCommentAltCheck,
   }
 ]
+const StyledBox = styled(Box)`
+  flex: 1;
+  z-index: 0;
+  padding-top: 14rem;
+`
+
 
 function SidebarMenu() {
   const [selectedIndex, setSelectedIndex] = React.useState(1);
@@ -45,7 +52,7 @@ function SidebarMenu() {
   };
 
   return (
-    <Box sx={{ flex: '1', zIndex: 0, paddingTop: '14rem' }}>
+    <StyledBox>
       <List component="nav" aria-label="main mailbox folders">
         {MenuItems.map((item, index) => (
           <ListItemButton
@@ -60,7 +67,7 @@ function SidebarMenu() {
           </ListItemButton>
         ))}
       </List>
-    </Box>
+    </StyledBox>
   );
 }
 

@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom'
 import { ThemeProvider } from '@mui/material/styles';
 import { activosTheme, drawerWidth } from './theme/theme.js';
 import { Container, Box, Drawer } from '@mui/material';
-import "./theme/global.css";
+import "./theme/global.scss";
 
 import Header from './components/Header/Header';
 import Sidebar from './components/Sidebar/Sidebar';
@@ -16,37 +16,40 @@ const StyledContainer = styled(Container)`
   margin: 0;
   max-width: none;
 `
+const StyledDrawer = styled(Drawer)`
+  width: ${drawerWidth};
+  min-width: 240px;
+  flex-shrink: 0;
+  & .MuiDrawer-paper {
+    width: ${drawerWidth};
+    min-width: 240px;
+    box-sizing: border-box;
+    border: none;
+    box-shadow: 0px 4px 35px rgba(109, 102, 119, 0.2);
+  }
+`
+const StyledBox = styled(Box)`
+  background: #FCFCFC;
+`
 function App() {
   return (
     <Router>
       <ThemeProvider theme={activosTheme}>
-        <Box sx={{ display: 'flex' }}>
-          <Drawer
-            sx={{
-              width: drawerWidth,
-              minWidth: '240px',
-              flexShrink: 0,
-              '& .MuiDrawer-paper': {
-                width: drawerWidth,
-                minWidth: '240px',
-                boxSizing: 'border-box',
-                border: 'none',
-                boxShadow: '0px 4px 35px rgba(109, 102, 119, 0.2)'
-              },
-            }}
+        <Box className="d-flex">
+          <StyledDrawer
             variant="permanent"
             anchor="left">
               <Sidebar />
-          </Drawer>
-          <Box
-            component="main"
-            sx={{ display: 'flex', flexDirection: 'column', flexGrow: 1, background: '#FCFCFC' }}>
+          </StyledDrawer>
+          <StyledBox
+            className="d-flex flex-column flex"
+            component="main">
             <Header />
-            <StyledContainer sx={{ p: 2 }}>
+            <StyledContainer>
               <Route path="/" exact render={() => <Activos />} />
               <Route path="/carga" exact render={() => <CargaActivos />} />
             </StyledContainer>
-          </Box>
+          </StyledBox>
         </Box>
       </ThemeProvider>
     </Router>

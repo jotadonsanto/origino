@@ -2,6 +2,10 @@ import React from 'react';
 import styled from 'styled-components'
 import { List, ListItem, ListItemText, ListItemAvatar, Avatar } from '@mui/material';
 
+const StyledList = styled(List)`
+  width: 100%;
+  max-width: 360px;
+`
 const StyledListItemText = styled(ListItemText)`
   .MuiTypography-body1 {
     font-size: 12px;
@@ -15,7 +19,7 @@ const StyledListItemText = styled(ListItemText)`
 
 function SidebarUser() {
   return (
-    <List sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}>
+    <StyledList>
       <ListItem>
         <ListItemAvatar>
           <Avatar>
@@ -24,7 +28,7 @@ function SidebarUser() {
         </ListItemAvatar>
         <StyledListItemText primary="Mi cuenta" secondary="Rol del usuario" />
       </ListItem>
-    </List>
+    </StyledList>
   );
 }
 

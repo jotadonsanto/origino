@@ -26,6 +26,22 @@ const StyledMenuItem = styled(MenuItem)`
     }
   }
 `
+const StyledBox = styled(Box)`
+  overflow-y: scroll;
+  min-height: 360px;
+  max-width: 960px;
+`
+const StyledMenuList = styled(MenuList)`
+  width: 25%;
+  min-width: 240px;
+  padding-top: 0;
+  padding-bottom: 0;
+`
+const StyledDivider = styled(Divider)`
+  border-color: #DAF1DE;
+  margin-top: 0!important;
+  margin-bottom: 0!important;
+`
 const MenuItems = [
   {
     title: 'Las Marias',
@@ -56,22 +72,22 @@ function SidebarPopover() {
   };
 
   return (
-    <Box sx={{ maxWidth: '960px', minHeight: '360px', overflowY: 'scroll' }}>
+    <StyledBox>
       <Stack
           direction="row"
           justifyContent="stretch"
           alignItems="stretch"
         >
         {MenuItems.map((item) => (
-        <MenuList dense sx={{ width: '25%', minWidth: '240px', pt: 0, pb: 0}}>
+        <StyledMenuList dense>
           <StyledMenuItem className="unselectable">
             <StyledListItemText><strong>{item.title}</strong></StyledListItemText>
           </StyledMenuItem>
-          <Divider sx={{ mt: '0!important', mb: '0!important', borderColor: '#DAF1DE' }} />
+          <StyledDivider />
           <StyledMenuItem className="unselectable">
             <StyledListItemText>{item.subtitle}</StyledListItemText>
           </StyledMenuItem>
-          <Divider sx={{ mt: '0!important', mb: '0!important', borderColor: '#DAF1DE' }} />
+          <StyledDivider />
 
             {item.child.map((item, index) => (
             <StyledMenuItem
@@ -83,14 +99,14 @@ function SidebarPopover() {
             ))}
 
             {selectedIndex != null &&
-              <Box sx={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
-                <Button sx={{ mt: 3 }} variant="contained">SELECCIONAR</Button>
+              <Box className="d-flex justify-center align-center">
+                <Button className="mt-3" variant="contained">SELECCIONAR</Button>
               </Box>
             }
-        </MenuList>
+        </StyledMenuList>
         ))}
       </Stack>
-    </Box>
+    </StyledBox>
   );
 }
 

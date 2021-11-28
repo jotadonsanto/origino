@@ -14,8 +14,8 @@ function Activos() {
           justifyContent="flex-end"
           alignItems="stretch"
         >
-          <Button sx={{ ml: 2 }} variant="outlined" startIcon={<FontAwesomeIcon icon={faDownload} />}>DESCARGAR</Button>
-          <Button sx={{ ml: 2 }} variant="contained" startIcon={<FontAwesomeIcon icon={faPlus} />}>CARGAR ACTIVOS</Button>
+          <Button className="ml-2" variant="outlined" startIcon={<FontAwesomeIcon icon={faDownload} />}>DESCARGAR</Button>
+          <Button className="ml-2" variant="contained" startIcon={<FontAwesomeIcon icon={faPlus} />}>CARGAR ACTIVOS</Button>
         </Stack>
       </Grid>
       <Grid item xs={12}>

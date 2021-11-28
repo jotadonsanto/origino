@@ -16,7 +16,7 @@ function CargaActivos() {
   return (
     //Starts the route view with <Grid container> and add <Grid item 12> for rows.
     <Grid container spacing={2}>
-      <Grid item xs={12} sx={{ mb:2 }}>
+      <Grid item xs={12} className="mb-2">
         <Stack
           direction="row"
           justifyContent="space-between"
@@ -34,11 +34,11 @@ function CargaActivos() {
             </Link>
             <Typography color="primary">Activos</Typography>
           </Breadcrumbs>
-          <Button sx={{ ml: 2 }} variant="outlined">DAR DE BAJA</Button>
+          <Button className="ml-2" variant="outlined">DAR DE BAJA</Button>
         </Stack>
       </Grid>
 
-      <Grid item xs={12} sx={{ mt: 3 }}>
+      <Grid item xs={12} className="mt-3">
         <Stepper nonLinear activeStep={activeStep}>
           {steps.map((label, index) => (
             <Step key={label} completed={completed[index]}>
@@ -48,15 +48,15 @@ function CargaActivos() {
             </Step>
           ))}
         </Stepper>
-        <Divider variant="middle" sx={{ mt:4 }} />
+        <Divider variant="middle" className="mt-4"/>
       </Grid>
 
-      <Grid item xs={12} sx={{ mt: 3 }}>
+      <Grid item xs={12} className="mt-3">
         <Typography variant="subtitle1" component="h3" color="primary">Datos genealogicos</Typography>
         <Typography variant="subtitle2" component="h4" color="text.primary">Campos Optativos</Typography>
 
-        <Grid component={Card} container sx={{ p:2, mt:2, mb: 2, alignItems: 'center' }}>
-          <Grid item xs={12} sx={{ mb:2 }}>
+        <Grid component={Card} container className="p-2 mt-2 mb-2 align-center">
+          <Grid item xs={12} className="mb-2">
             <Typography variant="subtitle1" component="h3" color="primary">
               Podés completar tus datos genealógicos consultando la base de datos de la Sociedad Rural Argentina
             </Typography>
@@ -65,91 +65,91 @@ function CargaActivos() {
             direction="row"
             justifyContent="space-between"
             alignItems="flex-end"
-            sx={{ width: '100%' }}>
-            <TextField sx={{ flex: 1, mr: 2 }} id="outlined-basic" label="Outlined" variant="outlined" />
-            <TextField sx={{ flex: 1, mr: 2 }} id="outlined-basic" label="Outlined" variant="outlined" />
-            <TextField sx={{ flex: 1, mr: 2 }} id="outlined-basic" label="Outlined" variant="outlined" />
+            className="w-100">
+            <TextField className="flex mr-2" id="outlined-basic" label="Outlined" variant="outlined" />
+            <TextField className="flex mr-2" id="outlined-basic" label="Outlined" variant="outlined" />
+            <TextField className="flex mr-2" id="outlined-basic" label="Outlined" variant="outlined" />
             <Button variant="outlined">BUSCAR</Button>
           </Stack>
         </Grid>
       </Grid>
 
       {/* Accordions */}
-      <Grid item xs={12} sx={{ mt: 1 }}>
-        <Accordion sx={{ marginTop: 1 }}>
+      <Grid item xs={12} className="mt-1">
+        <Accordion>
           <AccordionSummary expandIcon={<FontAwesomeIcon icon={faChevronDown} />}>
             <Typography variant="subtitle1" component="h3" color="primary">Genealogia del animal</Typography>
           </AccordionSummary>
           <AccordionDetails>
             <Grid container>
-              <Grid item sx={{ pr: 2, mb: 2 }} xs={4}>
-                <TextField sx={{ width: '100%', mr: 2 }} id="outlined-basic" label="Outlined" variant="outlined" />
+              <Grid item className="pr-2 mb-2" xs={4}>
+                <TextField className="w-100 mr-2" id="outlined-basic" label="Outlined" variant="outlined" />
               </Grid>
-              <Grid item sx={{ pr: 2, mb: 2 }} xs={4}>
-                <TextField sx={{ width: '100%', mr: 2 }} id="outlined-basic" label="Outlined" variant="outlined" />
+              <Grid item className="pr-2 mb-2" xs={4}>
+                <TextField className="w-100 mr-2" id="outlined-basic" label="Outlined" variant="outlined" />
               </Grid>
-              <Grid item sx={{ pr: 2, mb: 2 }} xs={4}>
-                <TextField sx={{ width: '100%', mr: 2 }} id="outlined-basic" label="Outlined" variant="outlined" />
+              <Grid item className="pr-2 mb-2" xs={4}>
+                <TextField className="w-100 mr-2" id="outlined-basic" label="Outlined" variant="outlined" />
               </Grid>
-              <Grid item sx={{ pr: 2, mb: 2 }} xs={4}>
-                <TextField sx={{ width: '100%', mr: 2 }} id="outlined-basic" label="Outlined" variant="outlined" />
+              <Grid item className="pr-2 mb-2" xs={4}>
+                <TextField className="w-100 mr-2" id="outlined-basic" label="Outlined" variant="outlined" />
               </Grid>
-              <Grid item sx={{ pr: 2, mb: 2 }} xs={4}>
-                <TextField sx={{ width: '100%', mr: 2 }} id="outlined-basic" label="Outlined" variant="outlined" />
+              <Grid item className="pr-2 mb-2" xs={4}>
+                <TextField className="w-100 mr-2" id="outlined-basic" label="Outlined" variant="outlined" />
               </Grid>
             </Grid>
           </AccordionDetails>
         </Accordion>
       </Grid>
 
-      <Grid item xs={12} sx={{ mt: 1 }}>
-        <Accordion sx={{ marginTop: 1 }}>
+      <Grid item xs={12} className="mt-1">
+        <Accordion>
           <AccordionSummary expandIcon={<FontAwesomeIcon icon={faChevronDown} />}>
             <Typography variant="subtitle1" component="h3" color="primary">Genealogia de la madre</Typography>
           </AccordionSummary>
           <AccordionDetails>
             <Grid container>
-              <Grid item sx={{ pr: 2, mb: 2 }} xs={4}>
-                <TextField sx={{ width: '100%', mr: 2 }} id="outlined-basic" label="Outlined" variant="outlined" />
+              <Grid item className="pr-2 mb-2" xs={4}>
+                <TextField className="w-100 mr-2" id="outlined-basic" label="Outlined" variant="outlined" />
               </Grid>
-              <Grid item sx={{ pr: 2, mb: 2 }} xs={4}>
-                <TextField sx={{ width: '100%', mr: 2 }} id="outlined-basic" label="Outlined" variant="outlined" />
+              <Grid item className="pr-2 mb-2" xs={4}>
+                <TextField className="w-100 mr-2" id="outlined-basic" label="Outlined" variant="outlined" />
               </Grid>
-              <Grid item sx={{ pr: 2, mb: 2 }} xs={4}>
-                <TextField sx={{ width: '100%', mr: 2 }} id="outlined-basic" label="Outlined" variant="outlined" />
+              <Grid item className="pr-2 mb-2" xs={4}>
+                <TextField className="w-100 mr-2" id="outlined-basic" label="Outlined" variant="outlined" />
               </Grid>
-              <Grid item sx={{ pr: 2, mb: 2 }} xs={4}>
-                <TextField sx={{ width: '100%', mr: 2 }} id="outlined-basic" label="Outlined" variant="outlined" />
+              <Grid item className="pr-2 mb-2" xs={4}>
+                <TextField className="w-100 mr-2" id="outlined-basic" label="Outlined" variant="outlined" />
               </Grid>
-              <Grid item sx={{ pr: 2, mb: 2 }} xs={4}>
-                <TextField sx={{ width: '100%', mr: 2 }} id="outlined-basic" label="Outlined" variant="outlined" />
+              <Grid item className="pr-2 mb-2" xs={4}>
+                <TextField className="w-100 mr-2" id="outlined-basic" label="Outlined" variant="outlined" />
               </Grid>
             </Grid>
           </AccordionDetails>
         </Accordion>
       </Grid>
 
-      <Grid item xs={12} sx={{ mt: 1 }}>
-        <Accordion sx={{ marginTop: 1 }}>
+      <Grid item xs={12} className="mt-1">
+        <Accordion>
           <AccordionSummary expandIcon={<FontAwesomeIcon icon={faChevronDown} />}>
             <Typography variant="subtitle1" component="h3" color="primary">Genealogia del padre</Typography>
           </AccordionSummary>
           <AccordionDetails>
             <Grid container>
-              <Grid item sx={{ pr: 2, mb: 2 }} xs={4}>
-                <TextField sx={{ width: '100%', mr: 2 }} id="outlined-basic" label="Outlined" variant="outlined" />
+              <Grid item className="pr-2 mb-2" xs={4}>
+                <TextField className="w-100 mr-2" id="outlined-basic" label="Outlined" variant="outlined" />
               </Grid>
-              <Grid item sx={{ pr: 2, mb: 2 }} xs={4}>
-                <TextField sx={{ width: '100%', mr: 2 }} id="outlined-basic" label="Outlined" variant="outlined" />
+              <Grid item className="pr-2 mb-2" xs={4}>
+                <TextField className="w-100 mr-2" id="outlined-basic" label="Outlined" variant="outlined" />
               </Grid>
-              <Grid item sx={{ pr: 2, mb: 2 }} xs={4}>
-                <TextField sx={{ width: '100%', mr: 2 }} id="outlined-basic" label="Outlined" variant="outlined" />
+              <Grid item className="pr-2 mb-2" xs={4}>
+                <TextField className="w-100 mr-2" id="outlined-basic" label="Outlined" variant="outlined" />
               </Grid>
-              <Grid item sx={{ pr: 2, mb: 2 }} xs={4}>
-                <TextField sx={{ width: '100%', mr: 2 }} id="outlined-basic" label="Outlined" variant="outlined" />
+              <Grid item className="pr-2 mb-2" xs={4}>
+                <TextField className="w-100 mr-2" id="outlined-basic" label="Outlined" variant="outlined" />
               </Grid>
-              <Grid item sx={{ pr: 2, mb: 2 }} xs={4}>
-                <TextField sx={{ width: '100%', mr: 2 }} id="outlined-basic" label="Outlined" variant="outlined" />
+              <Grid item className="pr-2 mb-2" xs={4}>
+                <TextField className="w-100 mr-2" id="outlined-basic" label="Outlined" variant="outlined" />
               </Grid>
             </Grid>
           </AccordionDetails>
@@ -157,13 +157,13 @@ function CargaActivos() {
       </Grid>
 
       {/* Save/Submit */}
-      <Grid item xs={12} sx={{ mt:4 }}>
+      <Grid item xs={12} className="mt-4">
         <Stack
           direction="row"
           justifyContent="center"
           alignItems="center">
-          <Button sx={{ mr: 1 }} variant="outlined">GUARDAR</Button>
-          <Button sx={{ ml: 1 }} variant="contained">CONTINUAR</Button>
+          <Button className="mr-1" variant="outlined">GUARDAR</Button>
+          <Button className="ml-1" variant="contained">CONTINUAR</Button>
         </Stack>
       </Grid>
     </Grid>

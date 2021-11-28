@@ -6,7 +6,7 @@ import SidebarUser from './SidebarUser';
 
 function Sidebar() {
   return (
-      <Box sx={{ display: 'flex', flexDirection: 'column', flex: '1' }}>
+      <Box className="d-flex flex-column flex">
           <SidebarTop />
           <SidebarMenu />
           <SidebarUser />
