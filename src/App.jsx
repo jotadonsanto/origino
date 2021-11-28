@@ -8,8 +8,8 @@ import "./theme/global.css";
 
 import Header from './components/Header/Header';
 import Sidebar from './components/Sidebar/Sidebar';
-import Activos from './containers/Activos';
-import CargaActivos from './containers/CargaActivos';
+import Activos from './pages/Activos';
+import CargaActivos from './pages/CargaActivos';
 
 const StyledContainer = styled(Container)`
   padding: 2rem 2rem 5rem 5rem;
