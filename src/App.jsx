@@ -10,6 +10,7 @@ import Header from './components/Header/Header';
 import Sidebar from './components/Sidebar/Sidebar';
 import Activos from './pages/Activos';
 import CargaActivos from './pages/CargaActivos';
+import CargaArchivo from './pages/CargaArchivo';
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
             <StyledContainer>
               <Route path="/" exact render={() => <Activos />} />
               <Route path="/carga" exact render={() => <CargaActivos />} />
+              <Route path="/cargaarchivo" exact render={() => <CargaArchivo />} />
             </StyledContainer>
           </StyledBox>
         </Box>

@@ -23,6 +23,7 @@ const palette = {
     primary: "#666666",
     secondary: "#00000",
     green: '#61B15A',
+    light: '#999999',
   },
 }
 
