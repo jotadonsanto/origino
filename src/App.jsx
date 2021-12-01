@@ -15,7 +15,7 @@ import CargaArchivo from './pages/CargaArchivo';
 function App() {
   return (
     <Router>
-      <ThemeProvider theme={activosTheme}>
+      <ThemeProvider theme={activosTheme} injectFirst>
         <Box className="d-flex">
           <StyledDrawer
             variant="permanent"

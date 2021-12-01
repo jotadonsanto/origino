@@ -21,13 +21,13 @@ export const TopItems = [
   },
 ]
 
-// export const StyledButton = styled(Button)`
-//   font-size: 10px;
-//   font-weight: 500;
-//   height: 28px;
-//   border-radius: 10px;
-//   box-shadow: none;
-// `
+export const StyledButton = styled(Button)`
+  font-size: 10px;
+  font-weight: 500;
+  height: 28px;
+  border-radius: 10px;
+  box-shadow: none;
+`
 
 export const StyledAccordion = styled(Accordion)`
   border-radius: 10px!important;
