@@ -1,9 +1,18 @@
 import React from 'react';
-import { TopItems, StyledButton, StyledAccordion, StyledAccordionSummary, StyledPopover, StyledBox } from './SidebarTop.styles';
+import styled from 'styled-components';
+import { TopItems, StyledAccordion, StyledAccordionSummary, StyledPopover, StyledBox } from './SidebarTop.styles';
 import SidebarPopover from './SidebarPopover';
-import { Card, AccordionDetails, List, ListItem, ListItemButton, ListItemText } from '@mui/material';
+import { Card, AccordionDetails, List, ListItem, ListItemButton, ListItemText, Button } from '@mui/material';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronDown } from '@fortawesome/pro-light-svg-icons';
+
+const StyledButton = styled(Button)`
+  font-size: 11px;
+  font-weight: 500;
+  height: 28px;
+  border-radius: 10px;
+  box-shadow: none;
+`
 
 function SidebarTop() {
   const [anchorEl, setAnchorEl] = React.useState(null);
