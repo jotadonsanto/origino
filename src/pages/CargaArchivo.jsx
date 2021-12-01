@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Grid, Card, Button, Typography, Stepper, Step, StepButton, Divider, IconButton } from '@mui/material';
+import DragAndDropInputFile from './../components/common/DragAndDropInputFile';
+import { Grid, Card, Button, Typography, Stepper, Step, StepButton, Divider, IconButton, Stack } from '@mui/material';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faDownload, faPlus } from '@fortawesome/pro-light-svg-icons';
 
@@ -50,20 +51,18 @@ function CargaArchivo() {
         <Typography variant="body2" component="h3" color="text.light" className="d-flex mb-2">El formato permitido para la carga de archivos es<Typography variant="body2" component="h3" color="primary">&nbsp;.xlsx</Typography></Typography>
       </Grid>
 
-      <Grid item xs={3}>
+      <Grid item xs={3} className="d-flex">
         <Card className="d-flex flex-column p-3">
-          <Typography variant="h6" component="h4" color="text.light">Creá una plantilla nueva</Typography>
+          <Typography variant="h6" component="h4" color="text.light">Subí tu excel<br/>precargado</Typography>
           <Divider variant="middle" className="mr-0 ml-0 mt-3 mb-2"/>
           <Typography variant="caption" component="h6" color="text.light" className="mb-4">Si ya tenés el archivo completo, cargalo directamente.</Typography>
-          <StyledIconButton size="large" className="align-self-center">
-            <FontAwesomeIcon icon={faPlus} />
-          </StyledIconButton>
+          <DragAndDropInputFile />
         </Card>
       </Grid>
 
-      <Grid item xs={3}>
+      <Grid item xs={3} className="d-flex">
         <Card className="d-flex flex-column p-3">
-          <Typography variant="h6" component="h4" color="text.light">Cargá un activo de forma individual.</Typography>
+          <Typography variant="h6" component="h4" color="text.light">Subí las<br/>caravanas</Typography>
           <Divider variant="middle" className="mr-0 ml-0 mt-3 mb-2"/>
           <Typography variant="caption" component="h6" color="text.light" className="mb-4">Si necesitás crear solo un activo, podés hacerlo directamente presionando “+”.</Typography>
           <StyledIconButton size="large" className="align-self-center">
@@ -72,9 +71,9 @@ function CargaArchivo() {
         </Card>
       </Grid>
 
-      <Grid item xs={3}>
+      <Grid item xs={3} className="d-flex">
         <Card className="d-flex flex-column p-3">
-          <Typography variant="h6" component="h4" color="text.light">Creá una plantilla nueva</Typography>
+          <Typography variant="h6" component="h4" color="text.light">Creá una plantilla<br/>nueva</Typography>
           <Divider variant="middle" className="mr-0 ml-0 mt-3 mb-2"/>
           <Typography variant="caption" component="h6" color="text.light" className="mb-4">Si ya tenés el archivo completo, cargalo directamente.</Typography>
           <StyledIconButton size="large" className="align-self-center">
@@ -83,9 +82,9 @@ function CargaArchivo() {
         </Card>
       </Grid>
 
-      <Grid item xs={3}>
+      <Grid item xs={3} className="d-flex">
         <Card className="d-flex flex-column p-3">
-          <Typography variant="h6" component="h4" color="text.light">Cargá un activo de forma individual.</Typography>
+          <Typography variant="h6" component="h4" color="text.light">Cargá un activo de<br/>forma individual.</Typography>
           <Divider variant="middle" className="mr-0 ml-0 mt-3 mb-2"/>
           <Typography variant="caption" component="h6" color="text.light" className="mb-4">Si necesitás crear solo un activo, podés hacerlo directamente presionando “+”.</Typography>
           <StyledIconButton size="large" className="align-self-center">
