@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 import { StyledContainer, StyledDrawer, StyledBox } from './App.styles';
 import { ThemeProvider } from '@mui/material/styles';
+import { StyledEngineProvider } from '@mui/material/styles';
 import { activosTheme } from './theme/theme.js';
 import { Box } from '@mui/material';
 import "./theme/global.scss";
@@ -15,25 +16,27 @@ import CargaArchivo from './pages/CargaArchivo';
 function App() {
   return (
     <Router>
-      <ThemeProvider theme={activosTheme} injectFirst>
-        <Box className="d-flex">
-          <StyledDrawer
-            variant="permanent"
-            anchor="left">
-              <Sidebar />
-          </StyledDrawer>
-          <StyledBox
-            className="d-flex flex-column flex"
-            component="main">
-            <Header />
-            <StyledContainer>
-              <Route path="/" exact render={() => <Activos />} />
-              <Route path="/carga" exact render={() => <CargaActivos />} />
-              <Route path="/cargaarchivo" exact render={() => <CargaArchivo />} />
-            </StyledContainer>
-          </StyledBox>
-        </Box>
-      </ThemeProvider>
+      <StyledEngineProvider injectFirst>
+        <ThemeProvider theme={activosTheme} >
+          <Box className="d-flex">
+            <StyledDrawer
+              variant="permanent"
+              anchor="left">
+                <Sidebar />
+            </StyledDrawer>
+            <StyledBox
+              className="d-flex flex-column flex"
+              component="main">
+              <Header />
+              <StyledContainer>
+                <Route path="/" exact render={() => <Activos />} />
+                <Route path="/carga" exact render={() => <CargaActivos />} />
+                <Route path="/cargaarchivo" exact render={() => <CargaArchivo />} />
+              </StyledContainer>
+            </StyledBox>
+          </Box>
+        </ThemeProvider>
+      </StyledEngineProvider>
     </Router>
   );
 }
