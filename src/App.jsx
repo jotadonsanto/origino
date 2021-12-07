@@ -10,8 +10,8 @@ import "./theme/global.scss";
 import Header from './components/Header/Header';
 import Sidebar from './components/Sidebar/Sidebar';
 import Activos from './pages/Activos';
-import CargaActivos from './pages/CargaActivos';
-import CargaArchivo from './pages/CargaArchivo';
+import ActivosCarga from './pages/ActivosCarga';
+import ArchivoCarga from './pages/ArchivoCarga';
 
 function App() {
   return (
@@ -30,8 +30,8 @@ function App() {
               <Header />
               <StyledContainer>
                 <Route path="/" exact render={() => <Activos />} />
-                <Route path="/carga" exact render={() => <CargaActivos />} />
-                <Route path="/cargaarchivo" exact render={() => <CargaArchivo />} />
+                <Route path="/activos/carga" exact render={() => <ActivosCarga />} />
+                <Route path="/archivo/carga" exact render={() => <ArchivoCarga />} />
               </StyledContainer>
             </StyledBox>
           </Box>

@@ -18,7 +18,7 @@ const StyledIconButton = styled(IconButton)`
   }
 `
 
-function CargaArchivo() {
+function ArchivoCarga() {
   const [activeStep, setActiveStep] = React.useState(0);
   const [completed] = React.useState({});
 
@@ -96,4 +96,4 @@ function CargaArchivo() {
   );
 }
 
-export default CargaArchivo;
+export default ArchivoCarga;

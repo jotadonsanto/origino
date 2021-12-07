@@ -5,7 +5,7 @@ import { faChevronDown } from '@fortawesome/pro-light-svg-icons';
 
 const steps = ['ID de caravana', 'Detalles del activo', 'Datos genealogicos', 'Fotos y videos'];
 
-function CargaActivos() {
+function ActivosCarga() {
   const [activeStep, setActiveStep] = React.useState(0);
   const [completed] = React.useState({});
 
@@ -170,4 +170,4 @@ function CargaActivos() {
   );
 }
 
-export default CargaActivos;
+export default ActivosCarga;
