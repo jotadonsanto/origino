@@ -12,6 +12,7 @@ import Sidebar from './components/Sidebar/Sidebar';
 import Activos from './pages/Activos';
 import ActivosCarga from './pages/ActivosCarga';
 import ArchivoCarga from './pages/ArchivoCarga';
+import ArchivoVerificacion from './pages/ArchivoVerificacion';
 
 function App() {
   return (
@@ -32,6 +33,7 @@ function App() {
                 <Route path="/" exact render={() => <Activos />} />
                 <Route path="/activos/carga" exact render={() => <ActivosCarga />} />
                 <Route path="/archivo/carga" exact render={() => <ArchivoCarga />} />
+                <Route path="/archivo/verificacion" exact render={() => <ArchivoVerificacion />} />
               </StyledContainer>
             </StyledBox>
           </Box>
