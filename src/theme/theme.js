@@ -65,6 +65,19 @@ export const activosTheme = createTheme({
         },
       },
     },
+    MuiDataGrid: {
+      styleOverrides: {
+        root: {
+          ".MuiDataGrid-cell--editable": {
+            outline: 'none!important',
+            boxShadow: 'none!important',
+            "&:hover": {
+              cursor: 'pointer',
+            },
+          },
+        },
+      },
+    },
   },
 });
 export const drawerWidth = '16vw';

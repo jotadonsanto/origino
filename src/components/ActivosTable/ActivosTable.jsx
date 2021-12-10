@@ -37,13 +37,13 @@ export default function DataTable({Header}) {
     )
   }
   const columns = [
-    { field: 'id', headerName: 'ID de Caravana', width: 170 },
-    { field: 'raza', headerName: 'Raza', width: 170, sortable: false, },
-    { field: 'especie', headerName: 'Especie', width: 170, sortable: false, },
-    { field: 'sexo', headerName: 'Sexo', width: 170, sortable: false, },
-    { field: 'categoria', headerName: 'Categoria', width: 170, sortable: false, },
-    { field: 'nacimiento', headerName: 'Fecha de Nacimiento', width: 170, sortable: false, },
-    { field: 'more', headerName: '', width: 10, sortable: false, renderCell: moreActionsButton },
+    { field: 'id', headerName: 'ID de Caravana', flex: 1, align:'center', headerAlign: 'center' },
+    { field: 'raza', headerName: 'Raza', flex: 1, align:'center', headerAlign: 'center', sortable: false, },
+    { field: 'especie', headerName: 'Especie', flex: 1, align:'center', headerAlign: 'center', sortable: false, },
+    { field: 'sexo', headerName: 'Sexo', flex: 1, align:'center', headerAlign: 'center', sortable: false, },
+    { field: 'categoria', headerName: 'Categoria', flex: 1, align:'center', headerAlign: 'center', sortable: false, },
+    { field: 'nacimiento', headerName: 'Fecha de Nacimiento', flex: 1, align:'center', headerAlign: 'center', sortable: false, },
+    { field: 'more', headerName: '', width: 20, align:'center', headerAlign: 'center', sortable: false, renderCell: moreActionsButton },
   ];
   const rows = [
     { id: 'SS111-S011', raza: 'Angus', especie: 'Bovina', sexo: 'Macho', categoria: 'Ternero', nacimiento: '23/04/2020'},
