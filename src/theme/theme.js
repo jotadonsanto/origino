@@ -9,7 +9,7 @@ const typography = {
 const palette = {
   primary: {
     light: '#DAFFD7',
-    main: '#176510',
+    main: '#76CC81',
     dark: '#61B15A',
     contrastText: '#FFFFFF',
   },
@@ -55,6 +55,18 @@ export const activosTheme = createTheme({
               fontWeight: 500,
             },
           },
+        },
+      },
+    },
+    MuiButton: {
+      styleOverrides: {
+        root: {
+          "&.MuiButton-contained.Mui-disabled": {
+            color: palette.primary.contrastText,
+            boxShadow: 'none',
+            background: palette.primary.main,
+            opacity: '0.3',
+          }
         },
       },
     },
