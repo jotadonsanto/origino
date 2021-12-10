@@ -90,6 +90,15 @@ export const activosTheme = createTheme({
         },
       },
     },
+    MuiPopover: {
+      styleOverrides: {
+        root: {
+          ".MuiPopover-paper": {
+            boxShadow: '0px 16px 24px 0px rgba(0, 0, 0, 0.05)',
+          },
+        },
+      },
+    },
   },
 });
 export const drawerWidth = '16vw';
