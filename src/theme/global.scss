@@ -53,6 +53,9 @@
 .justify-between {
   justify-content: space-between;
 }
+.justify-end {
+  justify-content: flex-end;
+}
 .align-center {
   align-items: center;
 }
@@ -61,6 +64,11 @@
 }
 .align-self-end {
   align-self: flex-end;
+}
+
+// Overflow
+.overflow-visible {
+  overflow: visible!important;
 }
 
 // Widths
