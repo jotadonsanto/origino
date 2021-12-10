@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import DragAndDropInputFile from './../components/common/DragAndDropInputFile';
-import { Grid, Card, Button, Typography, Stepper, Step, StepButton, Divider, IconButton, Stack } from '@mui/material';
+import { Grid, Card, Button, Typography, Stepper, Step, StepButton, Divider, IconButton } from '@mui/material';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faDownload, faPlus } from '@fortawesome/pro-light-svg-icons';
 
