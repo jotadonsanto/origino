@@ -209,7 +209,11 @@ function ArchivoVerificacion() {
         <Divider variant="middle" className="mt-4"/>
       </Grid>
       <Grid item xs={12} className="d-flex justify-between">
-        <span>
+        <span className="d-flex flex-row align-center">
+          <Card className="d-flex flex-row align-center pt-1 pb-1 pl-2 pr-4 mr-2">
+            <FontAwesomeIcon icon={faInfoCircle} size="1x" className="mr-2" />
+            <Typography variant="body1" component="p">Errores encontrados: 5</Typography>
+          </Card>
           <FormControlLabel control={<Checkbox checked={true} onChange={() => console.log('do something on check')} />} label="Ver solo filas con errores" />
         </span>
         <Button className="ml-2" variant="outlined">SELECCIONAR COLUMNAS</Button>
