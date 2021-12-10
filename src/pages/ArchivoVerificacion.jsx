@@ -12,24 +12,41 @@ const steps = ['Cargar Archivo', 'Verificación', 'Resumen y confirmación'];
 const StyledCellwithError = styled.div`
   width: 100%;
   height: 97%;
+  position: relative;
   border: 1px solid #FF0505;
   color: #FF0505;
   background: #FBDFDF;
+  font-weight: 500;
+  svg{
+    position: absolute;
+    top: -7px;
+    left: 10px;
+    background: white;
+    border-radius: 1em;
+  }
 `
 
 function ArchivoVerificacion() {
+  // For Stepper
   const [activeStep, setActiveStep] = React.useState(0);
   const [completed] = React.useState({});
   const handleStep = (step) => () => {
     setActiveStep(step);
   };
 
+  // For error popover
+  const [errorCell, setErrorCell] = React.useState(null);
+  const errorOpen = Boolean(errorCell);
+  const showError = (event) => { setErrorCell(event.currentTarget) };
+  const closeError = () => { setErrorCell(null);};
+  const errorId = errorOpen ? 'error-popover' : undefined;
 
-  const [anchorEl, setAnchorEl] = React.useState(null);
-  const handleClick = (event) => { setAnchorEl(event.currentTarget);};
-  const handleClose = () => { setAnchorEl(null);};
-  const open = Boolean(anchorEl);
-  const id = open ? 'simple-popover' : undefined;
+  // For ApplyAll popover
+  const [applyAllCell, setApplyAllCell] = React.useState(null);
+  const applyAllOpen = Boolean(applyAllCell);
+  const showApplyAll = (event) => { setApplyAllCell(event.currentTarget) };
+  const closeApplyAll = () => { setApplyAllCell(null);};
+  const applyAllId = applyAllOpen ? 'apply-all-popover' : undefined;
 
   const rows = [
     {
@@ -115,20 +132,22 @@ function ArchivoVerificacion() {
       editable: true,
       align: 'center',
       headerAlign: 'center',
-      cellClassName: (params) =>
-      clsx({'pl-0 pr-0': params.value > 132}),
+      cellClassName: (params) => clsx({'pl-0 pr-0 overflow-visible': params.value > 132}),
+      cellEditCommit: (value) => { console.log(value) },
       renderCell:(params) => {
         return <React.Fragment>
           {params.value > 132 ?
-          <StyledCellwithError
-          onClick={handleClick}>{params.value}</StyledCellwithError>
+          <StyledCellwithError>
+            <FontAwesomeIcon icon={faInfoCircle} size="1x" onClick={showError}/>
+            {params.value}
+          </StyledCellwithError>
           : <span>{params.value}</span>
           }
           <Popover
-            id={id}
-            open={open}
-            anchorEl={anchorEl}
-            onClose={handleClose}
+            id={errorId}
+            open={errorOpen}
+            anchorEl={errorCell}
+            onClose={closeError}
             anchorOrigin={{
               vertical: 'center',
               horizontal: 'left',
@@ -142,7 +161,32 @@ function ArchivoVerificacion() {
               <Typography variant="body2" component="p">
                 El peso no puede ser mayor a 900 KG
               </Typography>
-              <Button variant="text" className="align-self-end" onClick={handleClose}>Entendido</Button>
+              <Button variant="text" className="align-self-end" onClick={closeError}>Entendido</Button>
+            </Card>
+          </Popover>
+
+          <Popover
+            id={applyAllId}
+            open={applyAllOpen}
+            anchorEl={applyAllCell}
+            onClose={closeApplyAll}
+            anchorOrigin={{
+              vertical: 'center',
+              horizontal: 'left',
+            }}
+            transformOrigin={{
+              vertical: 'center',
+              horizontal: 'right',
+            }}>
+            <Card className="p-2 d-flex flex-column">
+              <FontAwesomeIcon icon={faInfoCircle} className="mb-1"/>
+              <Typography variant="body2" component="p">
+                ¿Querés aplicar este valor a todos los activos?
+              </Typography>
+              <div className="d-flex mt-2 justify-end">
+                <Button variant="outlined" className="mr-2" onClick={closeApplyAll}>No Aplicar</Button>
+                <Button variant="contained" onClick={closeApplyAll}>Aplicar</Button>
+              </div>
             </Card>
           </Popover>
         </React.Fragment>
@@ -180,9 +224,13 @@ function ArchivoVerificacion() {
           disableColumnFilter
           disableColumnMenu
           disableSelectionOnClick
-          autoHeight />
+          autoHeight
+          onCellEditCommit={(params, event, details) => {
+            console.log(params, event, details);
+            showApplyAll(event);
+          }} />
       </Grid>
-      <Grid item xs={12}>
+      <Grid item xs={12} className="d-flex justify-center">
         <Button variant="contained" disabled>Continuar</Button>
       </Grid>
     </Grid>
