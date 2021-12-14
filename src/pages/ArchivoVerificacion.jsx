@@ -1,38 +1,24 @@
 import React from 'react';
-import styled from 'styled-components';
 import clsx from 'clsx';
-import { Grid, Stepper, Step, StepButton, Divider, Button, Checkbox, FormControlLabel, Popover, Card, Typography } from '@mui/material';
+import { Grid, Stepper, Step, StepButton, Divider, Button, Checkbox, FormControlLabel, Card, Typography } from '@mui/material';
 import { DataGrid } from '@mui/x-data-grid';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faExclamationCircle } from '@fortawesome/pro-light-svg-icons';
+import TableCell from '../components/archivos/verificacion/TableCell';
 // This is only for test purposes, delete when fetching real data
 import { randomCreatedDate, randomTraderName } from '@mui/x-data-grid-generator';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faInfoCircle } from '@fortawesome/pro-light-svg-icons';
-
-const steps = ['Cargar Archivo', 'Verificación', 'Resumen y confirmación'];
-const StyledCellwithError = styled.div`
-  width: 100%;
-  height: 97%;
-  position: relative;
-  border: 1px solid #FF0505;
-  color: #FF0505;
-  background: #FBDFDF;
-  font-weight: 500;
-  svg{
-    position: absolute;
-    top: -7px;
-    left: 10px;
-    background: white;
-    border-radius: 1em;
-  }
-`
 
 function ArchivoVerificacion() {
   // For Stepper
+  const steps = ['Cargar Archivo', 'Verificación', 'Resumen y confirmación'];
   const [activeStep, setActiveStep] = React.useState(0);
   const [completed] = React.useState({});
   const handleStep = (step) => () => {
     setActiveStep(step);
   };
+
+  // For error cell - apply real validation here.
+  const hasErrors = (params) => (params.value > 130 ? true : false);
 
   // For error popover
   const [errorCell, setErrorCell] = React.useState(null);
@@ -125,71 +111,16 @@ function ArchivoVerificacion() {
     { field: 'denticion', headerName: 'Dentición', type: 'number', flex: 1, editable: true, align: 'center', headerAlign: 'center' },
     { field: 'sistema_productivo', headerName: 'Sistema productivo', type: 'singleSelect', valueOptions: ['Pastura', 'Otros', 'Otros 2'], flex: 1, editable: true, align: 'center', headerAlign: 'center' },
     { field: 'lote', headerName: 'Lote', type: 'number', flex: 1, editable: true, align: 'center', headerAlign: 'center' },
-    {
-      field: 'peso',
-      headerName: 'Peso (KG)',
-      flex: 1,
-      editable: true,
-      align: 'center',
-      headerAlign: 'center',
-      cellClassName: (params) => clsx({'pl-0 pr-0 overflow-visible': params.value > 132}),
-      cellEditCommit: (value) => { console.log(value) },
+    { field: 'peso', headerName: 'Peso (KG)', flex: 1, editable: true, align: 'center', headerAlign: 'center',
+      cellClassName: (params) => clsx({'pl-0 pr-0 overflow-visible': hasErrors(params)}),
       renderCell:(params) => {
-        return <React.Fragment>
-          {params.value > 132 ?
-          <StyledCellwithError>
-            <FontAwesomeIcon icon={faInfoCircle} size="1x" onClick={showError}/>
-            {params.value}
-          </StyledCellwithError>
-          : <span>{params.value}</span>
-          }
-          <Popover
-            id={errorId}
-            open={errorOpen}
-            anchorEl={errorCell}
-            onClose={closeError}
-            anchorOrigin={{
-              vertical: 'center',
-              horizontal: 'left',
-            }}
-            transformOrigin={{
-              vertical: 'center',
-              horizontal: 'right',
-            }}>
-            <Card className="p-2 d-flex flex-column">
-              <FontAwesomeIcon icon={faInfoCircle} className="mb-1"/>
-              <Typography variant="body2" component="p">
-                El peso no puede ser mayor a 900 KG
-              </Typography>
-              <Button variant="text" className="align-self-end" onClick={closeError}>Entendido</Button>
-            </Card>
-          </Popover>
-
-          <Popover
-            id={applyAllId}
-            open={applyAllOpen}
-            anchorEl={applyAllCell}
-            onClose={closeApplyAll}
-            anchorOrigin={{
-              vertical: 'center',
-              horizontal: 'left',
-            }}
-            transformOrigin={{
-              vertical: 'center',
-              horizontal: 'right',
-            }}>
-            <Card className="p-2 d-flex flex-column">
-              <FontAwesomeIcon icon={faInfoCircle} className="mb-1"/>
-              <Typography variant="body2" component="p">
-                ¿Querés aplicar este valor a todos los activos?
-              </Typography>
-              <div className="d-flex mt-2 justify-end">
-                <Button variant="outlined" className="mr-2" onClick={closeApplyAll}>No Aplicar</Button>
-                <Button variant="contained" onClick={closeApplyAll}>Aplicar</Button>
-              </div>
-            </Card>
-          </Popover>
-        </React.Fragment>
+        return <TableCell
+          hasErrors={hasErrors} params={params}
+          showError={showError} errorId={errorId}
+          errorOpen={errorOpen} errorCell={errorCell}
+          closeError={closeError} applyAllId={applyAllId}
+          applyAllOpen={applyAllOpen} applyAllCell={applyAllCell}
+          closeApplyAll={closeApplyAll} />
       }},
   ];
 
@@ -211,7 +142,7 @@ function ArchivoVerificacion() {
       <Grid item xs={12} className="d-flex justify-between">
         <span className="d-flex flex-row align-center">
           <Card className="d-flex flex-row align-center pt-1 pb-1 pl-2 pr-4 mr-2">
-            <FontAwesomeIcon icon={faInfoCircle} size="1x" className="mr-2" />
+            <FontAwesomeIcon icon={faExclamationCircle} size="1x" className="mr-2" color="#FF0505"/>
             <Typography variant="body1" component="p">Errores encontrados: 5</Typography>
           </Card>
           <FormControlLabel control={<Checkbox checked={true} onChange={() => console.log('do something on check')} />} label="Ver solo filas con errores" />
