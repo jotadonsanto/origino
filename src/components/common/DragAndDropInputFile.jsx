@@ -34,7 +34,7 @@ function DragAndDropInputFile() {
   return (
     <DropZone>
       <StyledDropZone className="d-flex flex-row justify-between align-center pt-2 pb-2 pl-3 pr-3">
-        <FontAwesomeIcon size="lg" icon={faClone} />
+        <FontAwesomeIcon size="lg" icon={faClone} className="mr-2"/>
         <Typography variant="caption" component="p" color="text.primary">Arrastrá el archivo aquí<br/>o <u>desde tu computadora</u></Typography>
       </StyledDropZone>
     </DropZone>

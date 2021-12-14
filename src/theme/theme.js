@@ -73,7 +73,9 @@ export const activosTheme = createTheme({
     MuiTypography: {
       styleOverrides: {
         root: {
-          fontFamily: `'Ubuntu', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'sans-serif'`,
+          "&.MuiTypography-h6": {
+            'line-height': '1.4',
+          },
         },
       },
     },
