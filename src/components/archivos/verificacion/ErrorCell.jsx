@@ -6,16 +6,14 @@ import { faInfoCircle } from '@fortawesome/pro-light-svg-icons';
 const StyledCellwithError = styled.div`
   width: 100%;
   height: 97%;
-  position: relative;
   border: 1px solid #FF0505;
   color: #FF0505;
   background: #FBDFDF;
   font-weight: 500;
-  svg{
-    position: absolute;
-    top: -7px;
-    left: 10px;
-    background: white;
+  cursor: initial;
+  svg {
+    cursor: pointer;
+    margin-left: -1.5rem;
     border-radius: 1em;
   }
 `
@@ -23,7 +21,7 @@ const StyledCellwithError = styled.div`
 function ErrorCell({params, showError}) {
     return (
       <StyledCellwithError>
-        <FontAwesomeIcon icon={faInfoCircle} size="1x" onClick={showError}/>
+        <FontAwesomeIcon icon={faInfoCircle} size="1x" onClick={showError} className="mr-1"/>
         {params.value}
       </StyledCellwithError>
     );

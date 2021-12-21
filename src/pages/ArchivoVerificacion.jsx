@@ -19,6 +19,8 @@ function ArchivoVerificacion() {
 
   // For error cell - apply real validation here.
   const hasErrors = (params) => (params.value > 130 ? true : false);
+  // Check that the error has been fixed to return true. Now its fake.
+  const isFixed = (params) => (params.value === 130 ? true : false);
 
   // For error popover
   const [errorCell, setErrorCell] = React.useState(null);
@@ -46,7 +48,7 @@ function ArchivoVerificacion() {
       denticion: 6,
       sistema_productivo: 'Pastura',
       lote: 124,
-      peso: 130,
+      peso: 128,
     },
     {
       id: 2,
@@ -59,7 +61,7 @@ function ArchivoVerificacion() {
       denticion: 6,
       sistema_productivo: 'Pastura',
       lote: 124,
-      peso: 131,
+      peso: 130,
     },
     {
       id: 3,
@@ -72,7 +74,7 @@ function ArchivoVerificacion() {
       denticion: 6,
       sistema_productivo: 'Pastura',
       lote: 124,
-      peso: 132,
+      peso: 129,
     },
     {
       id: 4,
@@ -98,7 +100,7 @@ function ArchivoVerificacion() {
       denticion: 6,
       sistema_productivo: 'Pastura',
       lote: 124,
-      peso: 130,
+      peso: 132,
     },
   ];
   const columns = [
@@ -112,10 +114,10 @@ function ArchivoVerificacion() {
     { field: 'sistema_productivo', headerName: 'Sistema productivo', type: 'singleSelect', valueOptions: ['Pastura', 'Otros', 'Otros 2'], flex: 1, editable: true, align: 'center', headerAlign: 'center' },
     { field: 'lote', headerName: 'Lote', type: 'number', flex: 1, editable: true, align: 'center', headerAlign: 'center' },
     { field: 'peso', headerName: 'Peso (KG)', flex: 1, editable: true, align: 'center', headerAlign: 'center',
-      cellClassName: (params) => clsx({'pl-0 pr-0 overflow-visible': hasErrors(params)}),
+      cellClassName: (params) => clsx({'pl-0 pr-0 overflow-visible': hasErrors(params) || isFixed(params)}),
       renderCell:(params) => {
         return <TableCell
-          hasErrors={hasErrors} params={params}
+          hasErrors={hasErrors} isFixed={isFixed} params={params}
           showError={showError} errorId={errorId}
           errorOpen={errorOpen} errorCell={errorCell}
           closeError={closeError} applyAllId={applyAllId}
@@ -143,7 +145,7 @@ function ArchivoVerificacion() {
         <span className="d-flex flex-row align-center">
           <Card className="d-flex flex-row align-center pt-1 pb-1 pl-2 pr-4 mr-2">
             <FontAwesomeIcon icon={faExclamationCircle} size="1x" className="mr-2" color="#FF0505"/>
-            <Typography variant="body1" component="p">Errores encontrados: 5</Typography>
+            <Typography variant="body1" component="p">Errores encontrados: <span className="text-red">5</span></Typography>
           </Card>
           <FormControlLabel control={<Checkbox checked={true} onChange={() => console.log('do something on check')} />} label="Ver solo filas con errores" />
         </span>

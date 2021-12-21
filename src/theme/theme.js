@@ -74,7 +74,7 @@ export const activosTheme = createTheme({
       styleOverrides: {
         root: {
           "&.MuiTypography-h6": {
-            'line-height': '1.4',
+            lineHeight: '1.4',
           },
         },
       },
@@ -87,6 +87,13 @@ export const activosTheme = createTheme({
             boxShadow: 'none!important',
             "&:hover": {
               cursor: 'pointer',
+            },
+            "> .Mui-focused": {
+              border: '1px solid #3969E8',
+              borderRadius: 0,
+              ".MuiOutlinedInput-notchedOutline": {
+                border: 'none',
+              },
             },
           },
         },

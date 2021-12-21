@@ -2,11 +2,14 @@ import React from 'react';
 import PopoverErrorMesssage from './PopoverErrorMessage';
 import PopoverApplyAll from './PopoverApplyAll';
 import ErrorCell from './ErrorCell';
+import FixedCell from './FixedCell';
 
-function TableCell({hasErrors, params, showError, errorId, errorOpen, errorCell, closeError, applyAllId, applyAllOpen, applyAllCell, closeApplyAll}) {
+function TableCell({hasErrors, isFixed, params, showError, errorId, errorOpen, errorCell, closeError, applyAllId, applyAllOpen, applyAllCell, closeApplyAll}) {
     return (
       <React.Fragment>
-        { hasErrors(params) ? <ErrorCell params={params} showError={showError} /> : <span>{params.value}</span> }
+        { hasErrors(params) ? <ErrorCell params={params} showError={showError} /> :
+          isFixed(params) ? <FixedCell params={params}/> :
+          <span>{params.value}</span> }
         <PopoverErrorMesssage
           errorId={errorId}
           errorOpen={errorOpen}
