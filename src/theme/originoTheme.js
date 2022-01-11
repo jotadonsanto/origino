@@ -37,7 +37,7 @@ const breakpoints = {
   },
 }
 
-export const activosTheme = createTheme({
+export const originoTheme = createTheme({
   palette: palette,
   typography: typography,
   breakpoints: breakpoints,
@@ -111,4 +111,4 @@ export const activosTheme = createTheme({
   },
 });
 export const drawerWidth = '16vw';
-export default activosTheme;
+export default originoTheme;

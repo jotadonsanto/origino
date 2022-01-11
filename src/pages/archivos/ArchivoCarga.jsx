@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyledIconButton } from './ArchivoCarga.styles';
-import DragAndDropInputFile from './../components/common/DragAndDropInputFile';
+import DragAndDropInputFile from '../../components/common/DragAndDropInputFile';
 import { Grid, Card, Button, Typography, Stepper, Step, StepButton, Divider, Popover } from '@mui/material';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faDownload, faPlus, faInfoCircle } from '@fortawesome/pro-light-svg-icons';

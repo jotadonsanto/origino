@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { drawerWidth } from './theme/theme.js';
+import { drawerWidth } from '../theme/originoTheme.js';
 import { Container, Box, Drawer } from '@mui/material';
 
 export const StyledContainer = styled(Container)`
