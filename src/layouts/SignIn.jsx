@@ -2,24 +2,24 @@ import React from 'react';
 import { BrowserRouter as Route } from 'react-router-dom';
 import { ThemeProvider } from '@mui/material/styles';
 import { StyledEngineProvider } from '@mui/material/styles';
-import { originoTheme } from '../theme/originoTheme.js';
-import Activos from '../pages/activos/Activos';
+import { signInTheme } from '../theme/signInTheme.js';
+import Alta from '../pages/signin/Alta';
 
 const pages = [
   {
     exact: true,
     path: '/signin',
-    component: Activos,
+    component: Alta,
   },
 ]
 
 function Main() {
   return (
     <StyledEngineProvider injectFirst>
-      <ThemeProvider theme={originoTheme} >
+      <ThemeProvider theme={signInTheme} >
         {pages.map((page, index) => (
           <Route key={index} path={page.path} exact>
-            <p>SignIn</p>
+            <page.component/>
           </Route>
         ))}
       </ThemeProvider>
