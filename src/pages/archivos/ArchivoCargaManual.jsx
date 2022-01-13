@@ -1,12 +1,8 @@
 import React from 'react';
 import clsx from 'clsx';
-import { Grid, Stepper, Step, StepButton, Divider, Button, Checkbox, FormControlLabel, Card, Typography } from '@mui/material';
+import { Grid, Stepper, Step, StepButton, Divider, Button } from '@mui/material';
 import { DataGrid } from '@mui/x-data-grid';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faExclamationCircle } from '@fortawesome/pro-light-svg-icons';
 import TableCell from '../../components/archivos/verificacion/TableCell';
-// This is only for test purposes, delete when fetching real data
-import { randomCreatedDate, randomTraderName } from '@mui/x-data-grid-generator';
 
 function ArchivoCargaManual() {
   // For Stepper
