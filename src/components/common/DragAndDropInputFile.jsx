@@ -20,22 +20,23 @@ function DropZone({children}) {
   );
 }
 
-const StyledDropZone = styled.div`
-  border: 2px dashed #FFA589;
-  border-radius: 4px;
-  u {
-    cursor: pointer;
-  }
-  svg path {
-    fill: #FFA589;
-  }
-`
-function DragAndDropInputFile() {
+function DragAndDropInputFile({itemToDrag, color}) {
+  const colorTheme = color === 'blue' ? '#3969E8' : '#FFA589';
+  const StyledDropZone = styled.div`
+    border: 2px dashed ${colorTheme};
+    border-radius: 4px;
+    u {
+      cursor: pointer;
+    }
+    svg path {
+      fill: ${colorTheme};
+    }
+  `
   return (
     <DropZone>
       <StyledDropZone className="d-flex flex-row justify-between align-center pt-2 pb-2 pl-3 pr-3">
         <FontAwesomeIcon size="lg" icon={faClone} className="mr-2"/>
-        <Typography variant="caption" component="p" color="text.primary">Arrastrá el archivo aquí<br/>o <u>desde tu computadora</u></Typography>
+        <Typography variant="caption" component="p" color="text.primary">Arrastrá el {itemToDrag ? itemToDrag : 'archivo'} aquí<br/>o <u>desde tu computadora</u></Typography>
       </StyledDropZone>
     </DropZone>
   );

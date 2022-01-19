@@ -41,6 +41,9 @@
 .flex {
   flex: 1;
 }
+.flex-wrap {
+  flex-wrap: wrap;
+}
 .flex-column {
   flex-direction: column;
 }
@@ -61,6 +64,9 @@
 }
 .align-self-center {
   align-self: center;
+}
+.align-self-start {
+  align-self: flex-start;
 }
 .align-self-end {
   align-self: flex-end;

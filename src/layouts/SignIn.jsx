@@ -8,7 +8,9 @@ import DatosPersonales from '../pages/signin/cuenta/DatosPersonales';
 import Localizacion from '../pages/signin/cuenta/Localizacion';
 import Activada from '../pages/signin/cuenta/Activada';
 import EmailEnviado from '../pages/signin/EmailEnviado';
-import Cadenas from '../pages/signin/establecimiento/Cadenas';
+import Cadenas from '../pages/signin/empresa/Cadenas';
+import EstablecimientoRegistro from '../pages/signin/establecimiento/EstablecimientoRegistro';
+import EstablecimientoImagenes from '../pages/signin/establecimiento/EstablecimientoImagenes';
 
 const pages = [
   {
@@ -38,8 +40,18 @@ const pages = [
   },
   {
     exact: true,
-    path: '/signin/establecimiento/cadenas',
+    path: '/signin/empresa/cadenas',
     component: Cadenas,
+  },
+  {
+    exact: true,
+    path: '/signin/establecimiento/registro',
+    component: EstablecimientoRegistro,
+  },
+  {
+    exact: true,
+    path: '/signin/establecimiento/imagenes',
+    component: EstablecimientoImagenes,
   },
 ]
 
