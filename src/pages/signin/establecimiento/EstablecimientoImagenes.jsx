@@ -40,7 +40,7 @@ function EstablecimientoImagenes() {
         </Stepper>
         <div className="d-flex flex-column">
           <Typography variant="body2" component="label" color="text.primary" className="mt-4 mb-1">Logo del establecimiento</Typography>
-          <DragAndDropInputFile itemToDrag={'logo'} color="blue"/>
+          <DragAndDropInputFile itemToDrag={'el logo'} color="#3969E8"/>
           <FormControlLabel
             control={<Checkbox checked={true}
             onChange={() => console.log('do something on check')} />}
@@ -49,15 +49,15 @@ function EstablecimientoImagenes() {
         </div>
         <div className="d-flex flex-column">
           <Typography variant="body2" component="label" color="text.primary" className="mt-4 mb-1">Imagenes X</Typography>
-          <DragAndDropInputFile itemToDrag={'logo'} color="blue"/>
+          <DragAndDropInputFile itemToDrag={'el logo'} color="#3969E8"/>
         </div>
         <div className="d-flex flex-column">
           <Typography variant="body2" component="label" color="text.primary" className="mt-4 mb-1">Imagenes X</Typography>
-          <DragAndDropInputFile itemToDrag={'logo'} color="blue"/>
+          <DragAndDropInputFile itemToDrag={'el logo'} color="#3969E8"/>
         </div>
         <div className="d-flex flex-column">
           <Typography variant="body2" component="label" color="text.primary" className="mt-4 mb-1">Imagenes X</Typography>
-          <DragAndDropInputFile itemToDrag={'logo'} color="blue"/>
+          <DragAndDropInputFile itemToDrag={'el logo'} color="#3969E8"/>
         </div>
         <Button variant="contained" className="mt-4">Finalizar</Button>
       </StyledRightSide>

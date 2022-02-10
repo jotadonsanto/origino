@@ -13,6 +13,7 @@ import ActivosCarga from '../pages/activos/ActivosCarga';
 import ArchivoCarga from '../pages/archivos/ArchivoCarga';
 import ArchivoCargaManual from '../pages/archivos/ArchivoCargaManual';
 import ArchivoVerificacion from '../pages/archivos/ArchivoVerificacion';
+import Transferencia from '../pages/transferencia/Transferencia';
 
 const pages = [
   {
@@ -39,6 +40,11 @@ const pages = [
     exact: true,
     path: '/archivo/verificacion',
     component: ArchivoVerificacion,
+  },
+  {
+    exact: true,
+    path: '/transferencia',
+    component: Transferencia,
   },
 ]
 
