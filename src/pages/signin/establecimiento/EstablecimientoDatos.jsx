@@ -22,7 +22,7 @@ const steps = [
   }
 ]
 
-function EstablecimientoRegistro() {
+function EstablecimientoDatos() {
   return (
     <StyledContainer container spacing={0}>
       <StyledLeftSide item xs={6} className="d-flex flex-column align-center justify-center">
@@ -43,8 +43,7 @@ function EstablecimientoRegistro() {
             labelId="pais"
             id="pais"
             value=""
-            label="Selecciona empresa"
-            onChange="" >
+            label="Selecciona empresa" >
             <MenuItem value={10}>Argentina</MenuItem>
             <MenuItem value={20}>Brasil</MenuItem>
             <MenuItem value={30}>Chile</MenuItem>
@@ -83,4 +82,4 @@ function EstablecimientoRegistro() {
   );
 }
 
-export default EstablecimientoRegistro;
+export default EstablecimientoDatos;
