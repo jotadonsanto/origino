@@ -58,6 +58,13 @@ export const originoTheme = createTheme({
         },
       },
     },
+    MuiCard: {
+      styleOverrides: {
+        root: {
+          color: 'inherit',
+        },
+      },
+    },
     MuiButton: {
       styleOverrides: {
         root: {

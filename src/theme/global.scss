@@ -53,6 +53,9 @@
 .justify-center {
   justify-content: center;
 }
+.justify-stretch {
+  justify-content: stretch;
+}
 .justify-between {
   justify-content: space-between;
 }
@@ -75,6 +78,12 @@
 // Text Helpers
 .text-red {
   color: #FF0505;
+}
+.text-center {
+  text-align: center;
+}
+.font-weight-normal {
+  font-weight: 400;
 }
 
 // Overflow

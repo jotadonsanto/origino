@@ -10,5 +10,5 @@ export const StyledLeftSide = styled(Grid)`
 `;
 
 export const StyledRightSide = styled(Grid)`
-    padding: 0 11vw;
+    padding: 0 8vw;
 `;
