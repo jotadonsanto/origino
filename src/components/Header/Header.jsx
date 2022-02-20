@@ -4,9 +4,13 @@ import { Box, Typography } from '@mui/material';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBell } from '@fortawesome/pro-light-svg-icons';
 
-function Header() {
+function Header({ theme }) {
+  const getColor = () => {
+    return theme.palette.primary.main;
+  }
+
   return (
-    <StyledHeader>
+    <StyledHeader backgroundColor={getColor}>
       <Box>
         <Typography variant="h3" color="#fff" component="div">
           Resumen de carga

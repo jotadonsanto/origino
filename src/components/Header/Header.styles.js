@@ -7,7 +7,7 @@ export const StyledHeader = styled.div`
   justify-content: space-between;
   align-items: center;
   padding: 1.5rem 1.5rem 1.5rem 5rem;
-  background: linear-gradient(267.76deg, rgba(112, 225, 72, 0.94) 11.23%, rgba(72, 225, 106, 0.8) 96.67%);
+  background: ${props => props.backgroundColor || "linear-gradient(267.76deg, rgba(112, 225, 72, 0.94) 11.23%, rgba(72, 225, 106, 0.8) 96.67%)"};
   mix-blend-mode: multiply;
 `
 export const StyledNotifications = styled(IconButton)`

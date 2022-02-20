@@ -3,7 +3,8 @@ import { BrowserRouter as Route, Switch } from 'react-router-dom'
 import { StyledContainer, StyledDrawer, StyledBox } from './Main.styles';
 import { ThemeProvider } from '@mui/material/styles';
 import { StyledEngineProvider } from '@mui/material/styles';
-import { originoTheme } from '../theme/originoTheme.js';
+import { greenTheme } from '../theme/greenTheme.js';
+import { blueTheme } from '../theme/blueTheme.js';
 import { Box } from '@mui/material';
 
 import Header from '../components/Header/Header';
@@ -12,10 +13,21 @@ import { MainRoutes } from '../routes';
 
 
 
+
+
 function Main() {
+  const [theme, setTheme] = React.useState(greenTheme);
+  function chooseColor(color) {
+    if (color === 'blue') {
+      setTheme(blueTheme);
+    } else {
+      setTheme(greenTheme);
+    }
+    }
+
   return (
     <StyledEngineProvider injectFirst>
-      <ThemeProvider theme={originoTheme} >
+      <ThemeProvider theme={theme} >
         <Box className="d-flex">
           <StyledDrawer
             variant="permanent"
@@ -25,12 +37,12 @@ function Main() {
           <StyledBox
             className="d-flex flex-column flex"
             component="main">
-            <Header />
+            <Header theme={theme} />
             <StyledContainer>
               <Switch>
               {MainRoutes.map((page, index) => (
                 <Route key={index} path={page.path} exact>
-                  <page.component/>
+                  <page.component onLoad={chooseColor}/>
                 </Route>
               ))}
               </Switch>
