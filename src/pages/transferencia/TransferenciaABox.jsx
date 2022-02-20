@@ -3,7 +3,7 @@ import DragAndDropInputFile from '../../components/common/DragAndDropInputFile';
 import { Grid, Stack, Button, Typography, TextField, InputAdornment, Card, Dialog, DialogTitle, DialogContent } from '@mui/material';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch, faFilePdf, faTrashCan, faTag } from '@fortawesome/pro-light-svg-icons';
-import { StyledImageSeparator } from './TransferenciaABox';
+import { StyledImageSeparator } from './TransferenciaABox.styles';
 
 function TransferenciaABox() {
   // For Modal
