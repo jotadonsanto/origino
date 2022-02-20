@@ -3,8 +3,8 @@ import ActivosCarga from './pages/activos/ActivosCarga';
 import ArchivoCarga from './pages/archivos/ArchivoCarga';
 import ArchivoCargaManual from './pages/archivos/ArchivoCargaManual';
 import ArchivoVerificacion from './pages/archivos/ArchivoVerificacion';
-import Transferencia from './pages/transferencia/Transferencia';
 import TransferenciaABox from './pages/transferencia/TransferenciaABox';
+import Transferencia from './pages/transferencia/Transferencia';
 import Crear from './pages/signin/cuenta/Crear';
 import DatosPersonales from './pages/signin/cuenta/DatosPersonales';
 import Localizacion from './pages/signin/cuenta/Localizacion';
@@ -14,6 +14,7 @@ import Cadenas from './pages/signin/empresa/Cadenas';
 import EstablecimientoTipos from './pages/signin/establecimiento/EstablecimientoTipos';
 import EstablecimientoDatos from './pages/signin/establecimiento/EstablecimientoDatos';
 import EstablecimientoImagenes from './pages/signin/establecimiento/EstablecimientoImagenes';
+import SubEstablecimiento from './pages/establecimiento/SubEstablecimiento.jsx';
 
 const MainRoutes = [
   {
@@ -43,13 +44,18 @@ const MainRoutes = [
   },
   {
     exact: true,
+    path: '/transferencia/box',
+    component: TransferenciaABox,
+  },
+  {
+    exact: true,
     path: '/transferencia',
     component: Transferencia,
   },
   {
     exact: true,
-    path: '/transferencia/box',
-    component: TransferenciaABox,
+    path: '/establecimientos/subestablecimiento',
+    component: SubEstablecimiento,
   },
 ];
 
