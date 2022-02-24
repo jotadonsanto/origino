@@ -47,7 +47,7 @@ function ArchivoNotificaciones() {
             }
           >
             <Box className="d-flex pt-3 pl-1">
-              <Typography variant="body1" component="p" color="#666666">
+              <Typography variant="body1" component="p" color="black">
                 Transferencia recibida de Box Las Marias
               </Typography>
               <StyledBadge badgeContent={1} />
