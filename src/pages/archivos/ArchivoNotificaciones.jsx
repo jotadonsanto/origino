@@ -1,14 +1,15 @@
-import React from "react";
+import React from 'react';
 import {
   CkeckStepIcon,
   InfoStepIcon,
   RejectedtepIcon,
   stringAvatar,
   StyledBadge,
+  StyledBoldTypography,
   StyledConnector,
   StyleStepContent,
   TrasferStepIcon,
-} from "./ArchivoNotificaciones.styles";
+} from './ArchivoNotificaciones.styles';
 import {
   Avatar,
   Box,
@@ -17,9 +18,9 @@ import {
   Step,
   Stepper,
   Link,
-} from "@mui/material";
-import Filter from "../../components/archivos/verificacion/Filter";
-import NotificationActivo from "../../components/archivos/verificacion/NotificationActivo";
+} from '@mui/material';
+import Filter from '../../components/archivos/verificacion/Filter';
+import NotificationActivo from '../../components/archivos/verificacion/NotificationActivo';
 
 function ArchivoNotificaciones() {
   return (
@@ -27,7 +28,7 @@ function ArchivoNotificaciones() {
       <Filter />
       <Stepper
         nonLinear
-        orientation="vertical"
+        orientation='vertical'
         connector={<StyledConnector />}
         activeStep={1}
       >
@@ -37,17 +38,17 @@ function ArchivoNotificaciones() {
             StepIconComponent={TrasferStepIcon}
             optional={
               <Typography
-                className="pl-1 mt-1"
-                variant="body1"
-                component="p"
-                color="text.primary"
+                className='pl-1 mt-1'
+                variant='body1'
+                component='p'
+                color='text.primary'
               >
                 Hoy, 17:30 Hs
               </Typography>
             }
           >
-            <Box className="d-flex pt-3 pl-1">
-              <Typography variant="body1" component="p" color="black">
+            <Box className='d-flex pt-3 pl-1'>
+              <Typography variant='body1' component='p' color='black'>
                 Transferencia recibida de Box Las Marias
               </Typography>
               <StyledBadge badgeContent={1} />
@@ -55,11 +56,11 @@ function ArchivoNotificaciones() {
           </StepLabel>
           <StyleStepContent>
             <NotificationActivo
-              activo="10"
-              box="Las Marias"
-              partido="Villa Consitucion, Santa Ana, Buenos Aires"
-              email="email@email.com"
-              telefono="(987) 53679865"
+              activo='10'
+              box='Las Marias'
+              partido='Villa Consitucion, Santa Ana, Buenos Aires'
+              email='email@email.com'
+              telefono='(987) 53679865'
             />
           </StyleStepContent>
         </Step>
@@ -67,37 +68,38 @@ function ArchivoNotificaciones() {
           <StepLabel
             StepIconComponent={CkeckStepIcon}
             optional={
-              <Box className="pl-1 mt-1">
+              <Box className='pl-1 mt-1'>
                 <Typography
-                  className="d-flex flex-row mt-1"
-                  variant="body1"
-                  component="p"
-                  color="text.primary"
+                  className='d-flex flex-row mt-1'
+                  variant='body1'
+                  component='p'
+                  color='text.primary'
                 >
                   <Avatar
-                    {...stringAvatar("Sabrina Gracias Demestre")}
-                    className="mr-1 "
-                    color="green"
-                  />{" "}
+                    {...stringAvatar('Sabrina Gracias Demestre')}
+                    className='mr-1 '
+                    color='green'
+                  />{' '}
                   Sabrina Gracias Demestre &middot; Boxes
                 </Typography>
 
                 <Typography
-                  variant="body1"
-                  className="mt-1"
-                  component="p"
-                  color="text.primary"
+                  variant='body1'
+                  className='mt-1'
+                  component='p'
+                  color='text.primary'
                 >
                   Hoy, 16:30 Hs
                 </Typography>
               </Box>
             }
           >
-            <Typography className="flex-row d-flex pt-1 pl-1">
-              Transferencia aceptada de
-              <font color="green" className="pl-1">
+            <Typography className='flex-row d-flex pt-1 pl-1'>
+              Transferencia aceptada de &nbsp;
+              <StyledBoldTypography color='primary'>
+                {' '}
                 Box Las Marias
-              </font>
+              </StyledBoldTypography>
             </Typography>
           </StepLabel>
         </Step>
@@ -105,32 +107,32 @@ function ArchivoNotificaciones() {
           <StepLabel
             StepIconComponent={CkeckStepIcon}
             optional={
-              <Box className="pl-1 mt-1">
+              <Box className='pl-1 mt-1'>
                 <Typography
-                  variant="body1"
-                  component="p"
-                  color="text.primary"
-                  className="d-flex flex-row"
+                  variant='body1'
+                  component='p'
+                  color='text.primary'
+                  className='d-flex flex-row'
                 >
-                  {"Activos > box 2B > box 1B-A"}
+                  {'Activos > box 2B > box 1B-A'}
                 </Typography>
 
                 <Typography
-                  variant="body1"
-                  className="mt-1"
-                  component="p"
-                  color="text.primary"
+                  variant='body1'
+                  className='mt-1'
+                  component='p'
+                  color='text.primary'
                 >
                   Hoy, 16:30 Hs
                 </Typography>
               </Box>
             }
           >
-            <Typography className="flex-row d-flex pl-1">
-              Nuevo excell disponible para descargar en{" "}
-              <font color="green" className="pl-1">
+            <Typography className='flex-row d-flex pl-1'>
+              Nuevo excell disponible para descargar en &nbsp;
+              <StyledBoldTypography color='primary'>
                 Activos
-              </font>
+              </StyledBoldTypography>
             </Typography>
           </StepLabel>
         </Step>
@@ -139,21 +141,19 @@ function ArchivoNotificaciones() {
             StepIconComponent={InfoStepIcon}
             optional={
               <Typography
-                variant="body1"
-                component="p"
-                color="text.primary"
-                className="pl-1 mt-1"
+                variant='body1'
+                component='p'
+                color='text.primary'
+                className='pl-1 mt-1'
               >
                 Hoy, 16:30 Hs
               </Typography>
             }
           >
-            <Typography className="flex-row d-flex pt-3 pl-1">
+            <Typography className='flex-row d-flex pt-3 pl-1'>
               La detención de tus activos no fue actualizada en los últimos 3
-              meses.{" "}
-              <Link color="#ED8A98" className="pl-1">
-                Actualizar
-              </Link>
+              meses. &nbsp;
+              <Link color='#ED8A98'>Actualizar</Link>
             </Typography>
           </StepLabel>
         </Step>
@@ -162,23 +162,24 @@ function ArchivoNotificaciones() {
             StepIconComponent={RejectedtepIcon}
             optional={
               <Typography
-                variant="body1"
-                component="p"
-                color="text.primary"
-                className="pl-1 mt-1"
+                variant='body1'
+                component='p'
+                color='text.primary'
+                className='pl-1 mt-1'
               >
-                Hoy, 16:30 Hs{" "}
-                <Link color="error" className="pl-1">
+                Hoy, 16:30 Hs{' '}
+                <Link color='error' className='pl-1'>
                   Ver más
                 </Link>
               </Typography>
             }
           >
-            <Typography className="flex-row d-flex pt-3 pl-1">
-              Transferencia rechazada de{" "}
-              <font color="red" className="pl-1">
+            <Typography className='flex-row d-flex pt-3 pl-1'>
+              Transferencia rechazada de &nbsp;
+              <StyledBoldTypography color='red'>
+                {' '}
                 Box Las Leñas
-              </font>
+              </StyledBoldTypography>
             </Typography>
           </StepLabel>
         </Step>
