@@ -1,9 +1,13 @@
-import { styled, alpha } from "@mui/material/styles";
+import { styled } from "@mui/material/styles";
 import BadgeUnstyled from "@mui/base/BadgeUnstyled";
 import StepConnector, {
   stepConnectorClasses,
 } from "@mui/material/StepConnector";
 import { InputBase, StepContent, stepContentClasses } from "@mui/material";
+import SwapHorizIcon from "@mui/icons-material/SwapHoriz";
+import InfoIcon from "@mui/icons-material/Info";
+import CheckIcon from "@mui/icons-material/Check";
+import ClearOutlinedIcon from "@mui/icons-material/ClearOutlined";
 
 export const StyledBadge = styled(BadgeUnstyled)`
   padding-left: 20px;
@@ -28,54 +32,55 @@ export const StyledBadge = styled(BadgeUnstyled)`
 `;
 
 export const StyledConnector = styled(StepConnector)(({ theme }) => ({
-  [`&.${stepConnectorClasses.root}`]: {
-    marginLeft: 15,
-  },
-  [`&.${stepConnectorClasses.lineVertical}`]: {
-    backgroundColor: "#5e5e5e",
-  },
-  [`&.${stepConnectorClasses}`]: {
-    backgroundColor: "#5e5e5e",
-  },
   [`& .${stepConnectorClasses.line}`]: {
     borderColor: "#5e5e5e",
     borderTopWidth: 3,
     borderRadius: 1,
-    marginLeft: 10,
+    marginLeft: 12,
   },
 }));
 
-export const StyleStepIcon = styled("div")(({ theme, ownerState }) => ({
-  // backgroundColor: "red",
-  color: "#fff",
-  width: 50,
-  height: 50,
-  display: "flex",
+export const TrasferStepIcon = styled(SwapHorizIcon)(() => ({
+  backgroundColor: "#3969E8",
   borderRadius: "50%",
-  justifyContent: "center",
-  alignItems: "center",
+  color: "white",
+  width: "41.31px",
+  height: "40.95px",
+  padding: "3px",
+}));
+
+export const InfoStepIcon = styled(InfoIcon)(() => ({
+  backgroundColor: "#ED8A98",
+  borderRadius: "50%",
+  color: "white",
+  width: "41.31px",
+  height: "40.95px",
+  padding: "3px",
+}));
+
+export const CkeckStepIcon = styled(CheckIcon)(() => ({
+  backgroundColor: "green",
+  borderRadius: "50%",
+  color: "white",
+  width: "41.31px",
+  height: "40.95px",
+  padding: "3px",
+}));
+
+export const RejectedtepIcon = styled(ClearOutlinedIcon)(() => ({
+  backgroundColor: "red",
+  borderRadius: "50%",
+  color: "white",
+  width: "41.31px",
+  height: "40.95px",
+  padding: "3px",
 }));
 
 export const StyleStepContent = styled(StepContent)(({ theme }) => ({
   [`&.${stepContentClasses.root}`]: {
     paddingLeft: "30px",
-    marginLeft: 25,
+    marginLeft: 24,
     borderColor: "#5e5e5e",
-  },
-}));
-
-export const Search = styled("div")(({ theme }) => ({
-  position: "relative",
-  borderRadius: theme.shape.borderRadius,
-  backgroundColor: alpha(theme.palette.common.white, 0.15),
-  "&:hover": {
-    backgroundColor: alpha(theme.palette.common.white, 0.25),
-  },
-  marginLeft: 0,
-  width: "100%",
-  [theme.breakpoints.up("sm")]: {
-    marginLeft: theme.spacing(1),
-    width: "auto",
   },
 }));
 
@@ -105,3 +110,14 @@ export const StyledInputBase = styled(InputBase)(({ theme }) => ({
     },
   },
 }));
+
+export const stringAvatar = (name) => {
+  return {
+    sx: {
+      bgcolor: "green",
+      width: 24,
+      height: 24,
+    },
+    children: `${name.split(" ")[0][0]}`,
+  };
+};

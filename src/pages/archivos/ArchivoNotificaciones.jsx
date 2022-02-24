@@ -1,532 +1,188 @@
-import React, { useState } from "react";
-import Box from "@mui/material/Box";
-import Stepper from "@mui/material/Stepper";
-import Badge from "@mui/material/Badge";
-import Step from "@mui/material/Step";
-import StepLabel from "@mui/material/StepLabel";
-import StepContent from "@mui/material/StepContent";
-import Button from "@mui/material/Button";
-import Paper from "@mui/material/Paper";
-import Typography from "@mui/material/Typography";
-import CompareArrowsIcon from "@mui/icons-material/CompareArrows";
-import CheckIcon from "@mui/icons-material/Check";
-import NotificationImportantOutlinedIcon from "@mui/icons-material/NotificationImportantOutlined";
-import ClearOutlinedIcon from "@mui/icons-material/ClearOutlined";
-import PropTypes from "prop-types";
+import React from "react";
 import {
-  Search,
-  SearchIconWrapper,
+  CkeckStepIcon,
+  InfoStepIcon,
+  RejectedtepIcon,
+  stringAvatar,
   StyledBadge,
   StyledConnector,
-  StyledInputBase,
   StyleStepContent,
-  StyleStepIcon,
+  TrasferStepIcon,
 } from "./ArchivoNotificaciones.styles";
 import {
-  Card,
-  Checkbox,
-  Chip,
-  FormControl,
-  FormControlLabel,
-  Grid,
-  InputAdornment,
-  InputLabel,
-  MenuItem,
-  Radio,
-  RadioGroup,
-  Select,
-  Stack,
-  TextField,
+  Avatar,
+  Box,
+  Typography,
+  StepLabel,
+  Step,
+  Stepper,
+  Link,
 } from "@mui/material";
-import Link from "@mui/material/Link";
-import SearchIcon from "@mui/icons-material/Search";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSearch } from "@fortawesome/pro-light-svg-icons";
-import DatePicker from "@mui/lab/DatePicker";
-import LocalizationProvider from "@mui/lab/LocalizationProvider";
-import AdapterDateFns from "@mui/lab/AdapterDateFns";
-import { StyledSlider } from "../../components/activos/ActivosTable.styles";
+import Filter from "../../components/archivos/verificacion/Filter";
+import NotificationActivo from "../../components/archivos/verificacion/NotificationActivo";
 
 function ArchivoNotificaciones() {
-  const steps = [
-    {
-      label: "Trasferencia recibida de Box Las Marias",
-      date: "Hoy, 17:30 Hs",
-      description: `For each ad campaign that you create, you can control how much
-                    you're willing to spend on clicks and conversions, which networks
-                    and geographical locations you want your ads to show on, and more.`,
-    },
-    {
-      label: "Trasferencia aceptada de Box Las Leñas",
-      date: "Hoy, 16:30 Hs",
-      user: "Sabrina García Demestre · Boxes",
-      description:
-        "An ad group contains one or more ads which target a shared set of keywords.",
-    },
-    {
-      label: "Nuevo excel disponible para descarga en Activos",
-      date: "Hoy, 16:30 Hs",
-      description: `Try out different ad text to see what brings in the most customers,
-                    and learn how to enhance your ads using features like ad extensions.
-                    If you run into any problems with your ads, find out how to tell if
-                    they're running and how to resolve approval issues.`,
-    },
-    {
-      label:
-        "La dentición de tus activos no fue actualizada en los últimos 3 meses. Actualizar",
-      date: "Hoy, 16:30 Hs",
-      description: `Try out different ad text to see what brings in the most customers,
-                    and learn how to enhance your ads using features like ad extensions.
-                    If you run into any problems with your ads, find out how to tell if
-                    they're running and how to resolve approval issues.`,
-    },
-    {
-      label: "Transferencia rechazada de Box Las Leñas",
-      date: "Hoy, 16:30 Hs",
-      description: `Try out different ad text to see what brings in the most customers,
-                    and learn how to enhance your ads using features like ad extensions.
-                    If you run into any problems with your ads, find out how to tell if
-                    they're running and how to resolve approval issues.`,
-    },
-  ];
-
-  const [value, setValue] = React.useState(null);
-  const [activeStep, setActiveStep] = React.useState(0);
-
-  const handleNext = () => {
-    setActiveStep((prevActiveStep) => prevActiveStep + 1);
-  };
-
-  const handleBack = () => {
-    setActiveStep((prevActiveStep) => prevActiveStep - 1);
-  };
-
-  const handleReset = () => {
-    setActiveStep(0);
-  };
-
-  //Con esta funcion defino la letra dentro del avatar
-  const stringAvatar = (name) => {
-    return {
-      children: `${name.split(" ")[0][0]}`,
-    };
-  };
-
-  //custom StepIcon
-  function ColorlibStepIcon(props) {
-    const { active, completed, className } = props;
-    const icons = {
-      1: (
-        <CompareArrowsIcon
-          sx={{ backgroundColor: "green", borderRadius: 10, color: "white" }}
-        />
-      ),
-      2: (
-        <CheckIcon
-          fontSize="large"
-          sx={{ backgroundColor: "green", borderRadius: 10, color: "white" }}
-        />
-      ),
-      3: (
-        <NotificationImportantOutlinedIcon
-          fontSize="large"
-          sx={{ backgroundColor: "orange", borderRadius: 10, color: "white" }}
-        />
-      ),
-      4: (
-        <ClearOutlinedIcon
-          fontSize="large"
-          sx={{ backgroundColor: "red", borderRadius: 10, color: "white" }}
-        />
-      ),
-    };
-
-    return <StyleStepIcon>{icons[String(props.icon)]}</StyleStepIcon>;
-  }
-
-  const [selectedFilter, setSelectedFilter] = useState("");
-  const [anchorEl, setAnchorEl] = useState(null);
-  const [expandedFilters, setExpandedFilters] = useState();
-
-  const handleChange = (event) => {
-    setSelectedFilter(event.target.value);
-  };
-  const handleClick = (event, row) => {
-    console.log("do something with this row");
-    console.log(row);
-    setAnchorEl(event.currentTarget);
-  };
-  const handleClose = () => {
-    setAnchorEl(null);
-  };
-  const toggleChecked = () => setExpandedFilters((value) => !value);
-
   return (
     <Box>
-      {/* <Grid container>
-        <Grid container component={Card}>
-          <Grid item>
-            <TextField
-              id="filled-search"
-              type="search"
-              className="mr-2"
-              fullWidth
-              InputProps={{
-                startAdornment: (
-                  <InputAdornment position="start">
-                    <FontAwesomeIcon icon={faSearch} />
-                  </InputAdornment>
-                ),
-              }}
-            />
-            <Grid item>
-              <LocalizationProvider dateAdapter={AdapterDateFns}>
-                <DatePicker
-                  label="Fecha"
-                  value={value}
-                  onChange={(newValue) => {
-                    setValue(newValue);
-                  }}
-                  renderInput={(params) => <TextField {...params} />}
-                />
-              </LocalizationProvider>
-            </Grid>
-            <Grid item component={FormControl} className="pr-2" xs={3}>
-              <InputLabel id="test">Tipo de actividad</InputLabel>
-              <Select labelId="test" label="Filtro" className="w-100">
-                <MenuItem value={10}>Actividad 1</MenuItem>
-                <MenuItem value={20}>Actividad 1</MenuItem>
-                <MenuItem value={30}>Actividad 1</MenuItem>
-              </Select>
-            </Grid>
-          </Grid>
-        </Grid>
-      </Grid> */}
-
-      {/* Filtros */}
-      <Grid component={Card} container className="p-2 mb-4 mt-2 align-center">
-        <Grid item component={FormControl} className="pr-2" xs={3}>
-          <TextField
-            id="outlined-basic"
-            variant="outlined"
-            type="search"
-            className="mr-2"
-            defaultValue={"Buscar por box, evento, etc"}
-            InputProps={{
-              startAdornment: (
-                <InputAdornment position="start">
-                  <FontAwesomeIcon icon={faSearch} />
-                </InputAdornment>
-              ),
-            }}
-          />
-        </Grid>
-        <Grid item component={FormControl} className="pr-2" xs={3}>
-          <LocalizationProvider dateAdapter={AdapterDateFns}>
-            <DatePicker
-              label="Fecha"
-              value={value}
-              onChange={(newValue) => {
-                setValue(newValue);
-              }}
-              renderInput={(params) => <TextField {...params} />}
-            />
-          </LocalizationProvider>
-        </Grid>
-        <Grid item component={FormControl} className="pr-2" xs={3}>
-          <InputLabel id="test">Tipo de Actividad</InputLabel>
-          <Select
-            labelId="test"
-            value={selectedFilter}
-            label="Filtro"
-            className="w-100"
-          >
-            <MenuItem value={10}>Actividad 1</MenuItem>
-            <MenuItem value={20}>Actividad 2</MenuItem>
-            <MenuItem value={30}>Actividad 3</MenuItem>
-          </Select>
-        </Grid>
-        <Grid item xs={3} className="d-flex justify-center">
-          <Button variant="text" onClick={toggleChecked}>
-            {!expandedFilters ? "Ver mas filtros" : "Cerrar filtros"}
-          </Button>
-        </Grid>
-        {expandedFilters && (
-          <span>
-            <Grid
-              item
-              component={FormControl}
-              className="pr-2 mt-3 align-center"
-              xs={12}
-              xl={6}
-            >
-              <FormControlLabel
-                control={
-                  <Checkbox
-                    checked={true}
-                    onChange={() => console.log("do something on check")}
-                  />
-                }
-                label="Checkbox"
-              />
-              <FormControlLabel
-                control={
-                  <Checkbox
-                    checked={false}
-                    onChange={() => console.log("do something on check")}
-                  />
-                }
-                label="Checkbox"
-              />
-
-              <RadioGroup row defaultValue="b" name="radio-buttons-group">
-                <FormControlLabel
-                  value="a"
-                  control={<Radio />}
-                  label="Radio 1"
-                />
-                <FormControlLabel
-                  value="b"
-                  control={<Radio />}
-                  label="Radio 2"
-                />
-              </RadioGroup>
-            </Grid>
-            <Grid
-              item
-              component={FormControl}
-              className="pr-2 mt-3 align-center"
-              xs={12}
-              xl={6}
-            >
-              <InputLabel id="test">Raza</InputLabel>
-              <Select
-                labelId="test"
-                value={selectedFilter}
-                label="Filtro"
-                onChange={handleChange}
-                className="w-100"
-              >
-                <MenuItem value={10}>Bovina</MenuItem>
-                <MenuItem value={20}>Angus</MenuItem>
-                <MenuItem value={30}>Wagyu</MenuItem>
-              </Select>
-              <StyledSlider defaultValue={30} aria-label="Disabled slider" />
-            </Grid>
-          </span>
-        )}
-      </Grid>
-      {/* Fin Filtros */}
-
+      <Filter />
       <Stepper
-        // alternativeLabel
-        activeStep={activeStep}
+        nonLinear
         orientation="vertical"
-        connector={<StyledConnector color="red" />}
+        connector={<StyledConnector />}
+        activeStep={1}
       >
-        {/* {steps.map((step, index) => ( */}
-        <Step
-        // key={step.label}
-        >
+        <StyleStepContent />
+        <Step>
           <StepLabel
-            StepIconComponent={ColorlibStepIcon}
-            optional={<Typography>Hoy, 17:30 Hs</Typography>}
+            StepIconComponent={TrasferStepIcon}
+            optional={
+              <Typography
+                className="pl-1 mt-1"
+                variant="body1"
+                component="p"
+                color="text.primary"
+              >
+                Hoy, 17:30 Hs
+              </Typography>
+            }
           >
-            <div className="d-flex">
-              <Typography>Trasferencia recibida de Box Las Marias</Typography>
+            <Box className="d-flex pt-3 pl-1">
+              <Typography variant="body1" component="p" color="#666666">
+                Transferencia recibida de Box Las Marias
+              </Typography>
               <StyledBadge badgeContent={1} />
-            </div>
+            </Box>
           </StepLabel>
           <StyleStepContent>
-            <Grid container>
-              <Grid container component={Card}>
-                <Grid container direction="row" className="p-2">
-                  {/* Activos */}
-                  <Grid item xs={1}>
-                    <Typography
-                      variant="body1"
-                      component="p"
-                      color="text.primary"
-                    >
-                      Activos
-                    </Typography>
-                    <Typography variant="h6" color="green">
-                      10
-                    </Typography>
-                  </Grid>
-                  {/* BOX/PARTIDO */}
-                  <Grid item xs={4}>
-                    <Grid item container>
-                      <Grid item xs={3}>
-                        <Typography
-                          variant="body1"
-                          component="p"
-                          color="text.primary"
-                        >
-                          Box
-                        </Typography>
-                      </Grid>
-                      <Grid item xs={9}>
-                        <Typography variant="body1" component="p">
-                          Las Marias
-                        </Typography>
-                      </Grid>
-                    </Grid>
-                    <Grid item container>
-                      <Grid item xs={3}>
-                        <Typography
-                          variant="body1"
-                          component="p"
-                          color="text.primary"
-                        >
-                          Paritido
-                        </Typography>
-                      </Grid>
-                      <Grid item xs={9}>
-                        <Typography variant="body1" component="p" noWrap>
-                          Villa Constitución, Santa, Buenos Aires
-                        </Typography>
-                      </Grid>
-                    </Grid>
-                  </Grid>
-                  {/* Email telefono */}
-                  <Grid item xs={4} className="pl-4">
-                    <Grid item container>
-                      <Grid item xs={3}>
-                        <Typography
-                          variant="body1"
-                          component="p"
-                          color="text.primary"
-                        >
-                          Email
-                        </Typography>
-                      </Grid>
-                      <Grid item xs={9}>
-                        <Link>email@email.com</Link>
-                      </Grid>
-                    </Grid>
-                    <Grid item container>
-                      <Grid item xs={3}>
-                        <Typography
-                          variant="body1"
-                          component="p"
-                          color="text.primary"
-                        >
-                          Teléfono
-                        </Typography>
-                      </Grid>
-                      <Grid item xs={9}>
-                        <Typography variant="body1" component="p">
-                          (987)58679865
-                        </Typography>
-                      </Grid>
-                    </Grid>
-                  </Grid>
-                  {/* Aceptar / rechazar */}
-                  <Grid item xs="auto">
-                    <Stack
-                      direction="row"
-                      justifyContent="center"
-                      alignItems="center"
-                    >
-                      <Button variant="contained">ACEPTAR</Button>
-                      <Button className="ml-3" variant="outlined">
-                        RECHAZAR
-                      </Button>
-                    </Stack>
-                  </Grid>
-                </Grid>
-              </Grid>
-            </Grid>
+            <NotificationActivo
+              activo="10"
+              box="Las Marias"
+              partido="Villa Consitucion, Santa Ana, Buenos Aires"
+              email="email@email.com"
+              telefono="(987) 53679865"
+            />
           </StyleStepContent>
         </Step>
-        {/* ))} */}
-        <Step
-        // key={step.label}
-        >
+        <Step>
           <StepLabel
-            StepIconComponent={ColorlibStepIcon}
-            optional={<Typography>Hoy, 16:30 Hs</Typography>}
+            StepIconComponent={CkeckStepIcon}
+            optional={
+              <Box className="pl-1 mt-1">
+                <Typography
+                  className="d-flex flex-row mt-1"
+                  variant="body1"
+                  component="p"
+                  color="text.primary"
+                >
+                  <Avatar
+                    {...stringAvatar("Sabrina Gracias Demestre")}
+                    className="mr-1 "
+                    color="green"
+                  />{" "}
+                  Sabrina Gracias Demestre &middot; Boxes
+                </Typography>
+
+                <Typography
+                  variant="body1"
+                  className="mt-1"
+                  component="p"
+                  color="text.primary"
+                >
+                  Hoy, 16:30 Hs
+                </Typography>
+              </Box>
+            }
           >
-            Trasferencia recibida de Box Las Marias{" "}
-            <StyledBadge badgeContent={1} />
-          </StepLabel>
-          <StyleStepContent>
-            <Typography>
-              Try out different ad text to see what brings in the most
-              customers, and learn how to enhance your ads using features like
-              ad extensions. If you run into any problems with your ads, find
-              out how to tell if they're running and how to resolve approval
-              issues.
+            <Typography className="flex-row d-flex pt-1 pl-1">
+              Transferencia aceptada de
+              <font color="green" className="pl-1">
+                Box Las Marias
+              </font>
             </Typography>
-            <Box sx={{ mb: 2 }}>
-              <div>
-                <Button
-                  variant="contained"
-                  onClick={handleNext}
-                  sx={{ mt: 1, mr: 1 }}
-                >
-                  {/* {index === steps.length - 1 ? "Finish" : "Continue"} */}
-                </Button>
-                <Button
-                  // disabled={index === 0}
-                  onClick={handleBack}
-                  sx={{ mt: 1, mr: 1 }}
-                >
-                  Back
-                </Button>
-              </div>
-            </Box>
-          </StyleStepContent>
+          </StepLabel>
         </Step>
-        <Step
-        // key={step.label}
-        >
+        <Step>
           <StepLabel
-            StepIconComponent={ColorlibStepIcon}
-            optional={<Typography>Hoy, 16:30 Hs</Typography>}
+            StepIconComponent={CkeckStepIcon}
+            optional={
+              <Box className="pl-1 mt-1">
+                <Typography
+                  variant="body1"
+                  component="p"
+                  color="text.primary"
+                  className="d-flex flex-row"
+                >
+                  {"Activos > box 2B > box 1B-A"}
+                </Typography>
+
+                <Typography
+                  variant="body1"
+                  className="mt-1"
+                  component="p"
+                  color="text.primary"
+                >
+                  Hoy, 16:30 Hs
+                </Typography>
+              </Box>
+            }
           >
-            Trasferencia recibida de Box Las Marias{" "}
-            <StyledBadge badgeContent={1} />
-          </StepLabel>
-          <StepContent>
-            <Typography>
-              Try out different ad text to see what brings in the most
-              customers, and learn how to enhance your ads using features like
-              ad extensions. If you run into any problems with your ads, find
-              out how to tell if they're running and how to resolve approval
-              issues.
+            <Typography className="flex-row d-flex pl-1">
+              Nuevo excell disponible para descargar en{" "}
+              <font color="green" className="pl-1">
+                Activos
+              </font>
             </Typography>
-            <Box sx={{ mb: 2 }}>
-              <div>
-                <Button
-                  variant="contained"
-                  onClick={handleNext}
-                  sx={{ mt: 1, mr: 1 }}
-                >
-                  {/* {index === steps.length - 1 ? "Finish" : "Continue"} */}
-                </Button>
-                <Button
-                  // disabled={index === 0}
-                  onClick={handleBack}
-                  sx={{ mt: 1, mr: 1 }}
-                >
-                  Back
-                </Button>
-              </div>
-            </Box>
-          </StepContent>
+          </StepLabel>
+        </Step>
+        <Step>
+          <StepLabel
+            StepIconComponent={InfoStepIcon}
+            optional={
+              <Typography
+                variant="body1"
+                component="p"
+                color="text.primary"
+                className="pl-1 mt-1"
+              >
+                Hoy, 16:30 Hs
+              </Typography>
+            }
+          >
+            <Typography className="flex-row d-flex pt-3 pl-1">
+              La detención de tus activos no fue actualizada en los últimos 3
+              meses.{" "}
+              <Link color="#ED8A98" className="pl-1">
+                Actualizar
+              </Link>
+            </Typography>
+          </StepLabel>
+        </Step>
+        <Step>
+          <StepLabel
+            StepIconComponent={RejectedtepIcon}
+            optional={
+              <Typography
+                variant="body1"
+                component="p"
+                color="text.primary"
+                className="pl-1 mt-1"
+              >
+                Hoy, 16:30 Hs{" "}
+                <Link color="error" className="pl-1">
+                  Ver más
+                </Link>
+              </Typography>
+            }
+          >
+            <Typography className="flex-row d-flex pt-3 pl-1">
+              Transferencia rechazada de{" "}
+              <font color="red" className="pl-1">
+                Box Las Leñas
+              </font>
+            </Typography>
+          </StepLabel>
         </Step>
       </Stepper>
-
-      {/* {activeStep === steps.length && (
-        <Paper square elevation={0} sx={{ p: 3 }}>
-          <Typography>All steps completed - you&apos;re finished</Typography>
-          <Button onClick={handleReset} sx={{ mt: 1, mr: 1 }}>
-            Reset
-          </Button>
-        </Paper>
-      )} */}
     </Box>
   );
 }
