@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyledContainer, StyledLeftSide, StyledRightSide } from '../SignIn.styles';
-import { Typography, Stepper, Step, StepLabel, Card, Grid } from '@mui/material';
+import { Typography, Stepper, Step, StepLabel, Card, Grid, CardActionArea } from '@mui/material';
 import originoLogo from'./../../../assets/images/origino_logo.png';
 
 const steps = [
@@ -64,10 +64,12 @@ function EstablecimientoTipos() {
         <Grid spacing={2} container>
           {types.map((type) => (
             <Grid item xs={12} xl={6}>
-              <Card className="p-4 text-center font-weight-normal">
-                <img src={originoLogo} alt="Origino" className="mb-2 w-100"/>
-                <Typography variant="h5" component="p" color="text.primary" className=" mb-2">{type.name}</Typography>
-                <Typography variant="caption" component="p" color="text.secondary">{type.description}</Typography>
+              <Card>
+                <CardActionArea className="p-4 text-center font-weight-normal">
+                  <img src={originoLogo} alt="Origino" className="mb-2 w-100"/>
+                  <Typography variant="h5" component="p" color="text.primary" className=" mb-2">{type.name}</Typography>
+                  <Typography variant="caption" component="p" color="text.secondary">{type.description}</Typography>
+                </CardActionArea>
               </Card>
             </Grid>
           ))}
