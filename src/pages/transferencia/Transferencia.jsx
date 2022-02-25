@@ -19,7 +19,7 @@ function Transferencia() {
             InputProps={{
             startAdornment: (
               <InputAdornment position="start">
-                <FontAwesomeIcon icon={faSearch} />
+                <FontAwesomeIcon icon={faSearch} color="#61B15A"/>
               </InputAdornment>
             ),
           }}/>
@@ -47,7 +47,7 @@ function Transferencia() {
       <Grid item xs={12} className="mt-3">
         <Typography variant="subtitle1" component="p">Archivos</Typography>
         <Typography variant="body2" color="text.primary" component="p">Cargá los archivos necesarios para completar la baja de activos.</Typography>
-        <Grid item xs={3} className="mt-3">
+        <Grid item xs={12} className="mt-3">
           <DragAndDropInputFile itemToDrag={'los archivos'} color={'#76CC81'} />
         </Grid>
       </Grid>

@@ -29,7 +29,7 @@ function TransferenciaABox() {
             InputProps={{
             startAdornment: (
               <InputAdornment position="start">
-                <FontAwesomeIcon icon={faSearch} />
+                <FontAwesomeIcon icon={faSearch} color="#61B15A" />
               </InputAdornment>
             ),
           }}/>
@@ -78,15 +78,15 @@ function TransferenciaABox() {
       <Grid item xs={12} className="mt-3">
         <Typography variant="subtitle1" component="p">Archivos</Typography>
         <Typography variant="body2" color="text.primary" component="p">Cargá los archivos necesarios para completar la baja de activos.</Typography>
+        <Grid item xs={12} className="mt-3">
+          <DragAndDropInputFile itemToDrag={'los archivos'} color={'#76CC81'} />
+        </Grid>
         <Grid item xs={3} className="mt-3 d-flex justify-between" component={Card}>
           <div className="d-flex align-start mt-2 ml-2 mb-2">
             <FontAwesomeIcon icon={faFilePdf} color="#61B15A" size="lg" className="mr-2 mt-1" />
             <Typography variant="caption" component="p">ACTIVOS<br/>PDF - 1.2mb</Typography>
           </div>
           <FontAwesomeIcon icon={faTrashCan} size="lg" className="mr-1 mt-1" />
-        </Grid>
-        <Grid item xs={3} className="mt-3">
-          <DragAndDropInputFile itemToDrag={'los archivos'} color={'#76CC81'} />
         </Grid>
       </Grid>
 
