@@ -37,14 +37,14 @@ function SubEstablecimiento({ onLoad }) {
 
       {cards.map((page, index) => (
       <Grid item xs={4} key={index}>
-        <Card className="p-2">
+        <Card className="pt-2 pl-2 pb-2">
           <div className="d-flex flex-row justify-between pr-2">
             <div className="d-flex flex-row align-start">
               <Avatar aria-label="recipe" className="mr-2 mt-1">
                 R
               </Avatar>
               <span>
-                <Typography variant="subtitle2" component="p" color="text.primary" className="mb-2">Establecimientos</Typography>
+                <Typography variant="subtitle2" component="p" color="primary" className="mb-2">Establecimientos</Typography>
                 <Typography variant="caption" component="p" color="text.light">Empresa</Typography>
                 <Typography variant="subtitle2" component="p" className="mt-0 mb-2">Empresa 2</Typography>
               </span>
