@@ -44,39 +44,39 @@ export const StyledBoldTypography = styled('font')(({ color }) => ({
 }));
 
 export const TrasferStepIcon = styled(SwapHorizIcon)(() => ({
-  backgroundColor: '#3969E8',
-  borderRadius: '50%',
-  color: 'white',
-  width: '41.31px',
-  height: '40.95px',
-  padding: '3px',
+ backgroundColor: '#3969E8',
+ borderRadius: '50%',
+ color: 'white',
+ width: '35px',
+ height: '35px',
+ padding: '3px',
 }));
 
 export const InfoStepIcon = styled(InfoIcon)(() => ({
-  backgroundColor: '#ED8A98',
-  borderRadius: '50%',
-  color: 'white',
-  width: '41.31px',
-  height: '40.95px',
-  padding: '3px',
+ backgroundColor: '#ED8A98',
+ borderRadius: '50%',
+ color: 'white',
+ width: '35px',
+ height: '35px',
+ padding: '3px',
 }));
 
 export const CkeckStepIcon = styled(CheckIcon)(() => ({
-  backgroundColor: '#76CC81',
-  borderRadius: '50%',
-  color: 'white',
-  width: '41.31px',
-  height: '40.95px',
-  padding: '3px',
+ backgroundColor: '#76CC81',
+ borderRadius: '50%',
+ color: 'white',
+ width: '35px',
+ height: '35px',
+ padding: '3px',
 }));
 
 export const RejectedtepIcon = styled(ClearOutlinedIcon)(() => ({
-  backgroundColor: 'red',
-  borderRadius: '50%',
-  color: 'white',
-  width: '41.31px',
-  height: '40.95px',
-  padding: '3px',
+ backgroundColor: 'red',
+ borderRadius: '50%',
+ color: 'white',
+ width: '35px',
+ height: '35px',
+ padding: '3px',
 }));
 
 export const StyleStepContent = styled(StepContent)(({ theme }) => ({

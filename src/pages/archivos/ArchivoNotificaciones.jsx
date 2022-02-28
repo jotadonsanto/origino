@@ -49,7 +49,7 @@ const notificacion = [
       email: 'email@email.com',
       telefono: '(987) 53679865',
       state: true,
-      userName: 'Sabrina Garcias Demestre',
+      userName: 'Sabrina Garcia Demestre',
     },
     rute: 'Activos > box 2B > box 1B-A',
   },
@@ -156,22 +156,21 @@ function ArchivoNotificaciones() {
             <StepLabel
               StepIconComponent={stepIcon(notificacion.tipe)}
               optional={
-                <Box className='pl-1 mt-1'>
-                  {undefined ? null : notificacion.transferencia.state ===
-                    true ? (
-                      <Typography
-                        className='d-flex flex-row mt-1'
-                        variant='body1'
-                        component='p'
-                        color='text.primary'
-                      >
-                        <Avatar
-                          {...stringAvatar(notificacion.transferencia.userName)}
-                          className='mr-1 '
-                          color='green'
-                        />{' '}
-                        {notificacion.transferencia.userName} &middot; Boxes
-                      </Typography>
+                <Box className='pl-1'>
+                  {undefined ? null : notificacion.transferencia.state === true ? (
+                    <Typography
+                      className='d-flex flex-row mt-1'
+                      variant='body1'
+                      component='p'
+                      color='text.primary'
+                    >
+                      <Avatar
+                        {...stringAvatar(notificacion.transferencia.userName)}
+                        className='mr-1'
+                        color='green'
+                      />{' '}
+                      {notificacion.transferencia.userName} &middot; Boxes
+                    </Typography>
                   ) : null}
                   {notificacion.tipe === 'newExcel' ? (
                     <Typography
@@ -184,7 +183,6 @@ function ArchivoNotificaciones() {
                     </Typography>
                   ) : null}
                   <Typography
-                    className=' mt-1'
                     variant='body1'
                     component='p'
                     color='text.primary'
@@ -196,9 +194,7 @@ function ArchivoNotificaciones() {
             >
               <Box className='d-flex pt-3 pl-1'>
                 {label(notificacion)}
-                {notificacion.new === true ? (
-                  <StyledBadge badgeContent={1} />
-                ) : null}
+                {notificacion.new === true ? <StyledBadge badgeContent={1} /> : null}
               </Box>
             </StepLabel>
             <StyleStepContent>
