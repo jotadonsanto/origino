@@ -31,16 +31,23 @@ export const StyledBadge = styled(BadgeUnstyled)`
   }
 `;
 export const StyledConnector = styled(StepConnector)(({ theme }) => ({
-  [`& .${stepConnectorClasses.line}`]: {
-    borderTopWidth: 3,
-    borderRadius: 1,
-    marginLeft: 12,
-  },
+ [`& .${stepConnectorClasses.line}`]: {
+  borderTopWidth: 3,
+  borderRadius: 1,
+  marginLeft: 8,
+ },
+}));
+
+export const StyleStepContent = styled(StepContent)(({ theme }) => ({
+ [`&.${stepContentClasses.root}`]: {
+  paddingLeft: '30px',
+  marginLeft: 20,
+ },
 }));
 
 export const StyledBoldTypography = styled('font')(({ color }) => ({
-  color: { color },
-  fontWeight: '550',
+ color: { color },
+ fontWeight: '550',
 }));
 
 export const TrasferStepIcon = styled(SwapHorizIcon)(() => ({
@@ -79,12 +86,7 @@ export const RejectedtepIcon = styled(ClearOutlinedIcon)(() => ({
  padding: '3px',
 }));
 
-export const StyleStepContent = styled(StepContent)(({ theme }) => ({
-  [`&.${stepContentClasses.root}`]: {
-    paddingLeft: '30px',
-    marginLeft: 24,
-  },
-}));
+
 
 export const SearchIconWrapper = styled('div')(({ theme }) => ({
   padding: theme.spacing(0, 2),
