@@ -3,6 +3,7 @@ import ActivosCarga from './pages/activos/ActivosCarga';
 import ArchivoCarga from './pages/archivos/ArchivoCarga';
 import ArchivoCargaManual from './pages/archivos/ArchivoCargaManual';
 import ArchivoVerificacion from './pages/archivos/ArchivoVerificacion';
+import ArchivoNotificaciones from './pages/archivos/ArchivoNotificaciones';
 import TransferenciaABox from './pages/transferencia/TransferenciaABox';
 import Transferencia from './pages/transferencia/Transferencia';
 import Crear from './pages/signin/cuenta/Crear';
@@ -41,6 +42,11 @@ const MainRoutes = [
     exact: true,
     path: '/archivo/verificacion',
     component: ArchivoVerificacion,
+  },
+  {
+    exact: true,
+    path: '/archivo/notificaciones',
+    component: ArchivoNotificaciones,
   },
   {
     exact: true,
