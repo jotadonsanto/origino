@@ -1,9 +1,12 @@
-import React from 'react';
-import { MenuItems, StyledBox} from './SidebarMenu.styles';
+import React, { useContext } from 'react';
+import SidebarContext from './../../context/SidebarContext';
+import { Items, StyledBox} from './SidebarMenu.styles';
 import { List, ListItemButton, ListItemIcon, ListItemText } from '@mui/material';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 function SidebarMenu() {
+  const { menu } = useContext(SidebarContext);
+  console.log(menu);
   const [selectedIndex, setSelectedIndex] = React.useState(1);
   const handleListItemClick = (event, index) => {
     setSelectedIndex(index);
@@ -12,7 +15,7 @@ function SidebarMenu() {
   return (
     <StyledBox>
       <List component="nav" aria-label="main mailbox folders">
-        {MenuItems.map((item, index) => (
+        {Items[menu].map((item, index) => (
           <ListItemButton
             key={index}
             selected={selectedIndex === index}

@@ -1,13 +1,16 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useContext } from 'react';
+import SidebarContext from './../../context/SidebarContext';
 import { Grid, Stack, Button, Breadcrumbs, Link, Typography, Card, Avatar, IconButton, Popover, MenuItem } from '@mui/material';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 
 const cards = [0, 1, 2];
 
 function SubEstablecimiento({ onLoad }) {
+  const { setMenu } = useContext(SidebarContext);
   // onLoad change theme
   useEffect(() => {
     onLoad('blue');
+    setMenu('establecimiento');
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
