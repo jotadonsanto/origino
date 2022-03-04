@@ -3,6 +3,7 @@ import { BrowserRouter as Route, Switch } from 'react-router-dom'
 import { StyledContainer, StyledDrawer, StyledBox } from './Main.styles';
 import { ThemeProvider } from '@mui/material/styles';
 import { StyledEngineProvider } from '@mui/material/styles';
+import { SidebarContextProvider } from './../context/SidebarContext';
 import { greenTheme } from '../theme/greenTheme.js';
 import { blueTheme } from '../theme/blueTheme.js';
 import { Box } from '@mui/material';
@@ -28,27 +29,29 @@ function Main() {
   return (
     <StyledEngineProvider injectFirst>
       <ThemeProvider theme={theme} >
-        <Box className="d-flex">
-          <StyledDrawer
-            variant="permanent"
-            anchor="left">
+        <SidebarContextProvider>
+          <Box className="d-flex">
+            <StyledDrawer
+              variant="permanent"
+              anchor="left">
               <Sidebar />
-          </StyledDrawer>
-          <StyledBox
-            className="d-flex flex-column flex"
-            component="main">
-            <Header theme={theme} />
-            <StyledContainer>
-              <Switch>
-              {MainRoutes.map((page, index) => (
-                <Route key={index} path={page.path} exact>
-                  <page.component onLoad={chooseColor}/>
-                </Route>
-              ))}
-              </Switch>
-            </StyledContainer>
-          </StyledBox>
-        </Box>
+            </StyledDrawer>
+            <StyledBox
+              className="d-flex flex-column flex"
+              component="main">
+              <Header theme={theme} />
+              <StyledContainer>
+                <Switch>
+                {MainRoutes.map((page, index) => (
+                  <Route key={index} path={page.path} exact>
+                    <page.component onLoad={chooseColor}/>
+                  </Route>
+                ))}
+                </Switch>
+              </StyledContainer>
+            </StyledBox>
+          </Box>
+        </SidebarContextProvider>
       </ThemeProvider>
     </StyledEngineProvider>
   );

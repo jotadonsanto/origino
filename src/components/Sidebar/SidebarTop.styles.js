@@ -74,7 +74,6 @@ export const StyledBox = styled(Box)`
   box-shadow: 0px 4px 35px rgba(109, 102, 119, 0.2);
   border: none;
   border-radius: 10px;
-  position: absolute;
   z-index: 1;
   width: calc(100% - 32px);
 `
