@@ -157,7 +157,6 @@ export default function DataTable() {
   return (
     <div>
       <ExpandableFilters
-        buttonText={['Ver mas filtros', 'Cerrar filtros']}
         TopPart={topPart}
         ExpandablePart={expandablePart}
         BottomPart={bottomPart} />
