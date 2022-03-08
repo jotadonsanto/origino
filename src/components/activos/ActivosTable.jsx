@@ -1,9 +1,10 @@
 import React from 'react';
 import { StyledSlider } from './ActivosTable.styles';
 import { DataGrid } from '@mui/x-data-grid';
-import { Stack, Grid, Card, Chip, FormControl, FormControlLabel, InputLabel, Select, MenuItem, Button, Menu, Divider, ListItemIcon, ListItemText, Checkbox, Radio, RadioGroup, TextField, InputAdornment } from '@mui/material';
+import { Stack, Grid, Chip, FormControl, FormControlLabel, InputLabel, Select, MenuItem, Button, Menu, Divider, ListItemIcon, ListItemText, Checkbox, Radio, RadioGroup, TextField, InputAdornment } from '@mui/material';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPen, faFileImport, faTrash, faMinusCircle, faEllipsisV, faSearch } from '@fortawesome/pro-light-svg-icons';
+import ExpandableFilters from '../common/ExpandableFilters';
 import AddLoteModal from '../lotes/AddLoteModal';
 
 export default function DataTable() {
@@ -12,11 +13,9 @@ export default function DataTable() {
 
   // For expandable filters
   const [selectedFilter, setSelectedFilter] = React.useState('');
-  const [expandedFilters, setExpandedFilters] = React.useState();
   const handleChange = (event) => {
     setSelectedFilter(event.target.value);
   };
-  const toggleChecked = () => setExpandedFilters(value => !value);
 
   // For add Lote modal
   const [addLoteModal, setAddLoteModal] = React.useState(false);
@@ -69,10 +68,9 @@ export default function DataTable() {
     { id: 'SS111-S017', raza: 'Angus', especie: 'Bovina', sexo: 'Macho', categoria: 'Ternero', nacimiento: '23/04/2020'},
   ];
 
-  return (
-    <div>
-      {/* Filtros */}
-      <Grid component={Card} container className="p-2 mb-4 mt-2 align-center">
+  const topPart = () => {
+    return (
+      <React.Fragment>
         <Grid item component={FormControl} className="pr-2" xs={3}>
           <InputLabel id="test">Raza</InputLabel>
           <Select
@@ -113,44 +111,56 @@ export default function DataTable() {
             <MenuItem value={30}>Category 2</MenuItem>
           </Select>
         </Grid>
-        <Grid item xs={3} className="d-flex justify-center">
-          <Button variant="text" onClick={toggleChecked}>{!expandedFilters ? 'Ver mas filtros' : 'Cerrar filtros'}</Button>
-        </Grid>
-        {expandedFilters &&
-          <span>
-            <Grid item component={FormControl} className="pr-2 mt-3 align-center" xs={12} xl={6}>
-              <FormControlLabel control={<Checkbox checked={true} onChange={() => console.log('do something on check')} />} label="Checkbox" />
-              <FormControlLabel control={<Checkbox checked={false} onChange={() => console.log('do something on check')} />} label="Checkbox" />
+      </React.Fragment>
+    )
+  }
+  const expandablePart = () => {
+    return (
+      <span>
+        <Grid item component={FormControl} className="pr-2 mt-3 align-center" xs={12} xl={6}>
+          <FormControlLabel control={<Checkbox checked={true} onChange={() => console.log('do something on check')} />} label="Checkbox" />
+          <FormControlLabel control={<Checkbox checked={false} onChange={() => console.log('do something on check')} />} label="Checkbox" />
 
-              <RadioGroup row defaultValue="b" name="radio-buttons-group">
-                <FormControlLabel value="a" control={<Radio />} label="Radio 1" />
-                <FormControlLabel value="b" control={<Radio />} label="Radio 2" />
-              </RadioGroup>
-            </Grid>
-            <Grid item component={FormControl} className="pr-2 mt-3 align-center" xs={12} xl={6}>
-              <TextField
-                id="filled-search"
-                label="Buscar por nombre"
-                type="search"
-                className="mr-2"
-                InputProps={{
-                startAdornment: (
-                  <InputAdornment position="start">
-                    <FontAwesomeIcon icon={faSearch} />
-                  </InputAdornment>
-                ),
-              }}/>
-              <StyledSlider defaultValue={30} aria-label="Disabled slider"/>
-            </Grid>
-          </span>
-        }
-        <Grid item xs={12} className="mt-2">
-          <Chip label="Filter applied" color="secondary" className="mr-1" onDelete={() => {console.log('on Delete')}} />
-          <Chip label="Filter applied" color="secondary" className="mr-1" onDelete={() => {console.log('on Delete')}} />
-          <Chip label="Filter applied" color="secondary" className="mr-1" onDelete={() => {console.log('on Delete')}} />
+          <RadioGroup row defaultValue="b" name="radio-buttons-group">
+            <FormControlLabel value="a" control={<Radio />} label="Radio 1" />
+            <FormControlLabel value="b" control={<Radio />} label="Radio 2" />
+          </RadioGroup>
         </Grid>
+        <Grid item component={FormControl} className="pr-2 mt-3 align-center" xs={12} xl={6}>
+          <TextField
+            id="filled-search"
+            label="Buscar por nombre"
+            type="search"
+            className="mr-2"
+            InputProps={{
+            startAdornment: (
+              <InputAdornment position="start">
+                <FontAwesomeIcon icon={faSearch} />
+              </InputAdornment>
+            ),
+          }}/>
+          <StyledSlider defaultValue={30} aria-label="Disabled slider"/>
+        </Grid>
+      </span>
+    )
+  }
+  const bottomPart = () => {
+    return (
+      <Grid item xs={12} className="mt-2">
+        <Chip label="Filter applied" color="secondary" className="mr-1" onDelete={() => {console.log('on Delete')}} />
+        <Chip label="Filter applied" color="secondary" className="mr-1" onDelete={() => {console.log('on Delete')}} />
+        <Chip label="Filter applied" color="secondary" className="mr-1" onDelete={() => {console.log('on Delete')}} />
       </Grid>
-      {/* Fin Filtros */}
+    )
+  }
+
+  return (
+    <div>
+      <ExpandableFilters
+        buttonText={['Ver mas filtros', 'Cerrar filtros']}
+        TopPart={topPart}
+        ExpandablePart={expandablePart}
+        BottomPart={bottomPart} />
 
       <Stack
         direction="row"

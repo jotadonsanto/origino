@@ -25,19 +25,10 @@ import { StyledSlider } from '../activos/ActivosTable.styles';
 function Filter() {
   const [value, setValue] = useState(null);
   const [selectedFilter, setSelectedFilter] = useState('');
-  const [anchorEl, setAnchorEl] = useState(null);
   const [expandedFilters, setExpandedFilters] = useState();
 
   const handleChange = (event) => {
     setSelectedFilter(event.target.value);
-  };
-  const handleClick = (event, row) => {
-    console.log('do something with this row');
-    console.log(row);
-    setAnchorEl(event.currentTarget);
-  };
-  const handleClose = () => {
-    setAnchorEl(null);
   };
   const toggleChecked = () => setExpandedFilters((value) => !value);
 
