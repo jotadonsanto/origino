@@ -1,22 +1,9 @@
 import React from 'react';
-import {
-  Stack,
-  MenuItem,
-  Button,
-  Menu,
-  Divider,
-  ListItemText,
-  Box,
-} from '@mui/material';
+import { Stack, Grid, Box, Chip, FormControl, FormControlLabel, InputLabel, Select, MenuItem, Button, Menu, Divider, ListItemText, Checkbox, Radio, RadioGroup, TextField, InputAdornment, } from '@mui/material';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-  faPen,
-  faFileImport,
-  faTrash,
-  faEllipsisV,
-  faBallPile,
-} from '@fortawesome/pro-light-svg-icons';
+import { faFileImport, faTrash, faEllipsisV, faBallPile, faSearch, faPen, } from '@fortawesome/pro-light-svg-icons';
 import { StyledDataGrid } from './LotesTable.styles';
+import ExpandableFilters from '../common/ExpandableFilters';
 
 function LotesTable() {
   const [selectedItems, setSelectedItems] = React.useState([]);
@@ -41,13 +28,122 @@ function LotesTable() {
   const moreActionsButton = (row) => {
     return (
       <span
-        id='basic-button'
-        aria-controls='basic-menu'
-        aria-label='More'
+        id="basic-button"
+        aria-controls="basic-menu"
+        aria-label="More"
         onClick={(event) => handleClick(event, row)}
       >
         <FontAwesomeIcon icon={faEllipsisV} />
       </span>
+    );
+  };
+
+  const topPart = () => {
+    return (
+      <React.Fragment>
+        <Grid
+          item
+          component={FormControl}
+          xs={12}
+          xl={6}
+          sx={{ paddingRight: { xs: 0, xl: 2 }, paddingBottom: { xs: 2, xl: 0 } }}
+        >
+          <TextField
+            id="filled-search"
+            label="Buscar Lote"
+            fullWidth
+            type="search"
+            className="mr-2"
+            InputProps={{
+              startAdornment: (
+                <InputAdornment position="start">
+                  <FontAwesomeIcon icon={faSearch} />
+                </InputAdornment>
+              ),
+            }}
+          />
+        </Grid>
+        <Grid item component={FormControl} className="pr-2" xs={12} xl={3}>
+          <InputLabel fullWidth id="test">
+            Fecha
+          </InputLabel>
+          <Select
+            labelId="test"
+            value={selectedFilter}
+            label="Filtro"
+            className="w-100"
+          >
+            <MenuItem value={10}>Fecha 1</MenuItem>
+            <MenuItem value={20}>Fecha 2</MenuItem>
+            <MenuItem value={30}>Fecha 3</MenuItem>
+          </Select>
+        </Grid>
+      </React.Fragment>
+    );
+  };
+  const expandablePart = () => {
+    return (
+      <span>
+        <Grid
+          item
+          component={FormControl}
+          className="pr-2 mt-3 align-center"
+          xs={12}
+        >
+          <FormControlLabel
+            control={
+              <Checkbox
+                checked={true}
+                onChange={() => console.log('do something on check')}
+              />
+            }
+            label="Checkbox"
+          />
+          <FormControlLabel
+            control={
+              <Checkbox
+                checked={false}
+                onChange={() => console.log('do something on check')}
+              />
+            }
+            label="Checkbox"
+          />
+          <RadioGroup row defaultValue="b" name="radio-buttons-group">
+            <FormControlLabel value="a" control={<Radio />} label="Radio 1" />
+            <FormControlLabel value="b" control={<Radio />} label="Radio 2" />
+          </RadioGroup>
+        </Grid>
+      </span>
+    );
+  };
+  const bottomPart = () => {
+    return (
+      <Grid item xs={12} className="mt-2">
+        <Chip
+          label="Filter applied"
+          color="secondary"
+          className="mr-1"
+          onDelete={() => {
+            console.log('on Delete');
+          }}
+        />
+        <Chip
+          label="Filter applied"
+          color="secondary"
+          className="mr-1"
+          onDelete={() => {
+            console.log('on Delete');
+          }}
+        />
+        <Chip
+          label="Filter applied"
+          color="secondary"
+          className="mr-1"
+          onDelete={() => {
+            console.log('on Delete');
+          }}
+        />
+      </Grid>
     );
   };
 
@@ -107,42 +203,52 @@ function LotesTable() {
 
   return (
     <Box>
+      <ExpandableFilters
+        TopPart={topPart}
+        ExpandablePart={expandablePart}
+        BottomPart={bottomPart}
+      />
+
+      <Grid sx={{ display: 'flex', justifyContent: 'end' }}>
+        <Button variant="contained">AGREGAR NUEVO LOTE</Button>
+      </Grid>
+
       <Stack
-        direction='row'
+        direction="row"
         display={`${selectedItems.length > 1 ? 'block' : 'none'}`}
       >
         <Button
-          className='mr-2 mt-2'
-          variant='outlined'
-          color='primary'
-          size='small'
+          className="mr-2 mt-2"
+          variant="outlined"
+          color="primary"
+          size="small"
           startIcon={<FontAwesomeIcon icon={faPen} />}
         >
           EDITAR
         </Button>
         <Button
-          className='mr-2 mt-2'
-          variant='outlined'
-          color='primary'
-          size='small'
+          className="mr-2 mt-2"
+          variant="outlined"
+          color="primary"
+          size="small"
           startIcon={<FontAwesomeIcon icon={faFileImport} />}
         >
           TRANSFERIR
         </Button>
         <Button
-          className='mr-2 mt-2'
-          variant='outlined'
-          color='primary'
-          size='small'
+          className="mr-2 mt-2"
+          variant="outlined"
+          color="primary"
+          size="small"
           startIcon={<FontAwesomeIcon icon={faTrash} />}
         >
           DAR DE BAJA
         </Button>
         <Button
-          className='mr-2 mt-2'
-          variant='outlined'
-          color='primary'
-          size='small'
+          className="mr-2 mt-2"
+          variant="outlined"
+          color="primary"
+          size="small"
           startIcon={<FontAwesomeIcon icon={faBallPile} />}
         >
           AGREGAR A LOTE
@@ -152,8 +258,9 @@ function LotesTable() {
         sx={{
           '& .super-app-theme--cell': {
             fontWeight: '600',
-          }
-        }}>
+          },
+        }}
+      >
         <StyledDataGrid
           sx={{ paddingTop: 4 }}
           rows={rows}
@@ -167,10 +274,11 @@ function LotesTable() {
           disableColumnFilter
           disableColumnSelector
           disableColumnMenu
-        /></Box>
+        />
+      </Box>
 
       <Menu
-        id='basic-menu'
+        id="basic-menu"
         anchorEl={anchorEl}
         open={open}
         onClose={handleClose}
@@ -181,7 +289,7 @@ function LotesTable() {
         <MenuItem onClick={handleClose}>
           <ListItemText>Opción 1</ListItemText>
         </MenuItem>
-        <Divider className='mt-0 mb-0' />
+        <Divider className="mt-0 mb-0" />
         <MenuItem onClick={handleClose}>
           <ListItemText>Opción 2</ListItemText>
         </MenuItem>
