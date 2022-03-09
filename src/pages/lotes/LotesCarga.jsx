@@ -52,65 +52,11 @@ function LotesCarga() {
   const topPart = () => {
     return (
       <React.Fragment>
-        <Grid item component={FormControl} className="pr-2" xs={3}>
-          <InputLabel id="test">Raza</InputLabel>
-          <Select
-            labelId="test"
-            value={selectedFilter}
-            label="Filtro"
-            onChange={handleChange}
-            className="w-100"
-          >
-            <MenuItem value={10}>Bovina</MenuItem>
-            <MenuItem value={20}>Angus</MenuItem>
-            <MenuItem value={30}>Wagyu</MenuItem>
-          </Select>
-        </Grid>
-        <Grid item component={FormControl} className="pr-2" xs={3}>
-          <InputLabel id="test">Sexo</InputLabel>
-          <Select
-            labelId="test"
-            value={selectedFilter}
-            label="Filtro"
-            className="w-100"
-          >
-            <MenuItem value={10}>Macho</MenuItem>
-            <MenuItem value={20}>Hembra</MenuItem>
-            <MenuItem value={30}>NSNC</MenuItem>
-          </Select>
-        </Grid>
-        <Grid item component={FormControl} className="pr-2" xs={3}>
-          <InputLabel id="test">Categoria</InputLabel>
-          <Select
-            labelId="test"
-            value={selectedFilter}
-            label="Filtro"
-            className="w-100"
-          >
-            <MenuItem value={10}>Ternero</MenuItem>
-            <MenuItem value={20}>Categoria 1</MenuItem>
-            <MenuItem value={30}>Category 2</MenuItem>
-          </Select>
-        </Grid>
-      </React.Fragment>
-    )
-  }
-  const expandablePart = () => {
-    return (
-      <span>
-        <Grid item component={FormControl} className="pr-2 mt-3 align-center" xs={12} xl={6}>
-          <FormControlLabel control={<Checkbox checked={true} onChange={() => console.log('do something on check')} />} label="Checkbox" />
-          <FormControlLabel control={<Checkbox checked={false} onChange={() => console.log('do something on check')} />} label="Checkbox" />
-
-          <RadioGroup row defaultValue="b" name="radio-buttons-group">
-            <FormControlLabel value="a" control={<Radio />} label="Radio 1" />
-            <FormControlLabel value="b" control={<Radio />} label="Radio 2" />
-          </RadioGroup>
-        </Grid>
-        <Grid item component={FormControl} className="pr-2 mt-3 align-center" xs={12} xl={6}>
+        <Grid item component={FormControl} xs={12} xl={4} sx={{ paddingRight: { xs: 0, xl: 2 } }}>
           <TextField
             id="filled-search"
             label="Buscar por nombre"
+            fullWidth
             type="search"
             className="mr-2"
             InputProps={{
@@ -120,6 +66,50 @@ function LotesCarga() {
                 </InputAdornment>
               ),
             }} />
+        </Grid>
+        <Grid item component={FormControl} className="pr-2" xs={12} xl={2} sx={{ marginTop: { xs: 2, xl: 0 } }}>
+          <InputLabel id="test">Filtro</InputLabel>
+          <Select
+            labelId="test"
+            value={selectedFilter}
+            label="Filtro"
+            className="w-100"
+          >
+            <MenuItem value={10}>Opción 1</MenuItem>
+            <MenuItem value={20}>Opción 2</MenuItem>
+            <MenuItem value={30}>Opción 3</MenuItem>
+          </Select>
+        </Grid>
+        <Grid item component={FormControl} className="pr-2" xs={12} xl={2} sx={{ marginTop: { xs: 2, xl: 0 } }}>
+          <InputLabel id="test">Filtro</InputLabel>
+          <Select
+            labelId="test"
+            value={selectedFilter}
+            label="Filtro"
+            className="w-100"
+          >
+            <MenuItem value={10}>Opción 1</MenuItem>
+            <MenuItem value={20}>Opción 2</MenuItem>
+            <MenuItem value={30}>Opción 3</MenuItem>
+          </Select>
+        </Grid>
+      </React.Fragment>
+    )
+  }
+  const expandablePart = () => {
+    return (
+      <span>
+        <Grid item component={FormControl} className="pr-2 mt-3 align-center" xs={12} xl={12}>
+          <FormControlLabel control={<Checkbox checked={true} onChange={() => console.log('do something on check')} />} label="Checkbox" />
+          <FormControlLabel control={<Checkbox checked={false} onChange={() => console.log('do something on check')} />} label="Checkbox" />
+
+          <RadioGroup row defaultValue="b" name="radio-buttons-group">
+            <FormControlLabel value="a" control={<Radio />} label="Radio 1" />
+            <FormControlLabel value="b" control={<Radio />} label="Radio 2" />
+          </RadioGroup>
+        </Grid>
+        <Grid item component={FormControl} className="pr-2 mt-3 align-center" xs={12} xl={6}>
+
           <StyledSlider defaultValue={30} aria-label="Disabled slider" />
         </Grid>
       </span>
@@ -136,7 +126,7 @@ function LotesCarga() {
   }
 
   return (
-    <Box>
+    <>
       <Grid container spacing={2}>
         <Grid item xs={12} className="mt-3">
           <Stepper nonLinear activeStep={activeStep}>
@@ -151,8 +141,8 @@ function LotesCarga() {
         </Grid>
       </Grid>
       <Grid className="pt-4 pb-4" sx={{ display: "flex", flexDirection: "row-reverse" }}>
-        <Button className="ml-2" variant="outlined" color="error">DAR DE BAJA</Button>
         <Button className="ml-2" variant="outlined">GUARDAR</Button>
+        <Button className="ml-2" variant="outlined" color="error">DAR DE BAJA</Button>
       </Grid>
       <Grid container className='ml-1'>
         <Grid container>
@@ -194,11 +184,17 @@ function LotesCarga() {
 
       </Grid >
       <Divider variant="middle" className="mt-4" />
+      <Typography className="mt-4 ml-1" sx={{ fontSize: "1rem", fontWeight: 500, }}>Filtrar activos para cargar</Typography>
       <ExpandableFilters
+        className="ml-1"
         TopPart={topPart}
         ExpandablePart={expandablePart}
         BottomPart={bottomPart} />
-    </Box >
+      <Box sx={{ display: "flex", justifyContent: "center" }}>
+        <Button variant='contained'>SIGUIENTE</Button>
+      </Box>
+
+    </ >
   );
 }
 
