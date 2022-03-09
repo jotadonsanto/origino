@@ -16,53 +16,59 @@ import EstablecimientoTipos from './pages/signin/establecimiento/Establecimiento
 import EstablecimientoDatos from './pages/signin/establecimiento/EstablecimientoDatos';
 import EstablecimientoImagenes from './pages/signin/establecimiento/EstablecimientoImagenes';
 import SubEstablecimiento from './pages/establecimiento/SubEstablecimiento.jsx';
+import LotesCarga from './pages/lotes/LotesCarga';
 
 const MainRoutes = [
-  {
-    exact: true,
-    path: '/',
-    component: Activos,
-  },
-  {
-    exact: true,
-    path: '/activos/carga',
-    component: ActivosCarga,
-  },
-  {
-    exact: true,
-    path: '/archivo/carga',
-    component: ArchivoCarga,
-  },
-  {
-    exact: true,
-    path: '/archivo/carga_manual',
-    component: ArchivoCargaManual,
-  },
-  {
-    exact: true,
-    path: '/archivo/verificacion',
-    component: ArchivoVerificacion,
-  },
-  {
-    exact: true,
-    path: '/archivo/notificaciones',
-    component: ArchivoNotificaciones,
-  },
-  {
-    exact: true,
-    path: '/transferencia/box',
-    component: TransferenciaABox,
-  },
-  {
-    exact: true,
-    path: '/transferencia',
-    component: Transferencia,
-  },
-  {
-    exact: true,
-    path: '/establecimientos/subestablecimiento',
-    component: SubEstablecimiento,
-  },
+ {
+  exact: true,
+  path: '/',
+  component: Activos,
+ },
+ {
+  exact: true,
+  path: '/activos/carga',
+  component: ActivosCarga,
+ },
+ {
+  exact: true,
+  path: '/archivo/carga',
+  component: ArchivoCarga,
+ },
+ {
+  exact: true,
+  path: '/archivo/carga_manual',
+  component: ArchivoCargaManual,
+ },
+ {
+  exact: true,
+  path: '/archivo/verificacion',
+  component: ArchivoVerificacion,
+ },
+ {
+  exact: true,
+  path: '/archivo/notificaciones',
+  component: ArchivoNotificaciones,
+ },
+ {
+  exact: true,
+  path: '/transferencia/box',
+  component: TransferenciaABox,
+ },
+ {
+  exact: true,
+  path: '/transferencia',
+  component: Transferencia,
+ },
+ {
+  exact: true,
+  path: '/establecimientos/subestablecimiento',
+  component: SubEstablecimiento,
+ },
+ {
+  exact: true,
+  path: '/lotes/carga',
+  component: LotesCarga,
+ },
 ];
 
 const SignInRoutes = [
