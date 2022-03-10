@@ -1,21 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
-  Avatar,
   Box,
   Typography,
-  StepLabel,
   Step,
   Stepper,
-  Link,
   Grid,
   StepButton,
   Button,
   TextField,
-  Card,
   Divider,
   FormControl,
-  Input,
-  FormHelperText,
   OutlinedInput,
   InputLabel,
   Select,
@@ -28,15 +22,30 @@ import {
   InputAdornment,
 } from '@mui/material';
 import { StyledFormHelperText } from './LotesCarga.styles';
-import { faPen, faFileImport, faTrash, faMinusCircle, faEllipsisV, faSearch } from '@fortawesome/pro-light-svg-icons';
+import { faSearch } from '@fortawesome/pro-light-svg-icons';
 
 import ExpandableFilters from '../../components/common/ExpandableFilters';
 import { StyledSlider } from '../../components/activos/ActivosTable.styles';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
+const filtroOption = [
+  {
+    value: "1",
+    label: "opción 1"
+  },
+  {
+    value: "2",
+    label: "opción 2"
+  },
+  {
+    value: "3",
+    label: "opción 3"
+  }
+]
+
 
 function LotesCarga() {
-  // For stepper
+  // para el stepper
   const steps = ['Cargar Lote', 'Detalle', 'Resumen y confirmación'];
   const [activeStep, setActiveStep] = React.useState(0);
   const [completed] = React.useState({});
@@ -44,15 +53,33 @@ function LotesCarga() {
     setActiveStep(step);
   };
 
+  // boton state
+  const [nombre, setNombre] = useState('');
+  const [descripcion, setDescripcion] = useState('');
+  const validar = () => {
+    return nombre.length > 0 && descripcion.length > 0;
+  };
+
+ // Filtro
   const [selectedFilter, setSelectedFilter] = React.useState('');
   const handleChange = (event) => {
     setSelectedFilter(event.target.value);
+  };
+  const [filtro, setFiltro] = React.useState('');
+  const handleChangeFiltro = (event) => {
+    setFiltro(event.target.value);
   };
 
   const topPart = () => {
     return (
       <React.Fragment>
-        <Grid item component={FormControl} xs={12} xl={4} sx={{ paddingRight: { xs: 0, xl: 2 } }}>
+        <Grid
+          item
+          component={FormControl}
+          xs={12}
+          xl={4}
+          sx={{ paddingRight: { xs: 0, xl: 2 } }}
+        >
           <TextField
             id="filled-search"
             label="Buscar por nombre"
@@ -65,65 +92,134 @@ function LotesCarga() {
                   <FontAwesomeIcon icon={faSearch} />
                 </InputAdornment>
               ),
-            }} />
+            }}
+          />
         </Grid>
-        <Grid item component={FormControl} className="pr-2" xs={12} xl={2} sx={{ marginTop: { xs: 2, xl: 0 } }}>
-          <InputLabel id="test">Filtro</InputLabel>
-          <Select
-            labelId="test"
-            value={selectedFilter}
+        <Grid
+          item
+          component={FormControl}
+          className="pr-2"
+          xs={12}
+          xl={2}
+          sx={{ marginTop: { xs: 2, xl: 0 } }}
+        >
+          <TextField
+            id="outlined-select-currency"
+            select
             label="Filtro"
-            className="w-100"
+            value={filtro}
+            onChange={handleChangeFiltro}
+            fullWidth
           >
-            <MenuItem value={10}>Opción 1</MenuItem>
-            <MenuItem value={20}>Opción 2</MenuItem>
-            <MenuItem value={30}>Opción 3</MenuItem>
-          </Select>
+            {filtroOption.map((option) => (
+              <MenuItem key={option.value} value={option.value}>
+                {option.label}
+              </MenuItem>
+            ))}
+          </TextField>
         </Grid>
-        <Grid item component={FormControl} className="pr-2" xs={12} xl={2} sx={{ marginTop: { xs: 2, xl: 0 } }}>
-          <InputLabel id="test">Filtro</InputLabel>
-          <Select
-            labelId="test"
-            value={selectedFilter}
+        <Grid
+          item
+          component={FormControl}
+          className="pr-2"
+          xs={12}
+          xl={2}
+          sx={{ marginTop: { xs: 2, xl: 0 } }}
+        >
+          <TextField
+            id="outlined-select-currency"
+            select
             label="Filtro"
-            className="w-100"
+            value={filtro}
+            onChange={handleChangeFiltro}
+            fullWidth
           >
-            <MenuItem value={10}>Opción 1</MenuItem>
-            <MenuItem value={20}>Opción 2</MenuItem>
-            <MenuItem value={30}>Opción 3</MenuItem>
-          </Select>
+            {filtroOption.map((option) => (
+              <MenuItem key={option.value} value={option.value}>
+                {option.label}
+              </MenuItem>
+            ))}
+          </TextField>
         </Grid>
       </React.Fragment>
-    )
-  }
+    );
+  };
   const expandablePart = () => {
     return (
       <span>
-        <Grid item component={FormControl} className="pr-2 mt-3 align-center" xs={12} xl={12}>
-          <FormControlLabel control={<Checkbox checked={true} onChange={() => console.log('do something on check')} />} label="Checkbox" />
-          <FormControlLabel control={<Checkbox checked={false} onChange={() => console.log('do something on check')} />} label="Checkbox" />
+        <Grid
+          item
+          component={FormControl}
+          className="pr-2 mt-3 align-center"
+          xs={12}
+          xl={12}
+        >
+          <FormControlLabel
+            control={
+              <Checkbox
+                checked={true}
+                onChange={() => console.log('do something on check')}
+              />
+            }
+            label="Checkbox"
+          />
+          <FormControlLabel
+            control={
+              <Checkbox
+                checked={false}
+                onChange={() => console.log('do something on check')}
+              />
+            }
+            label="Checkbox"
+          />
 
           <RadioGroup row defaultValue="b" name="radio-buttons-group">
             <FormControlLabel value="a" control={<Radio />} label="Radio 1" />
             <FormControlLabel value="b" control={<Radio />} label="Radio 2" />
           </RadioGroup>
         </Grid>
-        <Grid item component={FormControl} className="pr-2 mt-3 align-center" xs={12} xl={6}>
-
+        <Grid
+          item
+          component={FormControl}
+          className="pr-2 mt-3 align-center"
+          xs={12}
+          xl={6}
+        >
           <StyledSlider defaultValue={30} aria-label="Disabled slider" />
         </Grid>
       </span>
-    )
-  }
+    );
+  };
   const bottomPart = () => {
     return (
       <Grid item xs={12} className="mt-2">
-        <Chip label="Filter applied" color="secondary" className="mr-1" onDelete={() => { console.log('on Delete') }} />
-        <Chip label="Filter applied" color="secondary" className="mr-1" onDelete={() => { console.log('on Delete') }} />
-        <Chip label="Filter applied" color="secondary" className="mr-1" onDelete={() => { console.log('on Delete') }} />
+        <Chip
+          label="Filter applied"
+          color="secondary"
+          className="mr-1"
+          onDelete={() => {
+            console.log('on Delete');
+          }}
+        />
+        <Chip
+          label="Filter applied"
+          color="secondary"
+          className="mr-1"
+          onDelete={() => {
+            console.log('on Delete');
+          }}
+        />
+        <Chip
+          label="Filter applied"
+          color="secondary"
+          className="mr-1"
+          onDelete={() => {
+            console.log('on Delete');
+          }}
+        />
       </Grid>
-    )
-  }
+    );
+  };
 
   return (
     <>
@@ -140,61 +236,63 @@ function LotesCarga() {
           </Stepper>
         </Grid>
       </Grid>
-      <Grid className="pt-4 pb-4" sx={{ display: "flex", flexDirection: "row-reverse" }}>
-        <Button className="ml-2" variant="outlined">GUARDAR</Button>
-        <Button className="ml-2" variant="outlined" color="error">DAR DE BAJA</Button>
+      <Grid
+        className="pt-3 pb-3"
+        sx={{ display: 'flex', flexDirection: 'row-reverse' }}
+      >
+        <Button className="ml-2" variant="outlined">
+          GUARDAR
+        </Button>
+        <Button className="ml-2" variant="outlined" color="error">
+          DAR DE BAJA
+        </Button>
       </Grid>
-      <Grid container className='ml-1'>
+      <Grid container className="ml-1">
         <Grid container>
-
-          <Grid container spacing={2} >
+          <Grid container spacing={2}>
             <Grid item xs={4}>
-              <StyledFormHelperText id="nombre-lote-helper-text">Nombre Lote</StyledFormHelperText>
+              <StyledFormHelperText id="nombre-lote-helper-text">
+                Nombre Lote
+              </StyledFormHelperText>
               <OutlinedInput
                 id="nombre-lote"
                 fullWidth
                 placeholder="Nombre"
-              // value={values.weight}
-              // onChange={handleChange('weight')}
-              // endAdornment={<InputAdornment position="end">kg</InputAdornment>}
-              // aria-describedby="nombre-lote-helper-text"
-              // inputProps={{
-              //   'aria-label': 'nombre',
-              // }}
+                onChange={(e) => setNombre(e.target.value)}
+                defaultValue={nombre}
               />
             </Grid>
             <Grid item xs={8}>
-              <StyledFormHelperText id="nombre-lote-helper-text">Descripción</StyledFormHelperText>
+              <StyledFormHelperText id="nombre-lote-helper-text">
+                Descripción
+              </StyledFormHelperText>
               <OutlinedInput
                 id="descripcion-lote"
                 fullWidth
                 placeholder="Descripción"
-              // value={values.weight}
-              // onChange={handleChange('weight')}
-              // endAdornment={<InputAdornment position="end">kg</InputAdornment>}
-              // aria-describedby="nombre-lote-helper-text"
-              // inputProps={{
-              //   'aria-label': 'nombre',
-              // }}
+                onChange={(e) => setDescripcion(e.target.value)}
+                defaultValue={descripcion}
               />
             </Grid>
           </Grid>
-
         </Grid>
-
-      </Grid >
+      </Grid>
       <Divider variant="middle" className="mt-4" />
-      <Typography className="mt-4 ml-1" sx={{ fontSize: "1rem", fontWeight: 500, }}>Filtrar activos para cargar</Typography>
+      <Typography className="mt-4 ml-1" sx={{ fontSize: '1rem', fontWeight: 500 }}>
+        Filtrar activos para cargar
+      </Typography>
       <ExpandableFilters
         className="ml-1"
         TopPart={topPart}
         ExpandablePart={expandablePart}
-        BottomPart={bottomPart} />
-      <Box sx={{ display: "flex", justifyContent: "center" }}>
-        <Button variant='contained'>SIGUIENTE</Button>
+        BottomPart={bottomPart}
+      />
+      <Box sx={{ display: 'flex', justifyContent: 'center' }}>
+        <Button variant="contained" disabled={!validar()}>
+          SIGUIENTE
+        </Button>
       </Box>
-
-    </ >
+    </>
   );
 }
 
