@@ -54,7 +54,7 @@ function LotesCarga() {
           item
           component={FormControl}
           xs={12}
-          xl={4}
+          xl={3}
           sx={{ paddingRight: { xs: 0, xl: 2 } }}
         >
           <TextField
@@ -62,7 +62,6 @@ function LotesCarga() {
             label="Buscar por nombre"
             fullWidth
             type="search"
-            className="mr-2"
             InputProps={{
               startAdornment: (
                 <InputAdornment position="start">
@@ -77,7 +76,7 @@ function LotesCarga() {
           component={FormControl}
           className="pr-2"
           xs={12}
-          xl={2}
+          xl={3}
           sx={{ marginTop: { xs: 2, xl: 0 } }}
         >
           <TextField
@@ -98,9 +97,9 @@ function LotesCarga() {
         <Grid
           item
           component={FormControl}
-          className="pr-2"
+
           xs={12}
-          xl={2}
+          xl={3}
           sx={{ marginTop: { xs: 2, xl: 0 } }}
         >
           <TextField
