@@ -1,48 +1,25 @@
 import React, { useState } from 'react';
-import {
-  Box,
-  Typography,
-  Step,
-  Stepper,
-  Grid,
-  StepButton,
-  Button,
-  TextField,
-  Divider,
-  FormControl,
-  OutlinedInput,
-  InputLabel,
-  Select,
-  MenuItem,
-  Chip,
-  RadioGroup,
-  FormControlLabel,
-  Checkbox,
-  Radio,
-  InputAdornment,
-} from '@mui/material';
+import { Box, Typography, Step, Stepper, Grid, StepButton, Button, TextField, Divider, FormControl, OutlinedInput, MenuItem, Chip, RadioGroup, FormControlLabel, Checkbox, Radio, InputAdornment } from '@mui/material';
 import { StyledFormHelperText } from './LotesCarga.styles';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/pro-light-svg-icons';
-
 import ExpandableFilters from '../../components/common/ExpandableFilters';
 import { StyledSlider } from '../../components/activos/ActivosTable.styles';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const filtroOption = [
   {
-    value: "1",
-    label: "opción 1"
+    value: '1',
+    label: 'opción 1',
   },
   {
-    value: "2",
-    label: "opción 2"
+    value: '2',
+    label: 'opción 2',
   },
   {
-    value: "3",
-    label: "opción 3"
-  }
-]
-
+    value: '3',
+    label: 'opción 3',
+  },
+];
 
 function LotesCarga() {
   // para el stepper
@@ -225,7 +202,7 @@ function LotesCarga() {
     <>
       <Grid container spacing={2}>
         <Grid item xs={12} className="mt-3">
-          <Stepper nonLinear activeStep={activeStep}>
+          <Stepper nonLinear activeStep={1}>
             {steps.map((label, index) => (
               <Step key={label} completed={completed[index]}>
                 <StepButton color="inherit" onClick={handleStep(index)}>
@@ -236,10 +213,7 @@ function LotesCarga() {
           </Stepper>
         </Grid>
       </Grid>
-      <Grid
-        className="pt-3 pb-3"
-        sx={{ display: 'flex', flexDirection: 'row-reverse' }}
-      >
+      <Grid className="pt-3 pb-3" sx={{ display: 'flex', flexDirection: 'row-reverse' }} >
         <Button className="ml-2" variant="outlined">
           GUARDAR
         </Button>
@@ -247,7 +221,7 @@ function LotesCarga() {
           DAR DE BAJA
         </Button>
       </Grid>
-      <Grid container className="ml-1">
+      <Grid container className="pl-1">
         <Grid container>
           <Grid container spacing={2}>
             <Grid item xs={4}>
