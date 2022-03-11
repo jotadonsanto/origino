@@ -55,7 +55,7 @@ function LotesCarga() {
           component={FormControl}
           xs={12}
           xl={3}
-          sx={{ paddingRight: { xs: 0, xl: 2 } }}
+          pr={{ xs: 0, xl: 2 }}
         >
           <TextField
             id="filled-search"
@@ -77,7 +77,7 @@ function LotesCarga() {
           className="pr-2"
           xs={12}
           xl={3}
-          sx={{ marginTop: { xs: 2, xl: 0 } }}
+          mt={{ marginTop: { xs: 2, xl: 0 } }}
         >
           <TextField
             id="outlined-select-currency"
@@ -97,10 +97,9 @@ function LotesCarga() {
         <Grid
           item
           component={FormControl}
-
           xs={12}
           xl={3}
-          sx={{ marginTop: { xs: 2, xl: 0 } }}
+          mt={{ marginTop: { xs: 2, xl: 0 } }}
         >
           <TextField
             id="outlined-select-currency"
@@ -212,7 +211,7 @@ function LotesCarga() {
           </Stepper>
         </Grid>
       </Grid>
-      <Grid className="pt-3 pb-3" sx={{ display: 'flex', flexDirection: 'row-reverse' }} >
+      <Grid className="pt-3 pb-3 d-flex justify-end" >
         <Button className="ml-2" variant="outlined">
           GUARDAR
         </Button>
@@ -251,7 +250,7 @@ function LotesCarga() {
         </Grid>
       </Grid>
       <Divider variant="middle" className="mt-4" />
-      <Typography className="mt-4 ml-1" sx={{ fontSize: '1rem', fontWeight: 500 }}>
+      <Typography className="mt-4 ml-1 font-weight-normal">
         Filtrar activos para cargar
       </Typography>
       <ExpandableFilters
@@ -260,7 +259,7 @@ function LotesCarga() {
         ExpandablePart={expandablePart}
         BottomPart={bottomPart}
       />
-      <Box sx={{ display: 'flex', justifyContent: 'center' }}>
+      <Box className='d-flex justify-center'>
         <Button variant="contained" disabled={!validar()}>
           SIGUIENTE
         </Button>
