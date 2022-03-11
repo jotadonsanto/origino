@@ -46,7 +46,8 @@ function LotesTable() {
           component={FormControl}
           xs={12}
           xl={6}
-          sx={{ paddingRight: { xs: 0, xl: 2 }, paddingBottom: { xs: 2, xl: 0 } }}
+          pr={{ xs: 0, xl: 2 }}
+          pb={{ xs: 2, xl: 0 }}
         >
           <TextField
             id="filled-search"
@@ -158,7 +159,7 @@ function LotesTable() {
       field: 'lote',
       headerName: 'Lote',
       width: 200,
-      cellClassName: 'super-app-theme--cell',
+      cellClassName: 'font-weight-medium',
       sortable: false,
     },
     {
@@ -199,6 +200,7 @@ function LotesTable() {
       lote: 'NOMBRE DEL LOTE',
       descripcion: 'Descripción del lote',
     },
+
   ];
 
   return (
@@ -209,7 +211,7 @@ function LotesTable() {
         BottomPart={bottomPart}
       />
 
-      <Grid sx={{ display: 'flex', justifyContent: 'end' }}>
+      <Grid className='d-flex justify-end'>
         <Button variant="contained">AGREGAR NUEVO LOTE</Button>
       </Grid>
 
@@ -254,15 +256,9 @@ function LotesTable() {
           AGREGAR A LOTE
         </Button>
       </Stack>
-      <Box
-        sx={{
-          '& .super-app-theme--cell': {
-            fontWeight: '600',
-          },
-        }}
-      >
+      <Box>
         <StyledDataGrid
-          sx={{ paddingTop: 4 }}
+          className='pt-4'
           rows={rows}
           columns={columns}
           onSelectionModelChange={(item) => setSelectedItems(item)}

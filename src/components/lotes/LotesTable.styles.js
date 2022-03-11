@@ -1,16 +1,16 @@
 import { styled } from '@mui/material/styles';
 import { DataGrid } from '@mui/x-data-grid';
 
-export const StyledDataGrid = styled(DataGrid)(({ theme }) => ({
+export const StyledDataGrid = styled(DataGrid)(() => ({
  border: 0,
  height: '300px',
- '& .MuiDataGrid-columnHeaders': {
+ '.MuiDataGrid-columnHeaders': {
   backgroundColor: '#B4FAAE',
   color: '#40843A',
   borderRadius: 10,
   textAlign: 'left',
  },
- '& .MuiDataGrid-iconSeparator': {
+ '.MuiDataGrid-iconSeparator': {
   display: 'none',
  },
  '.MuiDataGrid-cell': {
