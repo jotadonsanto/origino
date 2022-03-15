@@ -96,6 +96,15 @@ const components = {
       },
     },
   },
+  MuiDialog: {
+    styleOverrides: {
+      root: {
+        ".MuiDialog-paper": {
+          padding: '2rem',
+        },
+      },
+    },
+  },
 }
 
 export const greenTheme = createTheme({
