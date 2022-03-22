@@ -4,15 +4,22 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus, faDownload } from '@fortawesome/pro-light-svg-icons';
 import ActivosTable from '../../components/activos/ActivosTable';
 import AddActivoModal from '../../components/activos/AddActivoModal';
+import NewFeatureModal from '../../components/common/NewFeatureModal';
 
 function Activos() {
-  // For add Activo modal
+  // For AddActivoModal
   const [addActivoModal, setAddActivoModal] = React.useState(false);
   const closeActivoModal = (value) => {
     setAddActivoModal(false);
   };
   const openActivoModal = () => {
     setAddActivoModal(true);
+  };
+
+  // For NewFeatureModal
+  const [newFeatureModal, setNewFeatureModal] = React.useState(true);
+  const closeNewFeatureModal = (value) => {
+    setNewFeatureModal(false);
   };
   return (
     <React.Fragment>
@@ -32,6 +39,7 @@ function Activos() {
         </Grid>
       </Grid>
       <AddActivoModal open={addActivoModal} closeModal={closeActivoModal}/>
+      <NewFeatureModal open={newFeatureModal} closeModal={closeNewFeatureModal}/>
     </React.Fragment>
   );
 }
