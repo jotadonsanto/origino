@@ -55,7 +55,6 @@ function LotesCarga() {
           component={FormControl}
           xs={12}
           xl={3}
-          pr={{ xs: 0, xl: 2 }}
         >
           <TextField
             id="filled-search"
@@ -74,10 +73,9 @@ function LotesCarga() {
         <Grid
           item
           component={FormControl}
-          className="pr-2"
           xs={12}
           xl={3}
-          mt={{ marginTop: { xs: 2, xl: 0 } }}
+          className='pl-2'
         >
           <TextField
             id="outlined-select-currency"
@@ -94,12 +92,13 @@ function LotesCarga() {
             ))}
           </TextField>
         </Grid>
+
         <Grid
           item
           component={FormControl}
           xs={12}
           xl={3}
-          mt={{ marginTop: { xs: 2, xl: 0 } }}
+          className='pl-2'
         >
           <TextField
             id="outlined-select-currency"
@@ -222,7 +221,7 @@ function LotesCarga() {
       <Grid container className="pl-1">
         <Grid container>
           <Grid container spacing={2}>
-            <Grid item xs={4}>
+            <Grid item xs='auto'>
               <StyledFormHelperText id="nombre-lote-helper-text">
                 Nombre Lote
               </StyledFormHelperText>

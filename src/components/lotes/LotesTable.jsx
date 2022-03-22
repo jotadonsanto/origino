@@ -46,8 +46,6 @@ function LotesTable() {
           component={FormControl}
           xs={12}
           xl={6}
-          pr={{ xs: 0, xl: 2 }}
-          pb={{ xs: 2, xl: 0 }}
         >
           <TextField
             id="filled-search"
