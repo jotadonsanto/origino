@@ -1,7 +1,7 @@
 import React from 'react';
 import { Grid, Button, FormControl, InputLabel, Select, MenuItem, Dialog, DialogTitle, DialogContent, Stepper, Step, StepButton, Typography, Divider } from '@mui/material';
 
-function AddActivoModal({ open, closeModal }) {
+function AddActivoModal({ open, closeModal, submitActivo }) {
   // For Stepper
   const steps = ['Cargar Archivo', 'Verificación', 'Resumen y confirmación'];
   const [activeStep, setActiveStep] = React.useState(0);
@@ -10,11 +10,17 @@ function AddActivoModal({ open, closeModal }) {
     setActiveStep(step);
   };
 
-  // For
+  // For Selects
   const [selectedLote, setSelectedFilter] = React.useState('');
   const changeLote = (event) => {
     setSelectedFilter(event.target.value);
   };
+
+  // For Submit Button
+  const handleSubmitActivo = () => {
+    submitActivo(true);
+    closeModal();
+  }
 
   return (
   <Dialog
@@ -115,7 +121,7 @@ function AddActivoModal({ open, closeModal }) {
         {/* Iterar esta fila */}
         <Grid item xs={12} className="d-flex justify-center mt-4">
           <Button className="mr-2" variant="outlined" onClick={closeModal} color="error">Cancelar</Button>
-          <Button className="ml-2" variant="contained" onClick={closeModal}>Aceptar</Button>
+          <Button className="ml-2" variant="contained" onClick={handleSubmitActivo}>Aceptar</Button>
         </Grid>
       </Grid>
     </DialogContent>
