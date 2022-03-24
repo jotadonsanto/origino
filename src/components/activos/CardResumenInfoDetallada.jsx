@@ -107,19 +107,14 @@ export const CardResumenInfoDetallada = () => {
          <StyleBoxLegend color={COLORS[index % COLORS.length]} />
         </Grid>
         <Grid item className='ml-1'>
-         <Typography
-          variant='buttom'
-          className='font-weight-medium'
-          fontSize='1.5rem'
-          noWrap
-         >
+         <Typography variant='buttom' className='font-weight-medium' noWrap>
           {' '}
           {entry.payload.amount}
          </Typography>
         </Grid>
        </Grid>
        <Grid item>
-        <Typography className='ml-2' fontSize='0.8rem' noWrap>
+        <Typography className='ml-2' variant='caption' noWrap>
          {entry.payload.race}
         </Typography>
        </Grid>

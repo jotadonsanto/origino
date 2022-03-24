@@ -15,10 +15,10 @@ export const CardResumenFilter = () => {
        <StyleBoxFilter color='#DAF1DE' />
       </Grid>
       <Grid item className='pt-1 align-self-center text-center'>
-       <Typography fontSize='0.9rem'>Otra opción de filtro</Typography>
+       <Typography variant='subtitle1'>Otra opción de filtro</Typography>
       </Grid>
       <Grid item className='align-self-center text-center'>
-       <Typography className='font-weight-medium' fontSize='1.5rem'>
+       <Typography className='font-weight-medium' variant='h5'>
         24
        </Typography>
       </Grid>
@@ -30,10 +30,10 @@ export const CardResumenFilter = () => {
        <StyleBoxFilter color='#ADCE74' />
       </Grid>
       <Grid item className='pt-1 align-self-center text-center'>
-       <Typography fontSize='0.9rem'>Otra opción de filtro</Typography>
+       <Typography variant='subtitle1'>Otra opción de filtro</Typography>
       </Grid>
       <Grid item className='align-self-center text-center'>
-       <Typography className='font-weight-medium' fontSize='1.5rem'>
+       <Typography className='font-weight-medium' variant='h5'>
         24
        </Typography>
       </Grid>
@@ -45,10 +45,10 @@ export const CardResumenFilter = () => {
        <StyleBoxFilter color='#FFF0DA' />
       </Grid>
       <Grid item className='pt-1 align-self-center text-center'>
-       <Typography fontSize='0.9rem'>Otra opción de filtro</Typography>
+       <Typography variant='subtitle1'>Otra opción de filtro</Typography>
       </Grid>
       <Grid item className='align-self-center text-center'>
-       <Typography className='font-weight-medium' fontSize='1.5rem'>
+       <Typography className='font-weight-medium' variant='h5'>
         24
        </Typography>
       </Grid>
@@ -60,10 +60,10 @@ export const CardResumenFilter = () => {
        <StyleBoxFilter color='#B4FAAE' />
       </Grid>
       <Grid item className='pt-1 align-self-center text-center'>
-       <Typography fontSize='0.9rem'>Otra opción de filtro</Typography>
+       <Typography variant='subtitle1'>Otra opción de filtro</Typography>
       </Grid>
       <Grid item className='align-self-center text-center'>
-       <Typography className='font-weight-medium' fontSize='1.5rem'>
+       <Typography className='font-weight-medium' variant='h5'>
         44
        </Typography>
       </Grid>
@@ -75,10 +75,10 @@ export const CardResumenFilter = () => {
        <StyleBoxFilter color='#DAFFD7' />
       </Grid>
       <Grid item className='pt-1 align-self-center text-center'>
-       <Typography fontSize='0.9rem'>Otra opción de filtro</Typography>
+       <Typography variant='subtitle1'>Otra opción de filtro</Typography>
       </Grid>
       <Grid item className='align-self-center text-center'>
-       <Typography className='font-weight-medium' fontSize='1.5rem'>
+       <Typography className='font-weight-medium' variant='h5'>
         44
        </Typography>
       </Grid>
@@ -90,10 +90,10 @@ export const CardResumenFilter = () => {
        <StyleBoxFilter color='#EFFFD2' />
       </Grid>
       <Grid item className='pt-1 align-self-center text-center'>
-       <Typography fontSize='0.9rem'>Otra opción de filtro</Typography>
+       <Typography variant='subtitle1'>Otra opción de filtro</Typography>
       </Grid>
       <Grid item className='align-self-center text-center'>
-       <Typography className='font-weight-medium' fontSize='1.5rem'>
+       <Typography className='font-weight-medium' variant='h5'>
         44
        </Typography>
       </Grid>

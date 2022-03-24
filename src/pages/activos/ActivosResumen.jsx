@@ -66,7 +66,7 @@ function ActivoResumen() {
       </Card>
      </Grid>
      <Grid item xs={6}>
-      <Card className='d-flex align-self-center pt-2'>
+      <Card className='d-flex align-self-center pt-1'>
        <CardResumenFilter />
       </Card>
      </Grid>

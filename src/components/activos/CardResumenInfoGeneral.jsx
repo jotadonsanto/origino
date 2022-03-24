@@ -12,7 +12,7 @@ export const CardResumenInfoGeneral = ({ data }) => {
      <Typography
       key={index}
       className='font-weight-medium d-flex justify-center'
-      fontSize='1.5rem'
+      variant='h5'
       noWrap
      >
       {entry.payload.amount}
@@ -30,7 +30,7 @@ export const CardResumenInfoGeneral = ({ data }) => {
      <Typography
       key={index}
       className='font-weight-medium d-flex justify-center'
-      fontSize='1.5rem'
+      variant='h5'
       noWrap
      >
       {' '}
@@ -49,7 +49,7 @@ export const CardResumenInfoGeneral = ({ data }) => {
      <Typography
       key={index}
       className='font-weight-medium d-flex justify-center'
-      fontSize='1.5rem'
+      variant='h5'
       noWrap
      >
       {' '}
@@ -62,7 +62,7 @@ export const CardResumenInfoGeneral = ({ data }) => {
 
  return (
   <CardContent>
-   <Typography fontSize={14}>Información general</Typography>
+   <Typography variant='bottom'>Información general</Typography>
    <Grid container className='d-flex'>
     <Grid item className='d-flex flex-column'>
      <Grid item>
