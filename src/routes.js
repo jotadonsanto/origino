@@ -1,5 +1,6 @@
 import Activos from './pages/activos/Activos';
 import ActivosCarga from './pages/activos/ActivosCarga';
+import ActivosBaja from './pages/activos/ActivosBaja';
 import ArchivoCarga from './pages/archivos/ArchivoCarga';
 import ArchivoCargaManual from './pages/archivos/ArchivoCargaManual';
 import ArchivoVerificacion from './pages/archivos/ArchivoVerificacion';
@@ -18,6 +19,7 @@ import EstablecimientoImagenes from './pages/signin/establecimiento/Establecimie
 import SubEstablecimiento from './pages/establecimiento/SubEstablecimiento.jsx';
 import Lotes from './pages/lotes/Lotes';
 
+
 const MainRoutes = [
  {
   exact: true,
@@ -31,6 +33,11 @@ const MainRoutes = [
  },
  {
   exact: true,
+    path: '/activos/baja',
+    component: ActivosBaja,
+  },
+  {
+    exact: true,
   path: '/archivo/carga',
   component: ArchivoCarga,
  },
