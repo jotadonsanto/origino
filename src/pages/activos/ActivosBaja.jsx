@@ -36,11 +36,11 @@ function ActivosBaja() {
      >
       9
      </Typography>
-     <Typography component='p' className='ml-1' variant='h5'>
+     <Typography component='p' className='ml-1' variant='h5' noWrap>
       activos seleccionados
      </Typography>
     </Typography>
-    <Grid item xs={3} className='mt-4 mb-4 d-flex'>
+    <Grid item xl={3} xs={12} sm={8} className='mt-4 mb-4 d-flex'>
      <FormControl fullWidth>
       <InputLabel id='demo-simple-select-label'>
        Seleccioná el motivo de baja
@@ -59,10 +59,20 @@ function ActivosBaja() {
      </FormControl>
     </Grid>
     <Grid item xs={12} className='mt-3'>
-     <DragAndDropInputFile itemToDrag={'los archivos'} color={'#76CC81'} />
+     <DragAndDropInputFile
+      itemToDrag={'los archivos'}
+      color={'#76CC81'}
+      type={'de baja'}
+     />
     </Grid>
     <Grid container>
-     <Grid item xs={3} className='mt-3 d-flex justify-between' component={Card}>
+     <Grid
+      item
+      xs={12}
+      sm={3}
+      className='mt-3 d-flex justify-between'
+      component={Card}
+     >
       <div className='d-flex align-start mt-2 ml-2 mb-2'>
        <FontAwesomeIcon
         icon={faFilePdf}
@@ -80,7 +90,8 @@ function ActivosBaja() {
      </Grid>
      <Grid
       item
-      xs={3}
+      xs={12}
+      sm={3}
       className='mt-3 ml-2 d-flex justify-between'
       component={Card}
      >
@@ -101,7 +112,8 @@ function ActivosBaja() {
      </Grid>
      <Grid
       item
-      xs={3}
+      xs={12}
+      sm={3}
       className='mt-3 ml-2 d-flex justify-between'
       component={Card}
      >
