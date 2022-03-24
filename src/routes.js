@@ -17,6 +17,7 @@ import EstablecimientoTipos from './pages/signin/establecimiento/Establecimiento
 import EstablecimientoDatos from './pages/signin/establecimiento/EstablecimientoDatos';
 import EstablecimientoImagenes from './pages/signin/establecimiento/EstablecimientoImagenes';
 import SubEstablecimiento from './pages/establecimiento/SubEstablecimiento.jsx';
+import LotesCarga from './pages/lotes/LotesCarga';
 import Lotes from './pages/lotes/Lotes';
 
 
@@ -73,57 +74,62 @@ const MainRoutes = [
  },
  {
   exact: true,
+  path: '/lotes/carga',
+  component: LotesCarga,
+ },
+ {
+  exact: true,
   path: '/lotes',
   component: Lotes,
  },
 ];
 
 const SignInRoutes = [
-  {
-    exact: true,
-    path: '/signin/cuenta/crear',
-    component: Crear,
-  },
-  {
-    exact: true,
-    path: '/signin/cuenta/datos_personales',
-    component: DatosPersonales,
-  },
-  {
-    exact: true,
-    path: '/signin/cuenta/localizacion',
-    component: Localizacion,
-  },
-  {
-    exact: true,
-    path: '/signin/cuenta/activada',
-    component: Activada,
-  },
-  {
-    exact: true,
-    path: '/signin/email_enviado',
-    component: EmailEnviado,
-  },
-  {
-    exact: true,
-    path: '/signin/empresa/cadenas',
-    component: Cadenas,
-  },
-  {
-    exact: true,
-    path: '/signin/establecimiento/registro/tipos',
-    component: EstablecimientoTipos,
-  },
-  {
-    exact: true,
-    path: '/signin/establecimiento/registro/datos',
-    component: EstablecimientoDatos,
-  },
-  {
-    exact: true,
-    path: '/signin/establecimiento/registro/imagenes',
-    component: EstablecimientoImagenes,
-  },
+ {
+  exact: true,
+  path: '/signin/cuenta/crear',
+  component: Crear,
+ },
+ {
+  exact: true,
+  path: '/signin/cuenta/datos_personales',
+  component: DatosPersonales,
+ },
+ {
+  exact: true,
+  path: '/signin/cuenta/localizacion',
+  component: Localizacion,
+ },
+ {
+  exact: true,
+  path: '/signin/cuenta/activada',
+  component: Activada,
+ },
+ {
+  exact: true,
+  path: '/signin/email_enviado',
+  component: EmailEnviado,
+ },
+ {
+  exact: true,
+  path: '/signin/empresa/cadenas',
+  component: Cadenas,
+ },
+ {
+  exact: true,
+  path: '/signin/establecimiento/registro/tipos',
+  component: EstablecimientoTipos,
+ },
+ {
+  exact: true,
+  path: '/signin/establecimiento/registro/datos',
+  component: EstablecimientoDatos,
+ },
+ {
+  exact: true,
+  path: '/signin/establecimiento/registro/imagenes',
+  component: EstablecimientoImagenes,
+ },
 ];
 
 export { MainRoutes, SignInRoutes };
