@@ -5,50 +5,42 @@ import {
  Stack,
  Button,
  Typography,
- TextField,
- InputAdornment,
  Card,
- Dialog,
- DialogTitle,
- DialogContent,
- Box,
  FormControl,
  InputLabel,
  Select,
  MenuItem,
 } from '@mui/material';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
- faSearch,
- faFilePdf,
- faTrashCan,
- faTag,
-} from '@fortawesome/pro-light-svg-icons';
+import { faFilePdf, faTrashCan } from '@fortawesome/pro-light-svg-icons';
 
 function ActivosBaja() {
- // For Modal
- const [dialogOpen, setdialogOpen] = React.useState(false);
- const handleClose = (value) => {
-  setdialogOpen(false);
- };
- const handleClickOpen = () => {
-  setdialogOpen(true);
- };
-
  const [reason, setreason] = useState('');
-
  const handleChange = (event) => {
   setreason(event.target.value);
  };
 
+ const validar = () => {
+  return reason.length > 0;
+ };
+
  return (
-  //Starts the route view with <Grid container> and add <Grid item 12> for rows.
   <Grid container>
    <Grid item xs={12} className='mt-3'>
-    <Typography variant='subtitle1' component='p'>
-     activos seleccionados
+    <Typography component='div' className='d-flex'>
+     <Typography
+      component='p'
+      color='primary'
+      variant='h5'
+      className='font-weight-medium'
+     >
+      9
+     </Typography>
+     <Typography component='p' className='ml-1' variant='h5'>
+      activos seleccionados
+     </Typography>
     </Typography>
-    <Grid item xs={3} className='mt-3 d-flex'>
+    <Grid item xs={3} className='mt-4 mb-4 d-flex'>
      <FormControl fullWidth>
       <InputLabel id='demo-simple-select-label'>
        Seleccioná el motivo de baja
@@ -132,7 +124,7 @@ function ActivosBaja() {
    </Grid>
    <Grid item xs={12} className='mt-4'>
     <Stack direction='row' justifyContent='center' alignItems='center'>
-     <Button className='mr-1' variant='contained' onClick={handleClickOpen}>
+     <Button className='mr-1' variant='contained' disabled={!validar()}>
       Finalizar
      </Button>
     </Stack>
