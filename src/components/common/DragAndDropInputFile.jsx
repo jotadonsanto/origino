@@ -36,7 +36,11 @@ function DragAndDropInputFile({ itemToDrag, color, type }) {
  return (
   <DropZone>
    <StyledDropZone className='d-flex  align-center justify-center pt-2 pb-2 pl-3 pr-3'>
-    <Typography variant='caption' component='p' color='primary'>
+    <Typography
+     variant='subtitle1'
+     component='p'
+     color='secondary.contrastText'
+    >
      <FontAwesomeIcon size='lg' icon={faClone} className='mr-2' />
      Arrastrá {itemToDrag ? itemToDrag : 'el archivo'} {type} aquí o{' '}
      <u>desde tu computadora</u>

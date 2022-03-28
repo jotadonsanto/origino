@@ -61,7 +61,7 @@ function ActivosBaja() {
     <Grid item xs={12} className='mt-3'>
      <DragAndDropInputFile
       itemToDrag={'los archivos'}
-      color={'#76CC81'}
+      color={'#438C3D'}
       type={'de baja'}
      />
     </Grid>
