@@ -105,7 +105,22 @@ const components = {
       },
     },
   },
+  MuiTextField: {
+    styleOverrides: {
+      root: {
+        "input[type=search]": {
+          '&::-webkit-search-cancel-button': {
+            '-webkit-appearance': 'none',
+            width: '15px',
+            height: '15px',
+            backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' version='1.1' width='15' height='15' viewBox='0 0 130 130'%3E%3Cline x1='14' y1='10' x2='120' y2='120' stroke-width='10' stroke='%23999' /%3E%3Cline x1='10' y1='120' x2='120' y2='10' stroke-width='10' stroke='%23999' /%3E%3C/svg%3E")`,
+          },
+        },
+      }
+    }
+  },
 }
+
 
 export const greenTheme = createTheme({
   palette: palette,
