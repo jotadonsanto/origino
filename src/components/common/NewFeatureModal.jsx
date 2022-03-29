@@ -1,5 +1,6 @@
 import React from 'react';
-import { Grid, Button, Dialog, DialogTitle, DialogContent, DialogContentText } from '@mui/material';
+import { Grid, Button, Dialog, DialogTitle, DialogContent, DialogContentText, IconButton } from '@mui/material';
+import CloseIcon from '@mui/icons-material/Close';
 import Carousel from 'react-material-ui-carousel';
 import originoLogo from'./../../assets/images/origino_logo.png';
 
@@ -24,6 +25,16 @@ function NewFeatureModal({ open, closeModal }) {
       onClose={closeModal}
       open={open}
       fullWidth="true">
+      <IconButton
+        aria-label="close"
+        onClick={closeModal}
+        sx={{
+          position: 'absolute',
+          right: '8px',
+          top: '8px',
+        }}>
+        <CloseIcon />
+      </IconButton>
       <Carousel
         autoPlay={false}
         navButtonsAlwaysInvisible={true}
@@ -33,7 +44,7 @@ function NewFeatureModal({ open, closeModal }) {
             <DialogTitle className="text-center">
               <Grid container justifyContent="center">
                 <Grid item xs={6}>
-                  <img  src={originoLogo} alt="Origino" className="w-100 mb-4"/>
+                  <img  src={originoLogo} alt="Origino" className="w-100 mb-4 mt-4"/>
                   <span>{item.title}</span>
                 </Grid>
               </Grid>
