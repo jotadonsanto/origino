@@ -64,8 +64,8 @@ export const CardResumenInfoGeneral = ({ data }) => {
   <CardContent>
    <Typography variant='bottom'>Información general</Typography>
    <Grid container className='d-flex'>
-    <Grid item className='d-flex flex-column'>
-     <Grid item>
+    <Grid item className='d-flex flex-column' xl={4} sm={4}>
+     <Grid item className='align-self-center'>
       <PieChart width={150} height={200}>
        <Pie
         data={data}
@@ -86,8 +86,8 @@ export const CardResumenInfoGeneral = ({ data }) => {
       <Typography>Animales</Typography>
      </Grid>
     </Grid>
-    <Grid item className='d-flex flex-column'>
-     <Grid item>
+    <Grid item className='d-flex flex-column' xl={4} sm={4}>
+     <Grid item className='align-self-center'>
       <PieChart width={150} height={200}>
        <Pie
         data={data}
@@ -108,8 +108,8 @@ export const CardResumenInfoGeneral = ({ data }) => {
       <Typography>Peso máximo</Typography>
      </Grid>
     </Grid>
-    <Grid item className='d-flex flex-column'>
-     <Grid item>
+    <Grid item className='d-flex flex-column' xl={4} sm={4}>
+     <Grid item className='align-self-center'>
       <PieChart width={150} height={200}>
        <Pie
         data={data}

@@ -60,19 +60,19 @@ function ActivoResumen() {
     </Grid>
 
     <Grid container className='mt-2' spacing={1}>
-     <Grid item xs={6}>
-      <Card className='d-flex align-self-center'>
+     <Grid item xs={12} xl={6} sm={12}>
+      <Card>
        <CardResumenInfoGeneral data={dataProductiveSystem} />
       </Card>
      </Grid>
-     <Grid item xs={6}>
-      <Card className='d-flex align-self-center pt-1'>
+     <Grid item xs={12} xl={6} sm={12}>
+      <Card className='pt-1'>
        <CardResumenFilter />
       </Card>
      </Grid>
     </Grid>
     <Grid container className='mt-2'>
-     <Grid className='d-flex align-self-center'>
+     <Grid>
       <CardResumenInfoDetallada />
      </Grid>
     </Grid>
