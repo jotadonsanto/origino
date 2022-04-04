@@ -7,14 +7,10 @@ import ExpandableFilters from '../common/ExpandableFilters';
 
 function LotesTable() {
   const [selectedItems, setSelectedItems] = React.useState([]);
-  const [selectedFilter, setSelectedFilter] = React.useState('');
-  const [expandedFilters, setExpandedFilters] = React.useState();
+  const [selectedFilter] = React.useState('');
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
 
-  const handleChange = (event) => {
-    setSelectedFilter(event.target.value);
-  };
   const handleClick = (event, row) => {
     console.log('do something with this row');
     console.log(row);
@@ -23,7 +19,6 @@ function LotesTable() {
   const handleClose = () => {
     setAnchorEl(null);
   };
-  const toggleChecked = () => setExpandedFilters((value) => !value);
 
   const moreActionsButton = (row) => {
     return (
