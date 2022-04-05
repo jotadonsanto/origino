@@ -1,6 +1,7 @@
 import Activos from './pages/activos/Activos';
 import ActivosCarga from './pages/activos/ActivosCarga';
 import ActivosResumen from './pages/activos/ActivosResumen';
+import ActivosBaja from './pages/activos/ActivosBaja';
 import ArchivoCarga from './pages/archivos/ArchivoCarga';
 import ArchivoCargaManual from './pages/archivos/ArchivoCargaManual';
 import ArchivoVerificacion from './pages/archivos/ArchivoVerificacion';

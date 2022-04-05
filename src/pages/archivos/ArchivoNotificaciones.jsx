@@ -134,10 +134,7 @@ function ArchivoNotificaciones() {
   const [value, setValue] = React.useState(null);
 
   // For expandable filters
-  const [selectedFilter, setSelectedFilter] = React.useState('');
-  const handleChange = (event) => {
-    setSelectedFilter(event.target.value);
-  };
+  const [selectedFilter] = React.useState('');
 
   const topPart = () => {
     return (
