@@ -5,8 +5,8 @@ import { List, ListItemButton, ListItemIcon, ListItemText } from '@mui/material'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 function SidebarMenu() {
+  // Change menu according to context 'Regular', 'Establecimiento Sub Menu', etc
   const { menu } = useContext(SidebarContext);
-  console.log(menu);
   const [selectedIndex, setSelectedIndex] = React.useState(1);
   const handleListItemClick = (event, index) => {
     setSelectedIndex(index);

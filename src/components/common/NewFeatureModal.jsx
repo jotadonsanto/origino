@@ -24,7 +24,7 @@ function NewFeatureModal({ open, closeModal }) {
     <Dialog
       onClose={closeModal}
       open={open}
-      fullWidth="true">
+      fullWidth={true}>
       <IconButton
         aria-label="close"
         onClick={closeModal}
@@ -40,7 +40,7 @@ function NewFeatureModal({ open, closeModal }) {
         navButtonsAlwaysInvisible={true}
         animation="slide">
         {slides.map((item, key) => (
-          <React.Fragment>
+          <React.Fragment key={key}>
             <DialogTitle className="text-center">
               <Grid container justifyContent="center">
                 <Grid item xs={6}>

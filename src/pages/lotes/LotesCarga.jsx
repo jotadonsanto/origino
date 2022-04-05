@@ -38,10 +38,6 @@ function LotesCarga() {
   };
 
  // Filtro
-  const [selectedFilter, setSelectedFilter] = React.useState('');
-  const handleChange = (event) => {
-    setSelectedFilter(event.target.value);
-  };
   const [filtro, setFiltro] = React.useState('');
   const handleChangeFiltro = (event) => {
     setFiltro(event.target.value);
@@ -184,7 +180,7 @@ function LotesCarga() {
         <Grid item xs={12} className="mt-3">
           <Stepper nonLinear activeStep={1}>
             {steps.map((label, index) => (
-              <Step key={label} completed={completed[index]}>
+              <Step key={label} active={activeStep} completed={completed[index]}>
                 <StepButton color="inherit" onClick={handleStep(index)}>
                   {label}
                 </StepButton>

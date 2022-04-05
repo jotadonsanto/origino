@@ -201,14 +201,12 @@ function ArchivoNotificaciones() {
         {option.label}
        </MenuItem>
       ))}
-      {/* <MenuItem value={10}>Actividad 1</MenuItem>
-      <MenuItem value={20}>Actividad 2</MenuItem>
-      <MenuItem value={30}>Actividad 3</MenuItem> */}
      </TextField>
     </Grid>
    </React.Fragment>
   );
  };
+
  const expandablePart = () => {
   return (
    <span>
@@ -246,6 +244,7 @@ function ArchivoNotificaciones() {
    </span>
   );
  };
+
  const bottomPart = () => {
   return (
    <Grid item xs={12} className='mt-2'>

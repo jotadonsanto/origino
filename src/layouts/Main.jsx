@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Route, Switch } from 'react-router-dom'
-import { StyledContainer, StyledDrawer, StyledBox } from './Main.styles';
+import { StyledContainer, StyledBox } from './Main.styles';
 import { ThemeProvider } from '@mui/material/styles';
 import { StyledEngineProvider } from '@mui/material/styles';
 import { SidebarContextProvider } from './../context/SidebarContext';
@@ -17,6 +17,7 @@ import { MainRoutes } from '../routes';
 
 
 function Main() {
+  // For theme choosing
   const [theme, setTheme] = React.useState(greenTheme);
   function chooseColor(color) {
     if (color === 'blue') {
@@ -24,22 +25,24 @@ function Main() {
     } else {
       setTheme(greenTheme);
     }
-    }
+  }
+
+  // For menu toggling
+  const [mobileOpen, setMobileOpen] = React.useState(false);
+  const toggleMobileOpen = (value) => {
+    setMobileOpen(value);
+  };
 
   return (
     <StyledEngineProvider injectFirst>
       <ThemeProvider theme={theme} >
         <SidebarContextProvider>
           <Box className="d-flex">
-            <StyledDrawer
-              variant="permanent"
-              anchor="left">
-              <Sidebar />
-            </StyledDrawer>
+            <Sidebar mobileOpen={mobileOpen} toggleMobileOpen={toggleMobileOpen} />
             <StyledBox
               className="d-flex flex-column flex"
               component="main">
-              <Header theme={theme} />
+              <Header theme={theme} mobileOpen={mobileOpen} toggleMobileOpen={toggleMobileOpen} />
               <StyledContainer>
                 <Switch>
                 {MainRoutes.map((page, index) => (
