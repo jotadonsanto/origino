@@ -45,73 +45,56 @@ function LotesCarga() {
 
   const topPart = () => {
     return (
-      <React.Fragment>
-        <Grid
-          item
-          component={FormControl}
-          xs={12}
-          xl={3}
-        >
-          <TextField
-            id="filled-search"
-            label="Buscar por nombre"
-            fullWidth
-            type="search"
-            InputProps={{
-              startAdornment: (
-                <InputAdornment position="start">
-                  <FontAwesomeIcon icon={faSearch} />
-                </InputAdornment>
-              ),
-            }}
-          />
-        </Grid>
-        <Grid
-          item
-          component={FormControl}
-          xs={12}
-          xl={3}
-          className='pl-2'
-        >
-          <TextField
-            id="outlined-select-currency"
-            select
-            label="Filtro"
-            value={filtro}
-            onChange={handleChangeFiltro}
-            fullWidth
-          >
-            {filtroOption.map((option) => (
-              <MenuItem key={option.value} value={option.value}>
-                {option.label}
-              </MenuItem>
-            ))}
-          </TextField>
-        </Grid>
+     <React.Fragment>
+      <Grid item component={FormControl} xs={12} xl={3}>
+       <TextField
+        id='filled-search'
+        label='Buscar por nombre'
+        fullWidth
+        type='search'
+        InputProps={{
+         startAdornment: (
+          <InputAdornment position='start'>
+           <FontAwesomeIcon icon={faSearch} />
+          </InputAdornment>
+         ),
+        }}
+       />
+      </Grid>
+      <Grid item component={FormControl} xs={12} xl={3}>
+       <TextField
+        id='outlined-select-currency'
+        select
+        label='Filtro'
+        value={filtro}
+        onChange={handleChangeFiltro}
+        fullWidth
+       >
+        {filtroOption.map((option) => (
+         <MenuItem key={option.value} value={option.value}>
+          {option.label}
+         </MenuItem>
+        ))}
+       </TextField>
+      </Grid>
 
-        <Grid
-          item
-          component={FormControl}
-          xs={12}
-          xl={3}
-          className='pl-2'
-        >
-          <TextField
-            id="outlined-select-currency"
-            select
-            label="Filtro"
-            value={filtro}
-            onChange={handleChangeFiltro}
-            fullWidth
-          >
-            {filtroOption.map((option) => (
-              <MenuItem key={option.value} value={option.value}>
-                {option.label}
-              </MenuItem>
-            ))}
-          </TextField>
-        </Grid>
-      </React.Fragment>
+      <Grid item component={FormControl} xs={12} xl={3}>
+       <TextField
+        id='outlined-select-currency'
+        select
+        label='Filtro'
+        value={filtro}
+        onChange={handleChangeFiltro}
+        fullWidth
+       >
+        {filtroOption.map((option) => (
+         <MenuItem key={option.value} value={option.value}>
+          {option.label}
+         </MenuItem>
+        ))}
+       </TextField>
+      </Grid>
+     </React.Fragment>
     );
   };
   const expandablePart = () => {
