@@ -5,6 +5,7 @@ import { Drawer } from '@mui/material';
 export const StyledDrawer = styled(Drawer)`
   width: ${drawerWidth};
   min-width: 240px;
+  height: 100vh;
   flex-shrink: 0;
   & .MuiDrawer-paper {
     width: ${drawerWidth};
