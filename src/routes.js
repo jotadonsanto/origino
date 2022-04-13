@@ -1,7 +1,6 @@
 import Activos from './pages/activos/Activos';
 import ActivosCarga from './pages/activos/ActivosCarga';
 import ActivosResumen from './pages/activos/ActivosResumen';
-import ActivosBaja from './pages/activos/ActivosBaja';
 import ArchivoCarga from './pages/archivos/ArchivoCarga';
 import ArchivoCargaManual from './pages/archivos/ArchivoCargaManual';
 import ArchivoVerificacion from './pages/archivos/ArchivoVerificacion';
@@ -20,6 +19,7 @@ import EstablecimientoImagenes from './pages/signin/establecimiento/Establecimie
 import SubEstablecimiento from './pages/establecimiento/SubEstablecimiento.jsx';
 import LotesCarga from './pages/lotes/LotesCarga';
 import Lotes from './pages/lotes/Lotes';
+import EventosCarga from './pages/eventos/EventosCarga';
 
 
 const MainRoutes = [
@@ -82,6 +82,11 @@ const MainRoutes = [
   exact: true,
   path: '/lotes',
   component: Lotes,
+ },
+ {
+  exact: true,
+  path: '/eventos/carga',
+  component: EventosCarga,
  },
 ];
 
